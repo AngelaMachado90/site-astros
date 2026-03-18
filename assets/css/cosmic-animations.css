@@ -1,0 +1,711 @@
+/* ===== COSMIC ANIMATION TOKENS ===== */
+:root {
+    --cosmic-purple: #4C2A85;
+    --midnight-blue: #1B1F3B;
+    --lavender-mystic: #A78BFA;
+    --soft-gold: #D4AF37;
+    --moon-white: #F5F5F7;
+    --soft-shadow-purple: rgba(76, 42, 133, 0.1);
+    --soft-shadow-lavender: rgba(167, 139, 250, 0.2);
+    --soft-shadow-gold: rgba(212, 175, 55, 0.3);
+
+    --gradient-cosmic: linear-gradient(135deg, #4C2A85 0%, #1B1F3B 100%);
+    --gradient-lavender: linear-gradient(135deg, #A78BFA 0%, #4C2A85 100%);
+    --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #A78BFA 100%);
+
+    --transition-default: all 0.3s ease;
+}
+
+/* ===== ANIMAÇÕES BASE ===== */
+@keyframes starTwinkle {
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        text-shadow: 0 0 5px var(--soft-gold);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(0.9);
+        text-shadow: 0 0 15px var(--soft-gold), 0 0 30px var(--lavender-mystic);
+    }
+}
+
+@keyframes planetFloat {
+    0%,
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+
+    25% {
+        transform: translateY(-8px) translateX(4px);
+    }
+
+    50% {
+        transform: translateY(0) translateX(8px);
+    }
+
+    75% {
+        transform: translateY(8px) translateX(4px);
+    }
+}
+
+@keyframes cosmicSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes cosmicSpinReverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+@keyframes auroraGlow {
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        border-color: var(--soft-gold);
+    }
+
+    33% {
+        box-shadow: 0 0 40px rgba(167, 139, 250, 0.5);
+        border-color: var(--lavender-mystic);
+    }
+
+    66% {
+        box-shadow: 0 0 30px rgba(76, 42, 133, 0.4);
+        border-color: var(--cosmic-purple);
+    }
+}
+
+@keyframes cosmicWave {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes meteorShower {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(200%) translateY(200%) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+@keyframes cosmicPulse {
+    0%,
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+        filter: brightness(1.1);
+    }
+}
+
+@keyframes eclipseGlow {
+    0%,
+    100% {
+        filter: drop-shadow(0 0 5px var(--soft-gold));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 20px var(--cosmic-purple)) drop-shadow(0 0 40px var(--midnight-blue));
+    }
+}
+
+@keyframes nebulaFlow {
+    0% { background-position: 0% 0%; }
+    25% { background-position: 100% 0%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+@keyframes cosmicReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+        filter: blur(5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes cosmicLink {
+    0% {
+        letter-spacing: normal;
+    }
+
+    50% {
+        letter-spacing: 2px;
+        text-shadow: 0 0 10px var(--soft-gold);
+    }
+
+    100% {
+        letter-spacing: normal;
+    }
+}
+
+/* ===== BACKGROUND EFFECTS ===== */
+.starry-bg {
+    position: relative;
+    background: linear-gradient(135deg, var(--midnight-blue), var(--cosmic-purple));
+    overflow: hidden;
+}
+
+.starry-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #fff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 80px 120px, #fff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 160px 50px, #fff, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 300px 200px, #fff, rgba(0, 0, 0, 0)),
+        radial-gradient(3px 3px at 500px 400px, var(--soft-gold), rgba(0, 0, 0, 0)),
+        radial-gradient(3px 3px at 700px 100px, var(--lavender-mystic), rgba(0, 0, 0, 0)),
+        radial-gradient(4px 4px at 900px 600px, var(--soft-gold), rgba(0, 0, 0, 0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    opacity: 0.5;
+    animation: starTwinkle 4s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.shooting-star {
+    position: absolute;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--soft-gold), transparent);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.shooting-star:nth-child(1) { top: 20%; left: -100px; animation: meteorShower 8s linear infinite; animation-delay: 2s; }
+.shooting-star:nth-child(2) { top: 50%; left: -100px; animation: meteorShower 8s linear infinite; animation-delay: 5s; }
+.shooting-star:nth-child(3) { top: 80%; left: -100px; animation: meteorShower 8s linear infinite; animation-delay: 7s; }
+
+.nebula-bg {
+    position: relative;
+    background: linear-gradient(135deg, var(--midnight-blue), var(--cosmic-purple));
+    overflow: hidden;
+}
+
+.nebula-bg::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    background:
+        radial-gradient(circle at 30% 40%, rgba(167, 139, 250, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(212, 175, 55, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(76, 42, 133, 0.4) 0%, transparent 70%);
+    animation: nebulaFlow 30s linear infinite;
+    pointer-events: none;
+}
+
+.cosmic-vortex {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, var(--cosmic-purple), var(--lavender-mystic), var(--soft-gold), var(--cosmic-purple));
+    filter: blur(30px);
+    opacity: 0.1;
+    animation: cosmicSpin 30s linear infinite;
+    pointer-events: none;
+}
+
+/* ===== HEADER ===== */
+.cosmic-header {
+    position: relative;
+    overflow: hidden;
+}
+
+.cosmic-header::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: meteorShower 15s linear infinite;
+    pointer-events: none;
+}
+
+.orbiting-planet {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--soft-gold), var(--cosmic-purple));
+    animation: cosmicSpin 20s linear infinite, planetFloat 8s ease-in-out infinite;
+}
+
+.orbiting-planet::after {
+    content: "";
+    position: absolute;
+    inset: -20px;
+    border: 1px dashed rgba(212, 175, 55, 0.3);
+    border-radius: 50%;
+    animation: cosmicSpinReverse 15s linear infinite;
+}
+
+.cosmic-header h1,
+.aurora-glow,
+.signature-aurora::before,
+.signature-aurora::after {
+    animation: auroraGlow 5s ease-in-out infinite;
+}
+
+/* ===== CARDS ===== */
+.mystic-card {
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-default);
+}
+
+.mystic-card::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    animation: cosmicSpin 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.mystic-card:hover {
+    animation: cosmicPulse 2s ease-in-out infinite;
+}
+
+.mystic-card:hover::after {
+    content: "✨";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    animation: starTwinkle 2s ease-in-out infinite;
+    color: var(--soft-gold);
+}
+
+.card-star {
+    position: absolute;
+    color: var(--soft-gold);
+    font-size: 0.8rem;
+    animation: starTwinkle 3s ease-in-out infinite;
+}
+
+.card-star:nth-child(1) { top: 20px; left: 20px; animation-delay: 0s; }
+.card-star:nth-child(2) { bottom: 20px; right: 20px; animation-delay: 1s; }
+.card-star:nth-child(3) { top: 50%; left: 10px; animation-delay: 2s; }
+
+/* ===== BOTÕES ===== */
+.btn-cosmic {
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-default);
+    z-index: 1;
+}
+
+.btn-cosmic::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.5), transparent);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    z-index: -1;
+}
+
+.btn-cosmic:hover::before {
+    width: 300px;
+    height: 300px;
+    animation: cosmicWave 1s ease-out;
+}
+
+.btn-cosmic:hover {
+    animation: auroraGlow 3s ease-in-out infinite;
+    transform: translateY(-2px);
+}
+
+.btn-cosmic .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--soft-gold);
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.btn-cosmic:hover .particle {
+    animation: meteorShower 2s ease-out infinite;
+}
+
+.btn-cosmic .particle:nth-child(1) { top: 0; left: 20%; animation-delay: 0s; }
+.btn-cosmic .particle:nth-child(2) { top: 20%; right: 0; animation-delay: 0.5s; }
+.btn-cosmic .particle:nth-child(3) { bottom: 0; left: 50%; animation-delay: 1s; }
+
+/* ===== NAV ===== */
+.nav-link {
+    position: relative;
+    transition: var(--transition-default);
+}
+
+.nav-link::after {
+    content: "✨";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    font-size: 0.8rem;
+    animation: starTwinkle 2s ease-in-out infinite;
+}
+
+.nav-link:hover::after {
+    bottom: -20px;
+    opacity: 1;
+}
+
+.nav-link.active {
+    animation: cosmicPulse 3s ease-in-out infinite;
+}
+
+.nav-link.active::before {
+    content: "🌙";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: planetFloat 4s ease-in-out infinite;
+    font-size: 1rem;
+}
+
+/* ===== ZODIAC ===== */
+.zodiac-item {
+    position: relative;
+    transition: var(--transition-default);
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid rgba(167, 139, 250, 0.35);
+}
+
+.zodiac-item::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.08), transparent 70%);
+    animation: cosmicSpin 15s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.zodiac-item:hover::before {
+    opacity: 1;
+}
+
+.zodiac-item:hover {
+    animation: none;
+    transform: translateY(-3px);
+    border-color: var(--soft-gold);
+    box-shadow: 0 8px 15px rgba(212, 175, 55, 0.1);
+    background: #fff;
+}
+
+.zodiac-item:hover .zodiac-symbol {
+    animation: planetFloat 3s ease-in-out infinite;
+    color: var(--soft-gold);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    transform: scale(1.2);
+}
+
+.zodiac-symbol {
+    display: inline-block;
+    transition: var(--transition-default);
+}
+
+/* ===== FOOTER ===== */
+.cosmic-footer {
+    position: relative;
+    overflow: hidden;
+}
+
+.cosmic-footer::before {
+    content: "✦ ✦ ✦";
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    font-size: 2rem;
+    color: var(--soft-gold);
+    opacity: 0.2;
+    animation: planetFloat 20s ease-in-out infinite;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.cosmic-footer::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--soft-gold), var(--lavender-mystic), var(--soft-gold), transparent);
+    animation: nebulaFlow 10s linear infinite;
+    background-size: 200% 100%;
+}
+
+.footer-link {
+    position: relative;
+    display: inline-block;
+}
+
+.footer-link:hover::after {
+    content: "⭐";
+    position: absolute;
+    right: -20px;
+    top: 0;
+    animation: starTwinkle 1.5s ease-in-out infinite;
+    font-size: 0.8rem;
+}
+
+/* ===== POST / CONTENT ===== */
+.mystic-quote {
+    position: relative;
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.1), rgba(76, 42, 133, 0.1));
+    border-left: 3px solid var(--soft-gold);
+    border-radius: 10px;
+    margin: 30px 0;
+    animation: cosmicPulse 5s ease-in-out infinite;
+}
+
+.mystic-quote::before {
+    content: "“";
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    font-size: 5rem;
+    color: var(--soft-gold);
+    opacity: 0.3;
+    font-family: serif;
+    animation: planetFloat 6s ease-in-out infinite;
+}
+
+.mystic-quote::after {
+    content: "”";
+    position: absolute;
+    bottom: -40px;
+    right: 10px;
+    font-size: 5rem;
+    color: var(--soft-gold);
+    opacity: 0.3;
+    font-family: serif;
+    animation: planetFloat 6s ease-in-out infinite reverse;
+}
+
+.cosmic-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.cosmic-divider .star {
+    font-size: 1.5rem;
+    color: var(--soft-gold);
+    animation: starTwinkle 2s ease-in-out infinite;
+}
+
+.cosmic-divider .star:nth-child(1) { animation-delay: 0s; }
+.cosmic-divider .star:nth-child(2) { animation-delay: 0.5s; }
+.cosmic-divider .star:nth-child(3) { animation-delay: 1s; }
+.cosmic-divider .star:nth-child(4) { animation-delay: 1.5s; }
+.cosmic-divider .star:nth-child(5) { animation-delay: 2s; }
+
+.cosmic-divider .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--soft-gold), var(--lavender-mystic), var(--soft-gold), transparent);
+    margin: 0 15px;
+    animation: nebulaFlow 8s linear infinite;
+    background-size: 200% 100%;
+}
+
+.mystic-ritual {
+    position: relative;
+    overflow: hidden;
+}
+
+.mystic-ritual::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.12), transparent 70%);
+    animation: cosmicSpin 40s linear infinite;
+    pointer-events: none;
+}
+
+/* ===== ZODIAC WHEEL ===== */
+.zodiac-wheel {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    animation: cosmicSpin 60s linear infinite;
+}
+
+.zodiac-sign-animated {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--soft-gold);
+}
+
+.zodiac-sign-animated:nth-child(1) { transform: rotate(0deg) translateY(-120px) rotate(0deg); }
+.zodiac-sign-animated:nth-child(2) { transform: rotate(30deg) translateY(-120px) rotate(-30deg); }
+.zodiac-sign-animated:nth-child(3) { transform: rotate(60deg) translateY(-120px) rotate(-60deg); }
+.zodiac-sign-animated:nth-child(4) { transform: rotate(90deg) translateY(-120px) rotate(-90deg); }
+.zodiac-sign-animated:nth-child(5) { transform: rotate(120deg) translateY(-120px) rotate(-120deg); }
+.zodiac-sign-animated:nth-child(6) { transform: rotate(150deg) translateY(-120px) rotate(-150deg); }
+.zodiac-sign-animated:nth-child(7) { transform: rotate(180deg) translateY(-120px) rotate(-180deg); }
+.zodiac-sign-animated:nth-child(8) { transform: rotate(210deg) translateY(-120px) rotate(-210deg); }
+.zodiac-sign-animated:nth-child(9) { transform: rotate(240deg) translateY(-120px) rotate(-240deg); }
+.zodiac-sign-animated:nth-child(10) { transform: rotate(270deg) translateY(-120px) rotate(-270deg); }
+.zodiac-sign-animated:nth-child(11) { transform: rotate(300deg) translateY(-120px) rotate(-300deg); }
+.zodiac-sign-animated:nth-child(12) { transform: rotate(330deg) translateY(-120px) rotate(-330deg); }
+
+.zodiac-sign-animated:hover {
+    animation: cosmicPulse 2s ease-in-out infinite;
+    color: var(--soft-gold);
+    text-shadow: 0 0 10px var(--soft-gold);
+}
+
+/* ===== COSMIC PARTICLES ===== */
+.cosmic-particles {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.cosmic-particles .particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--soft-gold);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--soft-gold);
+    animation: meteorShower 10s linear infinite;
+    opacity: 0;
+}
+
+.cosmic-particles .particle:nth-child(1) { top: 10%; left: -10px; animation-delay: 0s; }
+.cosmic-particles .particle:nth-child(2) { top: 20%; left: -10px; animation-delay: 1s; }
+.cosmic-particles .particle:nth-child(3) { top: 30%; left: -10px; animation-delay: 2s; }
+.cosmic-particles .particle:nth-child(4) { top: 40%; left: -10px; animation-delay: 3s; }
+.cosmic-particles .particle:nth-child(5) { top: 50%; left: -10px; animation-delay: 4s; }
+.cosmic-particles .particle:nth-child(6) { top: 60%; left: -10px; animation-delay: 5s; }
+.cosmic-particles .particle:nth-child(7) { top: 70%; left: -10px; animation-delay: 6s; }
+.cosmic-particles .particle:nth-child(8) { top: 80%; left: -10px; animation-delay: 7s; }
+.cosmic-particles .particle:nth-child(9) { top: 90%; left: -10px; animation-delay: 8s; }
+.cosmic-particles .particle:nth-child(10) { top: 95%; left: -10px; animation-delay: 9s; }
+
+/* ===== REVEAL ===== */
+.post-content,
+.mystic-card,
+.sidebar-widget {
+    animation: cosmicReveal 1s ease-out forwards;
+}
+
+.mystic-card:nth-child(1) { animation-delay: 0.1s; }
+.mystic-card:nth-child(2) { animation-delay: 0.2s; }
+.mystic-card:nth-child(3) { animation-delay: 0.3s; }
+.mystic-card:nth-child(4) { animation-delay: 0.4s; }
+
+.nav-link:hover,
+.footer-link:hover {
+    animation: cosmicLink 0.5s ease-in-out;
+}
+
+/* ===== UTILITÁRIAS ===== */
+.animate-twinkle { animation: starTwinkle 3s ease-in-out infinite; }
+.animate-float { animation: planetFloat 6s ease-in-out infinite; }
+.animate-spin { animation: cosmicSpin 20s linear infinite; }
+.animate-spin-reverse { animation: cosmicSpinReverse 20s linear infinite; }
+.animate-glow { animation: auroraGlow 4s ease-in-out infinite; }
+.animate-pulse-cosmic { animation: cosmicPulse 3s ease-in-out infinite; }
+.animate-wave { animation: cosmicWave 3s ease-out infinite; }
+.animate-nebula { animation: nebulaFlow 15s linear infinite; }
+
+.delay-1 { animation-delay: 1s; }
+.delay-2 { animation-delay: 2s; }
+.delay-3 { animation-delay: 3s; }
+.delay-4 { animation-delay: 4s; }
+.delay-5 { animation-delay: 5s; }
+
+.duration-slow { animation-duration: 10s; }
+.duration-medium { animation-duration: 5s; }
+.duration-fast { animation-duration: 2s; }
+
+/* ===== ACESSIBILIDADE / PERFORMANCE ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        animation-delay: 0ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

@@ -1,0 +1,74 @@
+@media (min-width: 992px) {
+  .cosmic-nav-main-desktop,
+  .cosmic-nav-signos-desktop {
+    width: 100%;
+  }
+
+  .cosmic-nav-main-desktop {
+    border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+  }
+
+  .nav-link-icon-only {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-link-icon-only i {
+    margin-right: 0;
+    font-size: 1.05rem;
+  }
+
+  .nav-link-icon-only::after {
+    display: none;
+  }
+
+  .nav-link-signo {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    font-size: 0.79rem;
+    letter-spacing: 0.65px;
+    border-radius: 999px;
+    line-height: 1;
+  }
+
+  .nav-link-signo i {
+    margin-right: 0;
+    font-size: 0.9rem;
+  }
+
+  .nav-link-signo .nav-label {
+    white-space: nowrap;
+  }
+
+  .sidebar-card,
+  #calendario,
+  .calendar-widget {
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  .calendar-weekdays,
+  .calendar-days {
+    gap: 0.55rem;
+  }
+
+  .calendar-day-slot,
+  .calendar-day-card {
+    min-height: 70px;
+  }
+
+  .calendar-day-card {
+    padding: 12px 6px;
+  }
+
+  .calendar-day-number {
+    font-size: 1rem;
+  }
+}

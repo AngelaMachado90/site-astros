@@ -1,0 +1,866 @@
+{
+  "aries-com-aries": {
+    "amor": 8.9,
+    "amizade": 9.6,
+    "trabalho": 9.1,
+    "geral": 9.2
+  },
+  "aries-com-touro": {
+    "amor": 6.6,
+    "amizade": 6.6,
+    "trabalho": 7.1,
+    "geral": 6.8
+  },
+  "aries-com-gemeos": {
+    "amor": 8.6,
+    "amizade": 8.4,
+    "trabalho": 8.3,
+    "geral": 8.4
+  },
+  "aries-com-cancer": {
+    "amor": 7.1,
+    "amizade": 7.2,
+    "trabalho": 7.3,
+    "geral": 7.2
+  },
+  "aries-com-leao": {
+    "amor": 8.1,
+    "amizade": 8.4,
+    "trabalho": 7.9,
+    "geral": 8.1
+  },
+  "aries-com-virgem": {
+    "amor": 6,
+    "amizade": 6.9,
+    "trabalho": 6.8,
+    "geral": 6.5
+  },
+  "aries-com-libra": {
+    "amor": 8.5,
+    "amizade": 8.8,
+    "trabalho": 8,
+    "geral": 8.4
+  },
+  "aries-com-escorpiao": {
+    "amor": 6.6,
+    "amizade": 6.3,
+    "trabalho": 6.4,
+    "geral": 6.5
+  },
+  "aries-com-sagitario": {
+    "amor": 8.4,
+    "amizade": 8.3,
+    "trabalho": 7.8,
+    "geral": 8.2
+  },
+  "aries-com-capricornio": {
+    "amor": 6.9,
+    "amizade": 7.7,
+    "trabalho": 7.6,
+    "geral": 7.4
+  },
+  "aries-com-aquario": {
+    "amor": 8.7,
+    "amizade": 8.4,
+    "trabalho": 7.8,
+    "geral": 8.3
+  },
+  "aries-com-peixes": {
+    "amor": 6.5,
+    "amizade": 6.3,
+    "trabalho": 6.4,
+    "geral": 6.4
+  },
+  "touro-com-aries": {
+    "amor": 6.7,
+    "amizade": 6.6,
+    "trabalho": 7.1,
+    "geral": 6.8
+  },
+  "touro-com-touro": {
+    "amor": 8.6,
+    "amizade": 9.1,
+    "trabalho": 10,
+    "geral": 9.2
+  },
+  "touro-com-gemeos": {
+    "amor": 6.6,
+    "amizade": 7.1,
+    "trabalho": 7.5,
+    "geral": 7
+  },
+  "touro-com-cancer": {
+    "amor": 7.8,
+    "amizade": 7.5,
+    "trabalho": 7.3,
+    "geral": 7.5
+  },
+  "touro-com-leao": {
+    "amor": 6.5,
+    "amizade": 7.5,
+    "trabalho": 7.1,
+    "geral": 7
+  },
+  "touro-com-virgem": {
+    "amor": 8,
+    "amizade": 8.3,
+    "trabalho": 8.7,
+    "geral": 8.3
+  },
+  "touro-com-libra": {
+    "amor": 7.2,
+    "amizade": 7.3,
+    "trabalho": 7.1,
+    "geral": 7.2
+  },
+  "touro-com-escorpiao": {
+    "amor": 8.2,
+    "amizade": 8.2,
+    "trabalho": 7.2,
+    "geral": 7.8
+  },
+  "touro-com-sagitario": {
+    "amor": 6.4,
+    "amizade": 7.1,
+    "trabalho": 7.4,
+    "geral": 6.9
+  },
+  "touro-com-capricornio": {
+    "amor": 7.4,
+    "amizade": 8.1,
+    "trabalho": 8.6,
+    "geral": 8
+  },
+  "touro-com-aquario": {
+    "amor": 7,
+    "amizade": 7.3,
+    "trabalho": 7.5,
+    "geral": 7.3
+  },
+  "touro-com-peixes": {
+    "amor": 8.1,
+    "amizade": 8,
+    "trabalho": 7,
+    "geral": 7.7
+  },
+  "gemeos-com-aries": {
+    "amor": 8.6,
+    "amizade": 8.1,
+    "trabalho": 7.7,
+    "geral": 8.2
+  },
+  "gemeos-com-touro": {
+    "amor": 6.7,
+    "amizade": 6.9,
+    "trabalho": 7.6,
+    "geral": 7.1
+  },
+  "gemeos-com-gemeos": {
+    "amor": 9.1,
+    "amizade": 9.8,
+    "trabalho": 8.8,
+    "geral": 9.2
+  },
+  "gemeos-com-cancer": {
+    "amor": 6.7,
+    "amizade": 6.5,
+    "trabalho": 6.7,
+    "geral": 6.7
+  },
+  "gemeos-com-leao": {
+    "amor": 8.2,
+    "amizade": 8.4,
+    "trabalho": 7.6,
+    "geral": 8
+  },
+  "gemeos-com-virgem": {
+    "amor": 6.8,
+    "amizade": 7.5,
+    "trabalho": 7.7,
+    "geral": 7.3
+  },
+  "gemeos-com-libra": {
+    "amor": 8.3,
+    "amizade": 8.9,
+    "trabalho": 8.2,
+    "geral": 8.4
+  },
+  "gemeos-com-escorpiao": {
+    "amor": 7,
+    "amizade": 6.8,
+    "trabalho": 7,
+    "geral": 6.9
+  },
+  "gemeos-com-sagitario": {
+    "amor": 8.4,
+    "amizade": 8.3,
+    "trabalho": 8.2,
+    "geral": 8.3
+  },
+  "gemeos-com-capricornio": {
+    "amor": 6.9,
+    "amizade": 7.2,
+    "trabalho": 7.2,
+    "geral": 7.1
+  },
+  "gemeos-com-aquario": {
+    "amor": 8.2,
+    "amizade": 8.4,
+    "trabalho": 7.4,
+    "geral": 8
+  },
+  "gemeos-com-peixes": {
+    "amor": 7.3,
+    "amizade": 7.4,
+    "trabalho": 7.6,
+    "geral": 7.4
+  },
+  "cancer-com-aries": {
+    "amor": 7,
+    "amizade": 6.6,
+    "trabalho": 6.8,
+    "geral": 6.8
+  },
+  "cancer-com-touro": {
+    "amor": 8.2,
+    "amizade": 7.3,
+    "trabalho": 7.4,
+    "geral": 7.7
+  },
+  "cancer-com-gemeos": {
+    "amor": 6.7,
+    "amizade": 6.6,
+    "trabalho": 7,
+    "geral": 6.8
+  },
+  "cancer-com-cancer": {
+    "amor": 9.3,
+    "amizade": 8.9,
+    "trabalho": 8.5,
+    "geral": 8.9
+  },
+  "cancer-com-leao": {
+    "amor": 7.3,
+    "amizade": 6.6,
+    "trabalho": 6.6,
+    "geral": 6.9
+  },
+  "cancer-com-virgem": {
+    "amor": 7.6,
+    "amizade": 7.2,
+    "trabalho": 7.4,
+    "geral": 7.4
+  },
+  "cancer-com-libra": {
+    "amor": 6.7,
+    "amizade": 7.4,
+    "trabalho": 6.8,
+    "geral": 6.9
+  },
+  "cancer-com-escorpiao": {
+    "amor": 8.7,
+    "amizade": 7.8,
+    "trabalho": 7.1,
+    "geral": 7.9
+  },
+  "cancer-com-sagitario": {
+    "amor": 7.1,
+    "amizade": 6.3,
+    "trabalho": 6.5,
+    "geral": 6.7
+  },
+  "cancer-com-capricornio": {
+    "amor": 7.9,
+    "amizade": 8.2,
+    "trabalho": 7.9,
+    "geral": 8
+  },
+  "cancer-com-aquario": {
+    "amor": 6.9,
+    "amizade": 6.9,
+    "trabalho": 6.7,
+    "geral": 6.8
+  },
+  "cancer-com-peixes": {
+    "amor": 8,
+    "amizade": 8,
+    "trabalho": 6.8,
+    "geral": 7.6
+  },
+  "leao-com-aries": {
+    "amor": 8.4,
+    "amizade": 8.3,
+    "trabalho": 7.6,
+    "geral": 8.1
+  },
+  "leao-com-touro": {
+    "amor": 6.5,
+    "amizade": 6.9,
+    "trabalho": 7.2,
+    "geral": 6.8
+  },
+  "leao-com-gemeos": {
+    "amor": 8.6,
+    "amizade": 8.1,
+    "trabalho": 7.6,
+    "geral": 8.1
+  },
+  "leao-com-cancer": {
+    "amor": 6.8,
+    "amizade": 6.6,
+    "trabalho": 6.3,
+    "geral": 6.6
+  },
+  "leao-com-leao": {
+    "amor": 9,
+    "amizade": 9.9,
+    "trabalho": 9.1,
+    "geral": 9.2
+  },
+  "leao-com-virgem": {
+    "amor": 6,
+    "amizade": 6.7,
+    "trabalho": 6.7,
+    "geral": 6.4
+  },
+  "leao-com-libra": {
+    "amor": 8.7,
+    "amizade": 8.4,
+    "trabalho": 8.3,
+    "geral": 8.5
+  },
+  "leao-com-escorpiao": {
+    "amor": 7.4,
+    "amizade": 7.3,
+    "trabalho": 6.9,
+    "geral": 7.2
+  },
+  "leao-com-sagitario": {
+    "amor": 8.4,
+    "amizade": 8.8,
+    "trabalho": 7.8,
+    "geral": 8.3
+  },
+  "leao-com-capricornio": {
+    "amor": 6.6,
+    "amizade": 6.8,
+    "trabalho": 6.9,
+    "geral": 6.8
+  },
+  "leao-com-aquario": {
+    "amor": 9.2,
+    "amizade": 8.6,
+    "trabalho": 8.5,
+    "geral": 8.8
+  },
+  "leao-com-peixes": {
+    "amor": 6.5,
+    "amizade": 6.1,
+    "trabalho": 6.6,
+    "geral": 6.4
+  },
+  "virgem-com-aries": {
+    "amor": 6,
+    "amizade": 6.8,
+    "trabalho": 7.3,
+    "geral": 6.7
+  },
+  "virgem-com-touro": {
+    "amor": 7.8,
+    "amizade": 8.2,
+    "trabalho": 8.2,
+    "geral": 8
+  },
+  "virgem-com-gemeos": {
+    "amor": 7.5,
+    "amizade": 7.9,
+    "trabalho": 7.5,
+    "geral": 7.6
+  },
+  "virgem-com-cancer": {
+    "amor": 8.2,
+    "amizade": 7.5,
+    "trabalho": 7,
+    "geral": 7.6
+  },
+  "virgem-com-leao": {
+    "amor": 6.8,
+    "amizade": 7.2,
+    "trabalho": 7.2,
+    "geral": 7.1
+  },
+  "virgem-com-virgem": {
+    "amor": 8.6,
+    "amizade": 9.6,
+    "trabalho": 9.5,
+    "geral": 9.2
+  },
+  "virgem-com-libra": {
+    "amor": 6.5,
+    "amizade": 6.7,
+    "trabalho": 7.4,
+    "geral": 6.9
+  },
+  "virgem-com-escorpiao": {
+    "amor": 8.1,
+    "amizade": 7.6,
+    "trabalho": 7,
+    "geral": 7.6
+  },
+  "virgem-com-sagitario": {
+    "amor": 6.3,
+    "amizade": 7,
+    "trabalho": 7.5,
+    "geral": 6.9
+  },
+  "virgem-com-capricornio": {
+    "amor": 7.8,
+    "amizade": 8.2,
+    "trabalho": 8.2,
+    "geral": 8
+  },
+  "virgem-com-aquario": {
+    "amor": 6.8,
+    "amizade": 6.8,
+    "trabalho": 7.2,
+    "geral": 7
+  },
+  "virgem-com-peixes": {
+    "amor": 8.2,
+    "amizade": 8.2,
+    "trabalho": 7.7,
+    "geral": 8
+  },
+  "libra-com-aries": {
+    "amor": 8.3,
+    "amizade": 8.7,
+    "trabalho": 8.1,
+    "geral": 8.3
+  },
+  "libra-com-touro": {
+    "amor": 7,
+    "amizade": 7,
+    "trabalho": 7.2,
+    "geral": 7.1
+  },
+  "libra-com-gemeos": {
+    "amor": 8,
+    "amizade": 8.8,
+    "trabalho": 8.1,
+    "geral": 8.2
+  },
+  "libra-com-cancer": {
+    "amor": 6.7,
+    "amizade": 7.5,
+    "trabalho": 7.6,
+    "geral": 7.2
+  },
+  "libra-com-leao": {
+    "amor": 8.8,
+    "amizade": 8.3,
+    "trabalho": 7.8,
+    "geral": 8.3
+  },
+  "libra-com-virgem": {
+    "amor": 7.2,
+    "amizade": 7.1,
+    "trabalho": 7.8,
+    "geral": 7.4
+  },
+  "libra-com-libra": {
+    "amor": 8.7,
+    "amizade": 9.5,
+    "trabalho": 9.2,
+    "geral": 9.1
+  },
+  "libra-com-escorpiao": {
+    "amor": 6.5,
+    "amizade": 6.6,
+    "trabalho": 7,
+    "geral": 6.7
+  },
+  "libra-com-sagitario": {
+    "amor": 8.4,
+    "amizade": 8,
+    "trabalho": 7.9,
+    "geral": 8.1
+  },
+  "libra-com-capricornio": {
+    "amor": 7.2,
+    "amizade": 7.6,
+    "trabalho": 8.1,
+    "geral": 7.6
+  },
+  "libra-com-aquario": {
+    "amor": 7.8,
+    "amizade": 8.5,
+    "trabalho": 7.4,
+    "geral": 7.8
+  },
+  "libra-com-peixes": {
+    "amor": 7,
+    "amizade": 6.6,
+    "trabalho": 6.7,
+    "geral": 6.8
+  },
+  "escorpiao-com-aries": {
+    "amor": 6.8,
+    "amizade": 6.4,
+    "trabalho": 6.6,
+    "geral": 6.6
+  },
+  "escorpiao-com-touro": {
+    "amor": 8.7,
+    "amizade": 7.8,
+    "trabalho": 7.3,
+    "geral": 8
+  },
+  "escorpiao-com-gemeos": {
+    "amor": 6.2,
+    "amizade": 6.7,
+    "trabalho": 6.6,
+    "geral": 6.5
+  },
+  "escorpiao-com-cancer": {
+    "amor": 8,
+    "amizade": 7.4,
+    "trabalho": 6.8,
+    "geral": 7.4
+  },
+  "escorpiao-com-leao": {
+    "amor": 7.4,
+    "amizade": 6.8,
+    "trabalho": 7,
+    "geral": 7.1
+  },
+  "escorpiao-com-virgem": {
+    "amor": 8.3,
+    "amizade": 7.8,
+    "trabalho": 7.6,
+    "geral": 7.9
+  },
+  "escorpiao-com-libra": {
+    "amor": 6.5,
+    "amizade": 7.2,
+    "trabalho": 7.2,
+    "geral": 6.9
+  },
+  "escorpiao-com-escorpiao": {
+    "amor": 9.6,
+    "amizade": 9.4,
+    "trabalho": 8.4,
+    "geral": 9.2
+  },
+  "escorpiao-com-sagitario": {
+    "amor": 6.5,
+    "amizade": 6.6,
+    "trabalho": 6.4,
+    "geral": 6.5
+  },
+  "escorpiao-com-capricornio": {
+    "amor": 8.4,
+    "amizade": 7.4,
+    "trabalho": 7,
+    "geral": 7.7
+  },
+  "escorpiao-com-aquario": {
+    "amor": 6.8,
+    "amizade": 7.1,
+    "trabalho": 6.7,
+    "geral": 6.9
+  },
+  "escorpiao-com-peixes": {
+    "amor": 8.3,
+    "amizade": 7.9,
+    "trabalho": 7.3,
+    "geral": 7.9
+  },
+  "sagitario-com-aries": {
+    "amor": 8.2,
+    "amizade": 8.7,
+    "trabalho": 7.3,
+    "geral": 8
+  },
+  "sagitario-com-touro": {
+    "amor": 6,
+    "amizade": 6.9,
+    "trabalho": 7.4,
+    "geral": 6.7
+  },
+  "sagitario-com-gemeos": {
+    "amor": 9,
+    "amizade": 9,
+    "trabalho": 8.2,
+    "geral": 8.7
+  },
+  "sagitario-com-cancer": {
+    "amor": 7,
+    "amizade": 6.2,
+    "trabalho": 6.6,
+    "geral": 6.6
+  },
+  "sagitario-com-leao": {
+    "amor": 8.4,
+    "amizade": 8.4,
+    "trabalho": 7.2,
+    "geral": 8
+  },
+  "sagitario-com-virgem": {
+    "amor": 7,
+    "amizade": 7.1,
+    "trabalho": 7.5,
+    "geral": 7.2
+  },
+  "sagitario-com-libra": {
+    "amor": 8.5,
+    "amizade": 7.9,
+    "trabalho": 7.9,
+    "geral": 8.1
+  },
+  "sagitario-com-escorpiao": {
+    "amor": 6.9,
+    "amizade": 6.2,
+    "trabalho": 6.4,
+    "geral": 6.6
+  },
+  "sagitario-com-sagitario": {
+    "amor": 8.8,
+    "amizade": 9.8,
+    "trabalho": 9.1,
+    "geral": 9.2
+  },
+  "sagitario-com-capricornio": {
+    "amor": 6.1,
+    "amizade": 7.1,
+    "trabalho": 7.5,
+    "geral": 6.8
+  },
+  "sagitario-com-aquario": {
+    "amor": 8.3,
+    "amizade": 7.8,
+    "trabalho": 7.9,
+    "geral": 8.1
+  },
+  "sagitario-com-peixes": {
+    "amor": 7.3,
+    "amizade": 6.8,
+    "trabalho": 6.6,
+    "geral": 6.9
+  },
+  "capricornio-com-aries": {
+    "amor": 7.1,
+    "amizade": 7.6,
+    "trabalho": 7.7,
+    "geral": 7.4
+  },
+  "capricornio-com-touro": {
+    "amor": 7.8,
+    "amizade": 8.4,
+    "trabalho": 8.7,
+    "geral": 8.3
+  },
+  "capricornio-com-gemeos": {
+    "amor": 6.6,
+    "amizade": 6.7,
+    "trabalho": 7,
+    "geral": 6.8
+  },
+  "capricornio-com-cancer": {
+    "amor": 7.9,
+    "amizade": 7.9,
+    "trabalho": 7.1,
+    "geral": 7.6
+  },
+  "capricornio-com-leao": {
+    "amor": 6.2,
+    "amizade": 7.1,
+    "trabalho": 7.2,
+    "geral": 6.8
+  },
+  "capricornio-com-virgem": {
+    "amor": 7.8,
+    "amizade": 7.8,
+    "trabalho": 8.1,
+    "geral": 7.9
+  },
+  "capricornio-com-libra": {
+    "amor": 7.6,
+    "amizade": 7.5,
+    "trabalho": 7.6,
+    "geral": 7.6
+  },
+  "capricornio-com-escorpiao": {
+    "amor": 7.8,
+    "amizade": 7.3,
+    "trabalho": 7.4,
+    "geral": 7.5
+  },
+  "capricornio-com-sagitario": {
+    "amor": 6,
+    "amizade": 6.8,
+    "trabalho": 7.3,
+    "geral": 6.7
+  },
+  "capricornio-com-capricornio": {
+    "amor": 9,
+    "amizade": 9.5,
+    "trabalho": 10,
+    "geral": 9.5
+  },
+  "capricornio-com-aquario": {
+    "amor": 6.5,
+    "amizade": 6.9,
+    "trabalho": 7.2,
+    "geral": 6.8
+  },
+  "capricornio-com-peixes": {
+    "amor": 7.9,
+    "amizade": 7.5,
+    "trabalho": 7.3,
+    "geral": 7.6
+  },
+  "aquario-com-aries": {
+    "amor": 8.6,
+    "amizade": 8.5,
+    "trabalho": 7.8,
+    "geral": 8.3
+  },
+  "aquario-com-touro": {
+    "amor": 7,
+    "amizade": 7.6,
+    "trabalho": 7.5,
+    "geral": 7.3
+  },
+  "aquario-com-gemeos": {
+    "amor": 8.1,
+    "amizade": 9,
+    "trabalho": 7.6,
+    "geral": 8.1
+  },
+  "aquario-com-cancer": {
+    "amor": 6.5,
+    "amizade": 6.5,
+    "trabalho": 6.7,
+    "geral": 6.6
+  },
+  "aquario-com-leao": {
+    "amor": 8.9,
+    "amizade": 8.4,
+    "trabalho": 7.8,
+    "geral": 8.4
+  },
+  "aquario-com-virgem": {
+    "amor": 7.3,
+    "amizade": 7.3,
+    "trabalho": 7.3,
+    "geral": 7.3
+  },
+  "aquario-com-libra": {
+    "amor": 8.3,
+    "amizade": 8.5,
+    "trabalho": 8,
+    "geral": 8.3
+  },
+  "aquario-com-escorpiao": {
+    "amor": 7.2,
+    "amizade": 7.4,
+    "trabalho": 6.9,
+    "geral": 7.1
+  },
+  "aquario-com-sagitario": {
+    "amor": 8,
+    "amizade": 8.1,
+    "trabalho": 7.5,
+    "geral": 7.8
+  },
+  "aquario-com-capricornio": {
+    "amor": 6.7,
+    "amizade": 6.7,
+    "trabalho": 7.7,
+    "geral": 7.1
+  },
+  "aquario-com-aquario": {
+    "amor": 9.1,
+    "amizade": 9.8,
+    "trabalho": 9.3,
+    "geral": 9.4
+  },
+  "aquario-com-peixes": {
+    "amor": 6.2,
+    "amizade": 6.8,
+    "trabalho": 7,
+    "geral": 6.6
+  },
+  "peixes-com-aries": {
+    "amor": 7.1,
+    "amizade": 7,
+    "trabalho": 6.9,
+    "geral": 7
+  },
+  "peixes-com-touro": {
+    "amor": 7.7,
+    "amizade": 7.2,
+    "trabalho": 7,
+    "geral": 7.3
+  },
+  "peixes-com-gemeos": {
+    "amor": 6.7,
+    "amizade": 7.6,
+    "trabalho": 6.9,
+    "geral": 7
+  },
+  "peixes-com-cancer": {
+    "amor": 8.2,
+    "amizade": 7.9,
+    "trabalho": 6.7,
+    "geral": 7.6
+  },
+  "peixes-com-leao": {
+    "amor": 7.1,
+    "amizade": 6.3,
+    "trabalho": 6.5,
+    "geral": 6.7
+  },
+  "peixes-com-virgem": {
+    "amor": 8.4,
+    "amizade": 7.7,
+    "trabalho": 7.1,
+    "geral": 7.8
+  },
+  "peixes-com-libra": {
+    "amor": 6.8,
+    "amizade": 6.8,
+    "trabalho": 6.9,
+    "geral": 6.8
+  },
+  "peixes-com-escorpiao": {
+    "amor": 7.9,
+    "amizade": 8,
+    "trabalho": 7.4,
+    "geral": 7.8
+  },
+  "peixes-com-sagitario": {
+    "amor": 7.5,
+    "amizade": 7.2,
+    "trabalho": 6.5,
+    "geral": 7.1
+  },
+  "peixes-com-capricornio": {
+    "amor": 7.6,
+    "amizade": 7.8,
+    "trabalho": 7.1,
+    "geral": 7.5
+  },
+  "peixes-com-aquario": {
+    "amor": 6.7,
+    "amizade": 6.6,
+    "trabalho": 6.8,
+    "geral": 6.7
+  },
+  "peixes-com-peixes": {
+    "amor": 9.5,
+    "amizade": 9.4,
+    "trabalho": 8.2,
+    "geral": 9
+  }
+}

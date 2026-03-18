@@ -1,0 +1,576 @@
+:root {
+    --cosmic-purple: #4C2A85;
+    --midnight-blue: #1B1F3B;
+    --lavender-mystic: #A78BFA;
+    --soft-gold: #D4AF37;
+    --moon-white: #F5F5F7;
+    --scorpion-red: #8B0000;
+    --phoenix-orange: #FF6B35;
+    --text-light: #8A8FA8;
+    --bg-overlay: rgba(245, 245, 247, 0.95);
+    --shadow-soft: 0 10px 30px rgba(76, 42, 133, 0.12);
+    --shadow-soft-hover: 0 20px 40px rgba(76, 42, 133, 0.18);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--moon-white) 0%, #ffffff 100%);
+    color: var(--midnight-blue);
+    line-height: 1.8;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+@keyframes starTwinkle {
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        text-shadow: 0 0 5px var(--soft-gold);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(0.9);
+        text-shadow: 0 0 15px var(--soft-gold), 0 0 30px var(--lavender-mystic);
+    }
+}
+
+@keyframes planetFloat {
+    0%,
+    100% { transform: translateY(0) translateX(0); }
+    25% { transform: translateY(-8px) translateX(4px); }
+    50% { transform: translateY(0) translateX(8px); }
+    75% { transform: translateY(8px) translateX(4px); }
+}
+
+@keyframes cosmicSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes auroraGlow {
+    0%,
+    100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); border-color: var(--soft-gold); }
+    33% { box-shadow: 0 0 40px rgba(167, 139, 250, 0.5); border-color: var(--lavender-mystic); }
+    66% { box-shadow: 0 0 30px rgba(76, 42, 133, 0.4); border-color: var(--cosmic-purple); }
+}
+
+@keyframes meteorShower {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 1; }
+    70% { opacity: 1; }
+    100% { transform: translateX(200%) translateY(200%) rotate(45deg); opacity: 0; }
+}
+
+@keyframes cosmicReveal {
+    0% { opacity: 0; transform: scale(0.98) translateY(20px); filter: blur(5px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+}
+
+.animate-twinkle { animation: starTwinkle 3s ease-in-out infinite; }
+.animate-float { animation: planetFloat 6s ease-in-out infinite; }
+.animate-spin { animation: cosmicSpin 20s linear infinite; }
+.animate-glow { animation: auroraGlow 4s ease-in-out infinite; }
+
+.starry-bg {
+    position: relative;
+    overflow-x: hidden;
+}
+
+.cosmic-header {
+    background: linear-gradient(135deg, var(--cosmic-purple), var(--midnight-blue));
+    color: var(--moon-white);
+    padding: 40px 0;
+    border-bottom: 3px solid var(--soft-gold);
+    position: relative;
+    overflow: hidden;
+}
+
+.cosmic-header::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: meteorShower 20s linear infinite;
+    pointer-events: none;
+}
+
+.cosmic-header .logo {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+    position: relative;
+    z-index: 2;
+}
+
+.cosmic-header .subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--lavender-mystic);
+    font-style: italic;
+}
+
+.cosmic-nav {
+    background: var(--midnight-blue);
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--soft-gold);
+}
+
+.nav-link-cosmic {
+    color: var(--moon-white);
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 20px;
+    text-decoration: none;
+    transition: all 0.3s;
+    position: relative;
+    font-size: 0.9rem;
+}
+
+.nav-link-cosmic::after {
+    content: "✨";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    font-size: 0.8rem;
+    animation: starTwinkle 2s ease-in-out infinite;
+}
+
+.nav-link-cosmic:hover::after { bottom: -15px; opacity: 1; }
+.nav-link-cosmic:hover { color: var(--soft-gold); }
+.nav-link-cosmic.active { color: var(--soft-gold); }
+
+.cosmic-breadcrumb {
+    background: transparent;
+    padding: 15px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed var(--lavender-mystic);
+}
+
+.cosmic-breadcrumb a {
+    color: var(--cosmic-purple);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.cosmic-breadcrumb a:hover {
+    color: var(--soft-gold);
+    padding-left: 5px;
+}
+
+.cosmic-breadcrumb .active {
+    color: var(--soft-gold);
+    font-weight: 500;
+}
+
+.post-container {
+    animation: cosmicReveal 1s ease-out forwards;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.post-header {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.post-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--cosmic-purple);
+    line-height: 1.2;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.post-header h1::before {
+    content: "✨";
+    position: absolute;
+    left: -40px;
+    top: 10px;
+    animation: starTwinkle 3s ease-in-out infinite;
+    font-size: 2rem;
+}
+
+.post-header h1::after {
+    content: "✨";
+    position: absolute;
+    right: -40px;
+    bottom: 10px;
+    animation: starTwinkle 3s ease-in-out infinite 1.5s;
+    font-size: 2rem;
+}
+
+.post-meta {
+    display: flex;
+    gap: 24px;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    padding: 12px 0;
+    border-top: 1px solid var(--lavender-mystic);
+    border-bottom: 1px solid var(--lavender-mystic);
+    flex-wrap: wrap;
+}
+
+.post-meta i { color: var(--soft-gold); margin-right: 5px; }
+
+.author-signature {
+    font-family: 'Cinzel', serif;
+    color: var(--cosmic-purple);
+    font-size: 1.05rem;
+}
+.author-signature span { color: var(--soft-gold); }
+
+.post-content { font-size: 1.05rem; }
+
+.post-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: var(--cosmic-purple);
+    margin: 40px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--lavender-mystic);
+}
+
+.post-content h2 i { color: var(--soft-gold); margin-right: 10px; }
+.post-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--midnight-blue);
+    margin: 30px 0 15px;
+}
+
+.post-content blockquote {
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.1), rgba(76, 42, 133, 0.1));
+    border-left: 5px solid var(--soft-gold);
+    padding: 25px;
+    margin: 30px 0;
+    border-radius: 0 15px 15px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    position: relative;
+    animation: auroraGlow 5s ease-in-out infinite;
+}
+
+.post-content blockquote::before {
+    content: "“";
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    font-size: 4rem;
+    color: var(--soft-gold);
+    opacity: 0.3;
+}
+
+.highlight-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 25px;
+    margin: 30px 0;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--lavender-mystic);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.highlight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-soft-hover);
+}
+
+.highlight-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    animation: cosmicSpin 20s linear infinite;
+    pointer-events: none;
+}
+
+.highlight-card h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--cosmic-purple);
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.highlight-card h3 i { color: var(--soft-gold); margin-right: 10px; }
+
+.aspectos-table {
+    width: 100%;
+    margin: 30px 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.aspectos-table thead {
+    background: var(--cosmic-purple);
+    color: var(--moon-white);
+    font-family: 'Cinzel', serif;
+}
+
+.aspectos-table th { padding: 15px; font-weight: 500; }
+.aspectos-table td { padding: 12px 15px; border-bottom: 1px solid var(--lavender-mystic); }
+.aspectos-table tbody tr:hover { background: rgba(167, 139, 250, 0.1); }
+
+.signos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.signo-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid var(--lavender-mystic);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.signo-card:hover {
+    transform: translateY(-3px);
+    background: #fff;
+    color: inherit;
+    border-color: var(--soft-gold);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.12);
+}
+
+.signo-card:hover .signo-symbol {
+    animation: planetFloat 3s ease-in-out infinite;
+    color: var(--soft-gold);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.25);
+    transform: scale(1.15);
+}
+
+.signo-symbol {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+.signo-nome { font-weight: 600; font-size: 0.9rem; }
+
+.signature-box {
+    margin: 50px 0 30px;
+    padding: 30px;
+    border-top: 2px dashed var(--soft-gold);
+    border-bottom: 2px dashed var(--soft-gold);
+    text-align: center;
+    position: relative;
+}
+
+.signature-box::before,
+.signature-box::after {
+    content: "✦";
+    position: absolute;
+    color: var(--soft-gold);
+    font-size: 2rem;
+    animation: starTwinkle 3s ease-in-out infinite;
+}
+
+.signature-box::before { top: -15px; left: 20px; }
+.signature-box::after { bottom: -15px; right: 20px; }
+
+.signature-name {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    color: var(--cosmic-purple);
+    margin: 10px 0 4px;
+}
+
+.signature-name span { color: var(--soft-gold); }
+.signature-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--lavender-mystic);
+}
+
+.sidebar-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--lavender-mystic);
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+    animation: cosmicSpin 30s linear infinite;
+    pointer-events: none;
+}
+
+.sidebar-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    color: var(--cosmic-purple);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--soft-gold);
+}
+
+.sidebar-title i { margin-right: 10px; color: var(--soft-gold); }
+
+.author-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, var(--cosmic-purple), var(--midnight-blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    border: 3px solid var(--soft-gold);
+    animation: auroraGlow 4s ease-in-out infinite;
+}
+
+.cosmic-particles {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.cosmic-particles span {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--soft-gold);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--soft-gold);
+    animation: meteorShower 10s linear infinite;
+    opacity: 0;
+}
+
+.cosmic-footer {
+    background: var(--midnight-blue);
+    color: var(--moon-white);
+    padding: 60px 0 30px;
+    margin-top: 60px;
+    border-top: 3px solid var(--soft-gold);
+    position: relative;
+    overflow: hidden;
+}
+
+.cosmic-footer::before {
+    content: "✦ ✦ ✦";
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    font-size: 2rem;
+    color: var(--soft-gold);
+    opacity: 0.1;
+    animation: planetFloat 20s ease-in-out infinite;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.calendario-posts {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin: 20px 0;
+}
+
+.calendario-dia {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid var(--lavender-mystic);
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.calendario-dia:hover {
+    background: #fff;
+    color: var(--midnight-blue);
+    transform: translateY(-2px);
+    border-color: var(--soft-gold);
+    box-shadow: 0 8px 15px rgba(212, 175, 55, 0.12);
+    z-index: 10;
+}
+
+.calendario-dia.has-post {
+    background: var(--cosmic-purple);
+    color: var(--moon-white);
+    border-color: var(--soft-gold);
+    font-weight: 700;
+}
+
+.calendario-dia.today {
+    border: 3px solid var(--soft-gold);
+    animation: auroraGlow 3s ease-in-out infinite;
+}
+
+.footer-link { color: var(--moon-white); text-decoration: none; }
+.footer-link:hover { color: var(--soft-gold); }
+
+@media (max-width: 768px) {
+    .post-header h1 { font-size: 2rem; }
+    .post-header h1::before,
+    .post-header h1::after { display: none; }
+    .post-meta { flex-direction: column; gap: 10px; }
+    .signos-grid { grid-template-columns: repeat(3, 1fr); }
+    .cosmic-footer { text-align: center; }
+    .calendario-posts { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 480px) {
+    .signos-grid { grid-template-columns: repeat(2, 1fr); }
+    .calendario-posts { grid-template-columns: repeat(3, 1fr); }
+    .signature-name { font-size: 1.8rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * , *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        animation-delay: 0ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

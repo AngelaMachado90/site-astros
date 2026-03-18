@@ -1,0 +1,119 @@
+{
+  "data": "2026-03-15",
+  "anoNovoAstrologico": true,
+  "chamadaEspecial": "Ano Novo Astrológico + 5 planetas em Áries = energia máxima de começar coisas novas. Quer saber onde isso bate no seu Mapa Astral?",
+  "ctaEspecial": {
+    "texto": "Vem pra live (grátis)!",
+    "link": "/live-ano-novo-astrologico"
+  },
+  "signos": [
+    {
+      "nome": "Áries",
+      "elemento": "Fogo",
+      "previsao": "Lua e Vênus prometem um domingo cheio de diversão e interações sociais. Só vale cuidar dos impulsos com dinheiro e evitar decisões no calor do momento. No amor, sinceridade e jogo limpo vão fazer toda diferença.",
+      "areas": ["amor", "dinheiro", "amizades"],
+      "dica": "Cuidar do que tem valor é sempre a melhor escolha.",
+      "lua": "Áries",
+      "sol": "Peixes"
+    },
+    {
+      "nome": "Touro",
+      "elemento": "Terra",
+      "previsao": "O domingo pede ajustes inteligentes na vida financeira e mais clareza em acordos com outras pessoas. Se bater tensão em tarefas coletivas, respire antes de responder e preserve o clima.",
+      "areas": ["dinheiro", "trabalho em grupo", "amor"],
+      "dica": "Nem tudo sai como planejado, mas tudo se acerta no final.",
+      "lua": "Touro",
+      "sol": "Peixes"
+    },
+    {
+      "nome": "Gêmeos",
+      "elemento": "Ar",
+      "previsao": "Sua mente está ágil, curiosa e cheia de ideias novas para reposicionar projetos. Conversas importantes podem abrir portas, desde que você evite prometer mais do que consegue cumprir hoje.",
+      "areas": ["estudos", "trabalho", "amizades"],
+      "dica": "Direcione sua energia para o que realmente pode avançar.",
+      "lua": "Gêmeos",
+      "sol": "Peixes"
+    },
+    {
+      "nome": "Câncer",
+      "elemento": "Água",
+      "previsao": "As emoções ficam mais visíveis e você tende a captar tudo ao redor com intensidade. O dia favorece acolhimento, reconciliações e organização da rotina doméstica, sem carregar o mundo nas costas.",
+      "areas": ["família", "amor", "saúde"],
+      "dica": "Cuidar de você é o primeiro passo para cuidar dos outros.",
+      "lua": "Câncer",
+      "sol": "Peixes"
+    },
+    {
+      "nome": "Leão",
+      "elemento": "Fogo",
+      "previsao": "Seu brilho está em alta e o domingo favorece exposição, criatividade e encontros especiais. Só vale equilibrar protagonismo com escuta para não transformar parceria em disputa de ego.",
+      "areas": ["carreira", "amor", "amizades"],
+      "dica": "Quando você compartilha luz, todo mundo cresce junto.",
+      "lua": "Leão",
+      "sol": "Peixes"
+    },
+    {
+      "nome": "Virgem",
+      "elemento": "Terra",
+      "previsao": "É um ótimo dia para reorganizar pendências, revisar prioridades e colocar ordem em hábitos que estavam frouxos. No amor, menos crítica e mais presença emocional podem destravar conversas importantes.",
+      "areas": ["trabalho", "dinheiro", "saúde"],
+      "dica": "Pequenas melhorias consistentes criam grandes resultados.",
+      "lua": "Virgem",
+      "sol": "Peixes"
+    },
+    {
+      "nome": "Libra",
+      "elemento": "Ar",
+      "previsao": "Relacionamentos ganham destaque e o dia pede equilíbrio entre desejos pessoais e acordos compartilhados. Boas notícias podem chegar por rede de contatos, desde que você saia da indecisão.",
+      "areas": ["amor", "amizades", "trabalho em grupo"],
+      "dica": "Harmonia não é se anular; é negociar com verdade.",
+      "lua": "Libra",
+      "sol": "Peixes"
+    },
+    {
+      "nome": "Escorpião",
+      "elemento": "Água",
+      "previsao": "Transformações internas pedem silêncio estratégico e escolhas mais profundas. O dia favorece cura emocional, limpeza de padrões e uma conversa sincera sobre confiança em vínculos afetivos.",
+      "areas": ["amor", "dinheiro", "espiritualidade"],
+      "dica": "Soltar o controle pode abrir espaço para o novo.",
+      "lua": "Escorpião",
+      "sol": "Peixes"
+    },
+    {
+      "nome": "Sagitário",
+      "elemento": "Fogo",
+      "previsao": "Vontade de expandir, viajar ou começar um curso ganha força no domingo. Aproveite para planejar próximos passos com realismo e manter o entusiasmo sem ignorar detalhes práticos.",
+      "areas": ["estudos", "carreira", "amizades"],
+      "dica": "Liberdade com direção vira crescimento de verdade.",
+      "lua": "Sagitário",
+      "sol": "Peixes"
+    },
+    {
+      "nome": "Capricórnio",
+      "elemento": "Terra",
+      "previsao": "A energia do dia favorece decisões maduras sobre rotina, dinheiro e objetivos de médio prazo. Em casa, um ajuste simples de responsabilidades pode aliviar tensões antigas.",
+      "areas": ["trabalho", "dinheiro", "família"],
+      "dica": "Constância vence pressa quando o objetivo é sólido.",
+      "lua": "Capricórnio",
+      "sol": "Peixes"
+    },
+    {
+      "nome": "Aquário",
+      "elemento": "Ar",
+      "previsao": "Inovação, trocas e ideias fora da caixa marcam seu domingo. Você pode receber um convite interessante para projeto coletivo, mas vale conferir prazos e limites antes de dizer sim.",
+      "areas": ["amizades", "trabalho", "carreira"],
+      "dica": "Criatividade funciona melhor com um plano mínimo.",
+      "lua": "Aquário",
+      "sol": "Peixes"
+    },
+    {
+      "nome": "Peixes",
+      "elemento": "Água",
+      "previsao": "Sua sensibilidade está altíssima e pode virar bússola para decisões importantes. O dia favorece espiritualidade, arte e afeto, com um lembrete: proteja sua energia e evite absorver tudo.",
+      "areas": ["amor", "espiritualidade", "saúde"],
+      "dica": "Intuição é presente, mas limite também é proteção.",
+      "lua": "Peixes",
+      "sol": "Peixes"
+    }
+  ]
+}
