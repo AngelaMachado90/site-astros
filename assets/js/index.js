@@ -578,7 +578,7 @@
         const iconeElemento = iconesElementos[elementoSlug] || "bi-stars";
         const nomeSigno = String(signo.nome || "Signo");
         const slugSigno = normalizarSlugSigno(nomeSigno);
-        const urlSigno = `/signo-${slugSigno}.html`;
+        const urlSigno = `/signos/${slugSigno}.html`;
         const iconeSigno = iconesSignos[slugSigno] || "/assets/icons/star.svg";
         const nomeSignoEscapado = escapeHtml(nomeSigno);
 
@@ -1231,7 +1231,7 @@
               signo.ultimoPost === DATA_PADRAO_ULTIMOS_DIAS
                 ? '<span class="badge-hoje">Hoje</span>'
                 : "";
-            const urlSigno = `signo-${signo.slug}.html`;
+            const urlSigno = `/signos/${signo.slug}.html`;
             return `
               <a href="${urlSigno}" class="signo-arquivo-item" aria-label="Abrir página de ${signo.nome}">
                 <img src="${signo.icone}" alt="${signo.nome}" class="icone-signo" width="32" height="32" />
@@ -1256,7 +1256,7 @@
 
         const html = signosArquivoData
           .map((signo) => {
-            const urlSigno = `signo-${signo.slug}.html`;
+            const urlSigno = `/signos/${signo.slug}.html`;
             return `
               <a href="${urlSigno}" class="arquivo-grid-item" aria-label="Ver arquivo de ${signo.nome}">
                 <img src="${signo.icone}" alt="${signo.nome}" class="icone-signo-grid" width="40" height="40" />

@@ -1,0 +1,14 @@
+# Redirecionar URLs antigas de signos
+RewriteEngine On
+RewriteRule ^signo-aries\.html$ /signos/aries.html [R=301,L]
+RewriteRule ^signo-touro\.html$ /signos/touro.html [R=301,L]
+RewriteRule ^signo-gemeos\.html$ /signos/gemeos.html [R=301,L]
+RewriteRule ^signo-cancer\.html$ /signos/cancer.html [R=301,L]
+RewriteRule ^signo-leao\.html$ /signos/leao.html [R=301,L]
+RewriteRule ^signo-virgem\.html$ /signos/virgem.html [R=301,L]
+RewriteRule ^signo-libra\.html$ /signos/libra.html [R=301,L]
+RewriteRule ^signo-escorpiao\.html$ /signos/escorpiao.html [R=301,L]
+RewriteRule ^signo-sagitario\.html$ /signos/sagitario.html [R=301,L]
+RewriteRule ^signo-capricornio\.html$ /signos/capricornio.html [R=301,L]
+RewriteRule ^signo-aquario\.html$ /signos/aquario.html [R=301,L]
+RewriteRule ^signo-peixes\.html$ /signos/peixes.html [R=301,L]

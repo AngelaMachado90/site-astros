@@ -289,7 +289,7 @@ function buildRelatedLinks(a, b) {
   return unique
     .map((slug) => {
       const sign = SIGNS.find((s) => s.slug === slug);
-      return `<a class="btn-cosmic" href="/signo-${slug}.html">${sign.nome}</a>`;
+      return `<a class="btn-cosmic" href="/signos/${slug}.html">${sign.nome}</a>`;
     })
     .join('\n              ');
 }
