@@ -598,71 +598,73 @@
         box-shadow: none;
       }
 
-      .calendar-weekdays,
-      .calendar-days {
-        display: grid;
-        grid-template-columns: repeat(7, minmax(0, 1fr));
-        gap: 0.5rem;
+      .calendar-table-wrapper {
         width: 100%;
+        border-radius: 14px;
+        border: 1px solid rgba(76, 42, 133, 0.16);
+        overflow: hidden;
+        background: #fff;
       }
 
-      .calendar-weekday {
+      .calendar-table thead th {
         text-align: center;
-        font-size: 0.7rem;
+        font-size: 0.72rem;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: var(--text-light);
+        color: var(--midnight-blue);
         font-weight: 600;
+        background: rgba(76, 42, 133, 0.08);
+        border-color: rgba(76, 42, 133, 0.16);
+        white-space: nowrap;
       }
 
-      .calendar-day-slot {
-        min-height: 62px;
-        border-radius: 14px;
+      .calendar-table td {
+        border-color: rgba(76, 42, 133, 0.1);
+        min-width: 36px;
+        height: 54px;
+        vertical-align: middle;
+        padding: 0;
       }
 
-      .calendar-day-card {
-        position: relative;
-        width: 100%;
-        min-height: 62px;
-        padding: 10px 4px;
-        border-radius: 14px;
-        border: 1px solid var(--border-light);
+      .calendar-empty {
+        background: rgba(245, 245, 247, 0.5);
+      }
+
+      .calendar-day-cell {
         background: #fff;
+      }
+
+      .calendar-day-link {
+        min-height: 54px;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
+        gap: 6px;
         text-decoration: none;
         color: var(--midnight-blue);
+        font-weight: 700;
         transition:
           transform 0.25s ease,
           background-color 0.25s ease,
-          border-color 0.25s ease,
-          box-shadow 0.25s ease;
+          color 0.25s ease;
       }
 
-      .calendar-day-card.has-post:hover,
-      .calendar-day-card.has-post:focus-visible {
-        transform: translateY(-2px);
+      .calendar-day-cell.has-post .calendar-day-link:hover,
+      .calendar-day-cell.has-post .calendar-day-link:focus-visible {
+        background: rgba(212, 175, 55, 0.2);
         color: var(--midnight-blue);
-        border-color: var(--soft-gold);
-        background: linear-gradient(
-          180deg,
-          rgba(212, 175, 55, 0.15),
-          rgba(167, 139, 250, 0.14)
-        );
-        box-shadow: 0 12px 20px rgba(76, 42, 133, 0.12);
       }
 
-      .calendar-day-card.no-post {
-        background: rgba(245, 245, 247, 0.7);
-        color: #a7a7b4;
-        border-style: dashed;
+      .calendar-day-cell.no-post {
+        background: rgba(245, 245, 247, 0.72);
       }
 
-      .calendar-day-card.today {
-        outline: 2px solid rgba(212, 175, 55, 0.7);
-        outline-offset: 2px;
+      .calendar-day-cell.no-post .calendar-day-number {
+        opacity: 0.72;
+      }
+
+      .calendar-day-cell.today {
+        box-shadow: inset 0 0 0 2px rgba(212, 175, 55, 0.7);
       }
 
       .calendar-day-number {
@@ -671,10 +673,18 @@
         line-height: 1;
       }
 
+      .calendar-day-cell.has-post {
+        color: var(--midnight-blue);
+        background: linear-gradient(
+          180deg,
+          rgba(212, 175, 55, 0.09),
+          rgba(167, 139, 250, 0.12)
+        );
+      }
+
       .calendar-post-dot {
         width: 7px;
         height: 7px;
-        margin-top: 8px;
         border-radius: 50%;
         background: var(--soft-gold);
         box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
@@ -1012,6 +1022,104 @@
         font-weight: 600;
       }
 
+      .astro-icon-signo,
+      .astro-icon-elemento {
+        width: 24px;
+        height: 24px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        line-height: 1;
+        flex: 0 0 24px;
+      }
+
+      .signo-filter-panel {
+        position: relative;
+        z-index: 1;
+        border: 1px solid rgba(76, 42, 133, 0.18);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.92);
+        padding: 16px;
+      }
+
+      .signo-filter-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        color: var(--midnight-blue);
+      }
+
+      .signo-filter-label i {
+        color: var(--soft-gold);
+      }
+
+      .signo-filter-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .signo-filter-btn {
+        border: 1px solid rgba(76, 42, 133, 0.24);
+        border-radius: 999px;
+        background: #fff;
+        color: var(--midnight-blue);
+        padding: 7px 11px;
+        font-size: 0.8rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease,
+          box-shadow 0.2s ease,
+          color 0.2s ease,
+          background-color 0.2s ease;
+      }
+
+      .signo-filter-btn:hover,
+      .signo-filter-btn:focus-visible {
+        border-color: var(--soft-gold);
+        color: var(--cosmic-purple);
+        transform: translateY(-1px);
+        box-shadow: 0 8px 16px rgba(76, 42, 133, 0.12);
+      }
+
+      .signo-filter-btn.active {
+        border-color: var(--soft-gold);
+        background: linear-gradient(
+          135deg,
+          rgba(76, 42, 133, 0.12),
+          rgba(212, 175, 55, 0.18)
+        );
+        color: var(--midnight-blue);
+        font-weight: 600;
+      }
+
+      .signo-filter-actions {
+        margin-top: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .btn-cosmic-soft {
+        background: #fff;
+        color: var(--cosmic-purple);
+      }
+
+      .btn-cosmic-soft:hover {
+        color: var(--midnight-blue);
+      }
+
+      #estado-zero-signos {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 1rem;
+      }
+
       .previsoes-diarias .signo-card {
         background: #fff;
         border: 1px solid rgba(27, 31, 59, 0.1);
@@ -1051,7 +1159,18 @@
         opacity: 1;
       }
 
+      .previsoes-diarias .signo-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        text-decoration: none;
+        color: inherit;
+      }
+
       .previsoes-diarias .elemento-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
         padding: 5px 12px;
         border-radius: 999px;
         font-size: 0.74rem;
@@ -1062,13 +1181,23 @@
 
       .previsoes-diarias .badge-lua,
       .previsoes-diarias .badge-sol {
-        display: inline-block;
-        padding: 4px 10px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 10px;
         border-radius: 999px;
         font-size: 0.73rem;
         margin-right: 6px;
         color: #fff;
         margin-bottom: 6px;
+      }
+
+      .previsoes-diarias .badge-lua {
+        background: var(--cosmic-purple);
+      }
+
+      .previsoes-diarias .badge-sol {
+        background: #9e7a15;
       }
 
       .previsoes-diarias .areas-badges {
@@ -1078,11 +1207,15 @@
       }
 
       .previsoes-diarias .badge-area {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
         padding: 4px 10px;
         border-radius: 999px;
         font-size: 0.72rem;
         background: rgba(76, 42, 133, 0.06);
         color: var(--midnight-blue);
+        border: 1px solid transparent;
       }
 
       .previsoes-diarias .previsao-texto {
@@ -1106,50 +1239,6 @@
         padding: 12px;
         border-radius: 0 12px 12px 0;
         font-size: 0.86rem;
-        color: var(--midnight-blue);
-      }
-
-      .alerta-astrologico {
-        border: 1px solid rgba(212, 175, 55, 0.52);
-        border-radius: 16px;
-        padding: 18px;
-        background: linear-gradient(
-          135deg,
-          rgba(76, 42, 133, 0.97),
-          rgba(27, 31, 59, 0.96)
-        );
-        box-shadow: 0 16px 30px rgba(27, 31, 59, 0.22);
-        animation: pulse 2.2s infinite;
-      }
-
-      .alerta-conteudo {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-        flex-wrap: wrap;
-      }
-
-      .alerta-copy {
-        margin: 0;
-        color: #fff;
-        font-size: 0.95rem;
-        line-height: 1.55;
-      }
-
-      .btn-alerta {
-        border-radius: 999px;
-        border: none;
-        padding: 9px 16px;
-        font-weight: 600;
-        color: var(--midnight-blue);
-        background: var(--soft-gold);
-        text-decoration: none;
-        white-space: nowrap;
-      }
-
-      .btn-alerta:hover {
-        background: #f0ca5a;
         color: var(--midnight-blue);
       }
 
@@ -1207,28 +1296,9 @@
         color: var(--soft-gold);
       }
 
-      @keyframes pulse {
-        0% {
-          transform: scale(0.998);
-          box-shadow: 0 16px 30px rgba(27, 31, 59, 0.22);
-        }
-        50% {
-          transform: scale(1.003);
-          box-shadow: 0 20px 36px rgba(27, 31, 59, 0.28);
-        }
-        100% {
-          transform: scale(0.998);
-          box-shadow: 0 16px 30px rgba(27, 31, 59, 0.22);
-        }
-      }
-
       @media (max-width: 992px) {
         .previsoes-diarias {
           padding: 24px;
-        }
-
-        .alerta-conteudo {
-          align-items: flex-start;
         }
       }
 
@@ -1245,6 +1315,15 @@
         .meta-badge {
           width: 100%;
           justify-content: center;
+        }
+
+        .signo-filter-btn {
+          flex: 1 1 calc(50% - 8px);
+          justify-content: center;
+        }
+
+        .signo-filter-actions .btn-cosmic-small {
+          width: 100%;
         }
 
         .newsletter-signos-inner {
@@ -1264,13 +1343,14 @@
           height: 34px;
         }
 
-        .calendar-weekday {
+        .calendar-table thead th {
           font-size: 0.62rem;
         }
 
-        .calendar-day-slot,
-        .calendar-day-card {
-          min-height: 52px;
+        .calendar-table td,
+        .calendar-day-link {
+          min-height: 50px;
+          height: 50px;
         }
 
         .calendar-day-number {
@@ -1292,6 +1372,10 @@
         .meta-badge {
           font-size: 0.78rem;
           padding: 7px 10px;
+        }
+
+        .signo-filter-btn {
+          flex-basis: 100%;
         }
       }
 
@@ -1398,73 +1482,46 @@
 
       /* ===== CORREÇÕES PARA A SEÇÃO DE SIGNOS ===== */
       #grid-signos {
-        display: grid !important;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
-        gap: 1.5rem !important;
-        margin: 1.5rem 0 !important;
+        margin: 1.2rem 0;
       }
 
-      .signo-card {
-        background: #fff !important;
-        border: 1px solid var(--border-light) !important;
-        border-radius: 16px !important;
-        padding: 1.25rem !important;
-        height: 100% !important;
-        display: flex !important;
-        flex-direction: column !important;
-        transition: all 0.3s ease !important;
+      .previsoes-diarias .signo-card {
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
       }
 
-      .signo-card:hover {
-        transform: translateY(-4px) !important;
-        box-shadow: 0 10px 25px rgba(76, 42, 133, 0.1) !important;
-        border-color: var(--soft-gold) !important;
+      .previsoes-diarias .signo-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
       }
 
-      .signo-header {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        margin-bottom: 1rem !important;
+      .previsoes-diarias .signo-nome {
+        font-family: "Cinzel", serif;
+        font-size: 1.2rem;
+        margin: 0;
       }
 
-      .signo-nome {
-        font-family: "Cinzel", serif !important;
-        font-size: 1.2rem !important;
-        margin: 0 !important;
+      .previsoes-diarias .elemento-Fogo {
+        background: #ffebee;
+        color: #c62828;
       }
 
-      .elemento-badge {
-        padding: 0.25rem 0.75rem !important;
-        border-radius: 999px !important;
-        font-size: 0.7rem !important;
-        font-weight: 600 !important;
-        text-transform: uppercase !important;
+      .previsoes-diarias .elemento-Terra {
+        background: #e8f5e8;
+        color: #2e7d32;
       }
 
-      .elemento-Fogo {
-        background: #ffebee !important;
-        color: #c62828 !important;
+      .previsoes-diarias .elemento-Ar {
+        background: #e3f2fd;
+        color: #1565c0;
       }
 
-      .elemento-Terra {
-        background: #e8f5e8 !important;
-        color: #2e7d32 !important;
-      }
-
-      .elemento-Ar {
-        background: #e3f2fd !important;
-        color: #1565c0 !important;
-      }
-
-      .elemento-Água {
-        background: #e1f5fe !important;
-        color: #01579b !important;
-      }
-
-      .elemento-ÁGUA {
-        background: #e1f5fe !important;
-        color: #01579b !important;
+      .previsoes-diarias .elemento-Água {
+        background: #e1f5fe;
+        color: #01579b;
       }
 
       /* ===== CORREÇÃO DE HEADINGS PARA SEO ===== */
@@ -1814,5 +1871,106 @@
 
         .cookie-config-panel {
           padding: 1.5rem;
+        }
+      }
+
+      /* ============================================
+         NAVEGAÇÃO ENTRE DIAS (POST DINÂMICO)
+      ============================================ */
+      .navegacao-dias {
+        border: 1px solid rgba(76, 42, 133, 0.2);
+        border-radius: 18px;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.94),
+          rgba(245, 245, 247, 0.92)
+        );
+        box-shadow: 0 12px 28px rgba(27, 31, 59, 0.08);
+        padding: 12px;
+      }
+
+      .navegacao-dias .btn-nav-dia {
+        border-radius: 999px;
+        border-color: rgba(76, 42, 133, 0.25);
+        color: var(--cosmic-purple);
+        background: #fff;
+        min-height: 42px;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          border-color 0.2s ease,
+          color 0.2s ease,
+          background-color 0.2s ease;
+      }
+
+      .navegacao-dias .btn-nav-dia:hover:not(:disabled),
+      .navegacao-dias .btn-nav-dia:focus-visible:not(:disabled) {
+        border-color: var(--soft-gold);
+        color: var(--midnight-blue);
+        background: rgba(212, 175, 55, 0.12);
+        box-shadow: 0 8px 16px rgba(76, 42, 133, 0.12);
+        transform: translateY(-1px);
+      }
+
+      .navegacao-dias .btn-nav-dia:disabled {
+        opacity: 0.52;
+        cursor: not-allowed;
+        box-shadow: none;
+      }
+
+      .navegacao-dias .btn-nav-dia i {
+        font-size: 1rem;
+      }
+
+      .navegacao-dias .btn-nav-dia .text-muted {
+        font-size: 0.76rem;
+      }
+
+      .navegacao-dias .text-center.border {
+        border-color: rgba(76, 42, 133, 0.18) !important;
+        border-radius: 14px !important;
+        background: linear-gradient(
+          135deg,
+          rgba(76, 42, 133, 0.06),
+          rgba(212, 175, 55, 0.12)
+        ) !important;
+      }
+
+      .navegacao-dias .h5 {
+        color: var(--midnight-blue);
+        letter-spacing: 0.02em;
+      }
+
+      .navegacao-dias .small.text-uppercase {
+        letter-spacing: 0.08em;
+        color: var(--cosmic-purple);
+        font-weight: 600;
+      }
+
+      @media (max-width: 767.98px) {
+        .navegacao-dias {
+          padding: 10px;
+        }
+
+        .navegacao-dias .d-flex {
+          gap: 8px !important;
+        }
+
+        .navegacao-dias .btn-nav-dia {
+          flex: 1 1 calc(50% - 4px);
+          justify-content: center;
+          padding-left: 10px;
+          padding-right: 10px;
+          font-size: 0.84rem;
+        }
+
+        .navegacao-dias .btn-nav-dia .text-muted {
+          display: none;
+        }
+
+        .navegacao-dias .text-center.border {
+          order: -1;
+          width: 100%;
+          flex: 0 0 100%;
         }
       }

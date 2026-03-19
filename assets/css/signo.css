@@ -190,6 +190,19 @@
         display: inline-block;
       }
 
+      .nav-link-cosmic i,
+      .meta-chip i,
+      .astro-icon-signo,
+      .astro-icon-elemento {
+        width: 24px;
+        height: 24px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        flex: 0 0 24px;
+      }
+
       .nav-link-cosmic::after {
         content: "";
         position: absolute;

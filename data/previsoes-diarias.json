@@ -1,11 +1,5 @@
 {
   "data": "2026-03-15",
-  "anoNovoAstrologico": true,
-  "chamadaEspecial": "Ano Novo Astrológico + 5 planetas em Áries = energia máxima de começar coisas novas. Quer saber onde isso bate no seu Mapa Astral?",
-  "ctaEspecial": {
-    "texto": "Vem pra live (grátis)!",
-    "link": "/live-ano-novo-astrologico"
-  },
   "signos": [
     {
       "nome": "Áries",

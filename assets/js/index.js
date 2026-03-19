@@ -66,7 +66,7 @@
           lua: "Libra",
           sol: "Peixes",
           titulo: "Previsão Diária - 02 de Março 2026",
-          preview: "Venus em Peixes ativa a sensibilidade artistica.",
+          preview: "Vênus em Peixes ativa a sensibilidade artística.",
         },
         {
           dia: 3,
@@ -136,7 +136,7 @@
           lua: "Peixes",
           sol: "Peixes",
           titulo: "Previsão Diária - 12 de Março 2026",
-          preview: "Intuicao elevada no pos-Lua Nova.",
+          preview: "Intuição elevada no pós-Lua Nova.",
         },
         {
           dia: 13,
@@ -165,7 +165,7 @@
           lua: "Touro",
           sol: "Peixes",
           titulo: "Previsão Diária - 16 de Março 2026",
-          preview: "Venus em Peixes inspira amor romantico.",
+          preview: "Vênus em Peixes inspira amor romântico.",
         },
         {
           dia: 17,
@@ -179,7 +179,7 @@
           lua: "Gêmeos",
           sol: "Peixes",
           titulo: "Previsão Diária - 18 de Março 2026",
-          preview: "Mercurio em Peixes aumenta a intuicao.",
+          preview: "Mercúrio em Peixes aumenta a intuição.",
         },
         {
           dia: 19,
@@ -221,7 +221,7 @@
           lua: "Virgem",
           sol: "Áries",
           titulo: "Previsão Diária - 24 de Março 2026",
-          preview: "Mercurio em Áries traz comunicação direta.",
+          preview: "Mercúrio em Áries traz comunicação direta.",
         },
         {
           dia: 25,
@@ -235,7 +235,7 @@
           lua: "Libra",
           sol: "Áries",
           titulo: "Previsão Diária - 26 de Março 2026",
-          preview: "Amor incondicional com Venus em Peixes.",
+          preview: "Amor incondicional com Vênus em Peixes.",
         },
         {
           dia: 27,
@@ -320,17 +320,14 @@
         });
       });
 
-      const mesNomes = schedule.MONTHS_PT;
       const postsDisponiveis = todosPosts
         .filter((post) => schedule.isPostAvailable(post.data, hoje))
         .sort((a, b) => b.data.localeCompare(a.data));
       const postsGrid = document.getElementById("posts-grid");
-      const featuredEl = document.getElementById("featured-post");
       const contador = document.getElementById("contador-posts");
       const botaoFiltros = document.querySelectorAll(".month-btn");
       const buscaInput = document.getElementById("busca");
       const calendario = document.getElementById("calendario");
-      const mesesComPosts = [...new Set(todosPosts.map((post) => post.data.slice(0, 7)))].sort();
 
       function formatDatePretty(dateString) {
         return schedule.formatDateLong(dateString);
@@ -344,35 +341,147 @@
           .replaceAll(">", "&gt;");
       }
 
-      const simbolosSignos = {
-        aries: "♈",
-        touro: "♉",
-        gemeos: "♊",
-        cancer: "♋",
-        leao: "♌",
-        virgem: "♍",
-        libra: "♎",
-        escorpiao: "♏",
-        sagitario: "♐",
-        capricornio: "♑",
-        aquario: "♒",
-        peixes: "♓",
+      const iconesSignos = {
+        aries: "/assets/icons/signos/aries.svg",
+        touro: "/assets/icons/signos/touro.svg",
+        gemeos: "/assets/icons/signos/gemeos.svg",
+        cancer: "/assets/icons/signos/cancer.svg",
+        leao: "/assets/icons/signos/leao.svg",
+        virgem: "/assets/icons/signos/virgem.svg",
+        libra: "/assets/icons/signos/libra.svg",
+        escorpiao: "/assets/icons/signos/escorpiao.svg",
+        sagitario: "/assets/icons/signos/sagitario.svg",
+        capricornio: "/assets/icons/signos/capricornio.svg",
+        aquario: "/assets/icons/signos/aquario.svg",
+        peixes: "/assets/icons/signos/peixes.svg",
       };
 
-      const iconesSignos = {
-        aries: "bi-fire",
-        touro: "bi-tree",
-        gemeos: "bi-chat-dots",
-        cancer: "bi-heart",
-        leao: "bi-sun",
-        virgem: "bi-flower1",
-        libra: "bi-balance-scale",
-        escorpiao: "bi-lightning",
-        sagitario: "bi-bullseye",
-        capricornio: "bi-mountain",
-        aquario: "bi-wind",
-        peixes: "bi-droplet"
+      const iconesElementos = {
+        fogo: "bi-fire",
+        terra: "bi-tree",
+        ar: "bi-wind",
+        agua: "bi-droplet",
       };
+
+      const previsoesState = {
+        todosSignos: [],
+        filtroAtivo: null,
+        fallbackAviso: "🌙 As previsões dos signos ainda não foram publicadas.",
+      };
+
+      const DATA_PADRAO_ULTIMOS_DIAS = "2026-03-18";
+      const ANO_PADRAO_ULTIMOS_DIAS = DATA_PADRAO_ULTIMOS_DIAS.slice(0, 4);
+      const MESES_NAVEGACAO = {
+        JAN: "01",
+        FEV: "02",
+        MAR: "03",
+        ABR: "04",
+        MAI: "05",
+        JUN: "06",
+        JUL: "07",
+        AGO: "08",
+        SET: "09",
+        OUT: "10",
+        NOV: "11",
+        DEZ: "12",
+      };
+      const DIAS_SEMANA_NAVEGACAO = [
+        "Domingo",
+        "Segunda",
+        "Terça",
+        "Quarta",
+        "Quinta",
+        "Sexta",
+        "Sábado",
+      ];
+      const postsUltimos7Dias = {
+        "2026-03-18": {
+          data_formatada: "18 MAR",
+          lua: "🌙 Lua em Gêmeos",
+          titulo: "Previsão Diária - 18 de Março 2026",
+          conteudo:
+            "Mercúrio em Peixes amplia a intuição. A comunicação flui com mais sensibilidade hoje.",
+          lema: "Seja a pessoa capaz de sorrir no pior dos dias",
+          lema_autor: "Aurora Scorpio",
+          destaque_palavra: "sorrir",
+        },
+        "2026-03-17": {
+          data_formatada: "17 MAR",
+          lua: "🌙 Lua em Gêmeos",
+          titulo: "Previsão Diária - 17 de Março 2026",
+          conteudo:
+            "Comunicação acelerada com Lua em Gêmeos. Mente ágil e curiosa.",
+          lema: "A pressa pode esperar, a paciência ensina",
+          lema_autor: "Aurora Scorpio",
+          destaque_palavra: null,
+        },
+        "2026-03-16": {
+          data_formatada: "16 MAR",
+          lua: "🌙 Lua em Touro",
+          titulo: "Previsão Diária - 16 de Março 2026",
+          conteudo:
+            "Vênus em Peixes inspira amor romântico e conexões profundas.",
+          lema: "O amor é a única força que transforma o caos em paz",
+          lema_autor: "Aurora Scorpio",
+          destaque_palavra: null,
+        },
+        "2026-03-15": {
+          data_formatada: "15 MAR",
+          lua: "🌙 Lua em Touro",
+          titulo: "Previsão Diária - 15 de Março 2026",
+          conteudo:
+            "Estabilidade e prazer com Lua em Touro. Momento de apreciar as pequenas coisas.",
+          lema: "A beleza está nos olhos de quem sabe esperar",
+          lema_autor: "Aurora Scorpio",
+          destaque_palavra: null,
+        },
+        "2026-03-14": {
+          data_formatada: "14 MAR",
+          lua: "🌙 Lua em Áries",
+          titulo: "Previsão Diária - 14 de Março 2026",
+          conteudo: "Marte em Gêmeos traz ação comunicativa. Iniciativa e coragem.",
+          lema: "A coragem não é ausência de medo, é ação apesar dele",
+          lema_autor: "Aurora Scorpio",
+          destaque_palavra: null,
+        },
+        "2026-03-13": {
+          data_formatada: "13 MAR",
+          lua: "🌙 Lua em Peixes",
+          titulo: "Previsão Diária - 13 de Março 2026",
+          conteudo:
+            "Intuição elevada. Momento de confiar nos pressentimentos.",
+          lema: "A intuição é a voz da alma que o medo tenta calar",
+          lema_autor: "Aurora Scorpio",
+          destaque_palavra: null,
+        },
+        "2026-03-12": {
+          data_formatada: "12 MAR",
+          lua: "🌙 Lua em Peixes",
+          titulo: "Previsão Diária - 12 de Março 2026",
+          conteudo:
+            "Intuição elevada no pós-Lua Nova. Momento de semear intenções.",
+          lema: "Plante hoje o que quer colher amanhã",
+          lema_autor: "Aurora Scorpio",
+          destaque_palavra: null,
+        },
+      };
+      window.postsUltimos7Dias = postsUltimos7Dias;
+      const diasComPost = ["12", "13", "14", "15", "16", "17", "18"];
+      const diaAtualCalendario = "18";
+      const signosArquivoData = [
+        { nome: "Áries", slug: "aries", icone: "/assets/icons/signos/aries.svg", posts: 12, ultimoPost: DATA_PADRAO_ULTIMOS_DIAS },
+        { nome: "Touro", slug: "touro", icone: "/assets/icons/signos/touro.svg", posts: 12, ultimoPost: DATA_PADRAO_ULTIMOS_DIAS },
+        { nome: "Gêmeos", slug: "gemeos", icone: "/assets/icons/signos/gemeos.svg", posts: 12, ultimoPost: DATA_PADRAO_ULTIMOS_DIAS },
+        { nome: "Câncer", slug: "cancer", icone: "/assets/icons/signos/cancer.svg", posts: 12, ultimoPost: DATA_PADRAO_ULTIMOS_DIAS },
+        { nome: "Leão", slug: "leao", icone: "/assets/icons/signos/leao.svg", posts: 12, ultimoPost: DATA_PADRAO_ULTIMOS_DIAS },
+        { nome: "Virgem", slug: "virgem", icone: "/assets/icons/signos/virgem.svg", posts: 12, ultimoPost: DATA_PADRAO_ULTIMOS_DIAS },
+        { nome: "Libra", slug: "libra", icone: "/assets/icons/signos/libra.svg", posts: 12, ultimoPost: DATA_PADRAO_ULTIMOS_DIAS },
+        { nome: "Escorpião", slug: "escorpiao", icone: "/assets/icons/signos/escorpiao.svg", posts: 12, ultimoPost: DATA_PADRAO_ULTIMOS_DIAS },
+        { nome: "Sagitário", slug: "sagitario", icone: "/assets/icons/signos/sagitario.svg", posts: 12, ultimoPost: DATA_PADRAO_ULTIMOS_DIAS },
+        { nome: "Capricórnio", slug: "capricornio", icone: "/assets/icons/signos/capricornio.svg", posts: 12, ultimoPost: DATA_PADRAO_ULTIMOS_DIAS },
+        { nome: "Aquário", slug: "aquario", icone: "/assets/icons/signos/aquario.svg", posts: 12, ultimoPost: DATA_PADRAO_ULTIMOS_DIAS },
+        { nome: "Peixes", slug: "peixes", icone: "/assets/icons/signos/peixes.svg", posts: 12, ultimoPost: DATA_PADRAO_ULTIMOS_DIAS },
+      ];
 
       function normalizarSlugSigno(nome) {
         return String(nome || "")
@@ -381,6 +490,31 @@
           .replace(/[\u0300-\u036f]/g, "")
           .replace(/[^a-z0-9]+/g, "-")
           .replace(/^-+|-+$/g, "");
+      }
+
+      function normalizarTexto(valor) {
+        return String(valor || "")
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
+      }
+
+      function normalizarElemento(elemento) {
+        const elementoNormalizado = normalizarTexto(elemento).trim();
+
+        if (elementoNormalizado.includes("fogo")) {
+          return "fogo";
+        }
+
+        if (elementoNormalizado.includes("terra")) {
+          return "terra";
+        }
+
+        if (elementoNormalizado.includes("agua")) {
+          return "agua";
+        }
+
+        return "ar";
       }
 
       function formatarDataPrevisoes(valorData) {
@@ -405,7 +539,8 @@
       const FALLBACK_PREVISOES = {
         data: hoje,
         signos: [],
-        fallbackAviso: "🌟 Em breve: previsões diárias atualizadas",
+        fallbackAviso:
+          "🌟 Em breve: previsões diárias atualizadas. Selecione um signo novamente em alguns instantes.",
       };
 
       async function carregarPrevisoesDiarias() {
@@ -433,91 +568,186 @@
       }
 
       function criarCardSigno(signo) {
-        const coresElemento = {
-          Fogo: "#c62828",
-          Terra: "#2e7d32",
-          Ar: "#1565c0",
-          Água: "#01579b",
-        };
-
-        const bgElemento = {
-          Fogo: "#ffebee",
-          Terra: "#e8f5e8",
-          Ar: "#e3f2fd",
-          Água: "#e1f5fe",
-        };
-
-        const elemento = signo.elemento || "Fogo";
-        const cor = coresElemento[elemento] || "#4c2a85";
-        const bgCor = bgElemento[elemento] || "#f0e6ff";
+        const elementoSlug = normalizarElemento(signo.elemento || "Ar");
+        const elementoLabel = {
+          fogo: "Fogo",
+          terra: "Terra",
+          ar: "Ar",
+          agua: "Água",
+        }[elementoSlug];
+        const iconeElemento = iconesElementos[elementoSlug] || "bi-stars";
         const nomeSigno = String(signo.nome || "Signo");
         const slugSigno = normalizarSlugSigno(nomeSigno);
         const urlSigno = `/signo-${slugSigno}.html`;
-        const iconeSigno = iconesSignos[slugSigno] || "bi-stars";
-        const iconeSignoRender = iconeSigno === "bi-balance-scale" ? "bi-bezier2" : iconeSigno;
-        const titleSigno = escapeHtml(`Ver tudo sobre o signo de ${nomeSigno}`);
-        const ariaSigno = escapeHtml(`Abrir página do signo ${nomeSigno}`);
+        const iconeSigno = iconesSignos[slugSigno] || "/assets/icons/star.svg";
         const nomeSignoEscapado = escapeHtml(nomeSigno);
-
-        const iconesAreas = {
-          amor: "❤️",
-          dinheiro: "💰",
-          amizades: "👥",
-          trabalho: "💼",
-          estudos: "📚",
-          família: "🏠",
-          familia: "🏠",
-          saúde: "🩺",
-          saude: "🩺",
-        };
 
         const areas = (signo.areas || [])
           .map((area) => {
-            const areaKey = area
-              .toLowerCase()
-              .normalize("NFD")
-              .replace(/[\u0300-\u036f]/g, "");
-            const icone = iconesAreas[areaKey] || "✨";
-            return `<span class="badge" style="background: ${bgCor}; color: ${cor}; padding: 0.35rem 0.75rem; border-radius: 999px; font-size: 0.75rem; margin-right: 0.5rem; margin-bottom: 0.5rem; display: inline-block;">
-      ${icone} ${area}
+            return `<span class="badge text-bg-light border">
+      ${escapeHtml(area)}
     </span>`;
           })
           .join("");
 
         return `
-    <div class="signo-card" style="border-left: 4px solid ${cor};">
-      <div class="signo-header">
-        <h3 class="signo-nome">
-          <a
-            href="${urlSigno}"
-            title="${titleSigno}"
-            aria-label="${ariaSigno}"
-            style="color: inherit; text-decoration: none;"
-          ><i class="bi ${iconeSignoRender}" style="margin-right: 6px"></i>${nomeSignoEscapado}</a>
-        </h3>
-        <span class="elemento-badge elemento-${elemento}">${elemento}</span>
+    <div class="previsao-signo card mb-4" data-signo="${slugSigno}" style="display: none;">
+      <div class="card-header d-flex align-items-center gap-2 flex-wrap">
+        <img src="${iconeSigno}" alt="Símbolo de ${nomeSignoEscapado}" title="Símbolo de ${nomeSignoEscapado}" width="24" height="24" />
+        <h3 class="h5 mb-0">${nomeSignoEscapado}</h3>
+        <span class="ms-2 text-muted small">
+          <i class="bi ${iconeElemento} me-1"></i>${elementoLabel}
+        </span>
       </div>
-      <div style="margin-bottom: 1rem;">
-        <span style="background: var(--cosmic-purple); color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.7rem; margin-right: 0.5rem;">🌙 Lua em ${signo.lua}</span>
-        <span style="background: var(--soft-gold); color: var(--midnight-blue); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.7rem;">☀️ Sol em ${signo.sol}</span>
-      </div>
-      <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem; flex: 1;">${signo.previsao}</p>
-      <div style="margin-bottom: 1rem;">${areas}</div>
-      <div style="background: ${bgCor}50; padding: 0.75rem; border-radius: 8px; font-size: 0.85rem; border-left: 3px solid ${cor};">
-        <strong>✨ Dica do dia:</strong> ${signo.dica}
-      </div>
-      <div class="mt-3">
-        <a
-          href="${urlSigno}"
-          class="btn-cosmic-small"
-          title="${titleSigno}"
-          aria-label="${ariaSigno}"
-        ><i class="bi bi-arrow-right-circle" style="margin-right: 6px"></i>Ver signo completo</a>
+      <div class="card-body">
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <span class="badge text-bg-dark"><i class="bi bi-moon-stars me-1"></i>Lua em ${escapeHtml(signo.lua || "—")}</span>
+          <span class="badge text-bg-secondary"><i class="bi bi-sun-fill me-1"></i>Sol em ${escapeHtml(signo.sol || "—")}</span>
+        </div>
+        <p class="mb-3">${escapeHtml(signo.previsao || "")}</p>
+        <div class="d-flex flex-wrap gap-2 mb-3">${areas}</div>
+        <div class="p-3 bg-light rounded border-start border-4">
+          <strong>Dica do dia:</strong> ${escapeHtml(signo.dica || "Siga sua intuição com presença.")}
+        </div>
+        <div class="mt-3">
+          <a href="${urlSigno}" class="btn btn-outline-primary btn-sm">Ver signo completo</a>
+        </div>
       </div>
     </div>
   `;
       }
 
+      function renderizarPrevisoesSignos(listaSignos) {
+        const lista = document.getElementById("lista-previsoes-signos");
+        if (!lista) {
+          return;
+        }
+
+        lista.innerHTML = "";
+        listaSignos.forEach((signo) => {
+          lista.insertAdjacentHTML("beforeend", criarCardSigno(signo));
+        });
+      }
+
+      function inicializarFiltroSignos() {
+        const botoes = document.querySelectorAll("#seletor-signos button");
+        const previsoes = document.querySelectorAll(".previsao-signo");
+        const estadoZero = document.getElementById("estado-zero");
+        const btnMostrarTodos =
+          document.getElementById("filtro-mostrar-todos") ||
+          document.getElementById("mostrar-todos");
+        const btnLimparFiltro =
+          document.getElementById("filtro-limpar") ||
+          document.getElementById("limpar-filtro");
+        const usarTemaRoxo = [...botoes].some(
+          (botao) =>
+            botao.classList.contains("btn-outline-roxo") ||
+            botao.classList.contains("btn-roxo"),
+        );
+
+        function esconderTodasPrevisoes() {
+          previsoes.forEach((previsao) => {
+            previsao.style.display = "none";
+          });
+        }
+
+        function resetarBotoes() {
+          botoes.forEach((botao) => {
+            botao.classList.remove(
+              "btn-primary",
+              "btn-roxo",
+              "text-white",
+              "active",
+            );
+            if (usarTemaRoxo) {
+              botao.classList.remove("btn-outline-primary");
+              botao.classList.add("btn-outline-roxo");
+            } else {
+              botao.classList.remove("btn-outline-roxo");
+              botao.classList.add("btn-outline-primary");
+            }
+          });
+        }
+
+        function mostrarEstadoZero() {
+          esconderTodasPrevisoes();
+          if (estadoZero) {
+            estadoZero.style.display = "block";
+          }
+          resetarBotoes();
+        }
+
+        function mostrarTodos() {
+          previsoes.forEach((previsao) => {
+            previsao.style.display = "block";
+          });
+          if (estadoZero) {
+            estadoZero.style.display = "none";
+          }
+          resetarBotoes();
+        }
+
+        botoes.forEach((botao) => {
+          botao.addEventListener("click", function onClickSigno() {
+            const { signo } = this.dataset;
+            esconderTodasPrevisoes();
+            if (estadoZero) {
+              estadoZero.style.display = "none";
+            }
+
+            const previsaoSelecionada = document.querySelector(
+              `.previsao-signo[data-signo="${signo}"]`,
+            );
+
+            if (previsaoSelecionada) {
+              previsaoSelecionada.style.display = "block";
+            }
+
+            resetarBotoes();
+            if (usarTemaRoxo) {
+              this.classList.remove("btn-outline-roxo");
+              this.classList.add("btn-roxo", "active");
+            } else {
+              this.classList.remove("btn-outline-primary");
+              this.classList.add("btn-primary", "text-white");
+            }
+          });
+        });
+
+        if (btnMostrarTodos) {
+          btnMostrarTodos.addEventListener("click", mostrarTodos);
+        }
+
+        if (btnLimparFiltro) {
+          btnLimparFiltro.addEventListener("click", mostrarEstadoZero);
+        }
+
+        mostrarEstadoZero();
+      }
+
+      async function inicializarPrevisoesSignos() {
+        const previsoes = await carregarPrevisoesDiarias();
+        previsoesState.todosSignos = Array.isArray(previsoes?.signos)
+          ? previsoes.signos
+          : [];
+        previsoesState.fallbackAviso =
+          previsoes?.fallbackAviso || FALLBACK_PREVISOES.fallbackAviso;
+
+        atualizarCabecalhoPrevisoes(previsoes);
+        renderizarPrevisoesSignos(previsoesState.todosSignos);
+        inicializarFiltroSignos();
+
+        if (!previsoesState.todosSignos.length) {
+          const estadoZero = document.getElementById("estado-zero");
+          if (estadoZero) {
+            estadoZero.innerHTML = `
+              <img src="/assets/icons/star.svg" alt="Ícone de estrela" title="Ícone de estrela" width="48" height="48" class="mb-3 opacity-50" />
+              <p class="h5 mb-2">Previsões indisponíveis</p>
+              <p class="text-muted">${escapeHtml(previsoesState.fallbackAviso)}</p>
+            `;
+          }
+        }
+      }
       function atualizarCabecalhoPrevisoes(previsoes) {
         const dataEl = document.getElementById("previsoes-data-atual");
         const luaEl = document.getElementById("previsoes-lua-global");
@@ -539,180 +769,6 @@
         solEl.textContent = solGlobal;
       }
 
-      function atualizarAlertaEspecial(previsoes) {
-        const alerta = document.getElementById("alerta-astrologico");
-        const chamada = document.getElementById("chamada-especial");
-        const ctaLink = document.getElementById("cta-especial-link");
-        const ctaTexto = document.getElementById("cta-especial-texto");
-
-        if (!alerta || !chamada || !ctaLink || !ctaTexto) {
-          return;
-        }
-
-        const mostrarAlerta = Boolean(
-          previsoes?.anoNovoAstrologico && previsoes?.chamadaEspecial,
-        );
-
-        alerta.classList.toggle("d-none", !mostrarAlerta);
-
-        if (!mostrarAlerta) {
-          return;
-        }
-
-        chamada.textContent = previsoes.chamadaEspecial;
-        ctaTexto.textContent = previsoes?.ctaEspecial?.texto || "Ver mais";
-        ctaLink.setAttribute(
-          "href",
-          previsoes?.ctaEspecial?.link || "/live-ano-novo-astrologico/",
-        );
-        const tituloCta = previsoes?.ctaEspecial?.texto
-          ? `Acessar: ${previsoes.ctaEspecial.texto}`
-          : "Acessar conteúdo especial de astrologia";
-        ctaLink.setAttribute("title", tituloCta);
-        ctaLink.setAttribute("aria-label", tituloCta);
-      }
-
-      function renderizarPrevisoesSignos(previsoes) {
-        const grid = document.getElementById("grid-signos");
-        if (!grid) {
-          return;
-        }
-
-        grid.innerHTML = "";
-        const signos = previsoes?.signos || [];
-
-        if (!signos.length) {
-          const mensagemFallback = escapeHtml(
-            previsoes?.fallbackAviso ||
-              "🌙 As previsões dos signos ainda não foram publicadas.",
-          );
-          grid.innerHTML =
-            `<div class="col-12"><div class="nenhum-post">${mensagemFallback}</div></div>`;
-          return;
-        }
-
-        signos.forEach((signo) => {
-          grid.insertAdjacentHTML("beforeend", criarCardSigno(signo));
-        });
-      }
-
-      async function inicializarPrevisoesSignos() {
-        const grid = document.getElementById("grid-signos");
-        if (!grid) return;
-
-        let previsoes = null;
-
-        try {
-          const resposta = await fetch("/data/previsoes-diarias.json", {
-            cache: "no-store",
-          });
-          if (resposta.ok) {
-            previsoes = await resposta.json();
-          }
-        } catch (erro) {
-          console.warn("Arquivo JSON não encontrado, usando dados de fallback");
-        }
-
-        // Se não carregou ou está vazio, usa DADOS FALLBACK IGUAL À IMAGEM
-        if (!previsoes?.signos?.length) {
-          previsoes = {
-            data: "2026-03-15",
-            signos: [
-              {
-                nome: "ÁRIES",
-                elemento: "Fogo",
-                lua: "Áries",
-                sol: "Peixes",
-                previsao:
-                  "Lua e Vênus prometem um domingo cheio de diversão e interações sociais. Só vale cuidar dos impulsos com dinheiro e evitar decisões no calor do momento.",
-                dica: "No amor, sinceridade e jogo limpo vão fazer toda diferença.",
-                areas: ["amor", "dinheiro", "amizades"],
-              },
-              {
-                nome: "TOURO",
-                elemento: "Terra",
-                lua: "Touro",
-                sol: "Peixes",
-                previsao:
-                  "O domingo pede ajustes inteligentes na vida financeira e mais clareza em acordos com outras pessoas.",
-                dica: "Se bater tensão em tarefas coletivas, respire antes de responder.",
-                areas: ["dinheiro", "trabalho", "amizades"],
-              },
-              {
-                nome: "GÊMEOS",
-                elemento: "Ar",
-                lua: "Gêmeos",
-                sol: "Peixes",
-                previsao:
-                  "Sua mente está ágil, curiosa e cheia de ideias novas para reinventar projetos.",
-                dica: "Conversas importantes podem abrir portas, desde que você evite prometer mais do que consegue cumprir.",
-                areas: ["estudos", "trabalho", "amizades"],
-              },
-              {
-                nome: "CÂNCER",
-                elemento: "Água",
-                lua: "Câncer",
-                sol: "Peixes",
-                previsao:
-                  "As emoções ficam mais visíveis e você tende a captar tudo ao redor com intensidade.",
-                dica: "O dia favorece acolhimento, reconciliações e organização da rotina doméstica.",
-                areas: ["família", "amizades", "saúde"],
-              },
-            ],
-            chamadaEspecial:
-              "Ano Novo Astrológico + 5 planetas em Áries = energia máxima de começar coisas novas. Quer saber onde isso bate no seu Mapa Astral?",
-            ctaEspecial: {
-              texto: "Vem pra live (grátis)!",
-              link: "/live-ano-novo-astrologico/",
-            },
-          };
-        }
-
-        // Atualiza cabeçalho
-        const dataEl = document.getElementById("previsoes-data-atual");
-        const luaEl = document.getElementById("previsoes-lua-global");
-        const solEl = document.getElementById("previsoes-sol-global");
-
-        if (dataEl) dataEl.textContent = previsoes.data || "15 de Março de 2026";
-        if (luaEl) luaEl.textContent = "Touro";
-        if (solEl) solEl.textContent = "Peixes";
-
-        // Mostra alerta especial
-        const alerta = document.getElementById("alerta-astrologico");
-        const chamada = document.getElementById("chamada-especial");
-        const ctaLink = document.getElementById("cta-especial-link");
-        const ctaTexto = document.getElementById("cta-especial-texto");
-
-        if (alerta && previsoes.chamadaEspecial) {
-          alerta.classList.remove("d-none");
-          if (chamada) chamada.textContent = previsoes.chamadaEspecial;
-          if (ctaTexto)
-            ctaTexto.textContent =
-              previsoes.ctaEspecial?.texto || "Vem pra live (grátis)!";
-          if (ctaLink) ctaLink.href = previsoes.ctaEspecial?.link || "#";
-        }
-
-        // Renderiza os cards
-        grid.innerHTML = "";
-        previsoes.signos.forEach((signo) => {
-          grid.insertAdjacentHTML("beforeend", criarCardSigno(signo));
-        });
-      }
-
-      function setMesAtivo(chaveMes) {
-        const botaoAlvo = [...botaoFiltros].find(
-          (btn) => btn.dataset.mes === chaveMes,
-        );
-
-        if (!botaoAlvo) {
-          return;
-        }
-
-        botaoFiltros.forEach((btn) => btn.classList.remove("active"));
-        botaoAlvo.classList.add("active");
-        filtrarPosts();
-      }
-
       function ativarTooltips() {
         if (!window.bootstrap?.Tooltip) {
           return;
@@ -728,56 +784,268 @@
           });
       }
 
-      function renderFeatured() {
-        const postHoje =
-          postsDisponiveis.find((post) => post.data === hoje) ||
-          postsDisponiveis[0];
+      function atualizarDestaqueVisualCardsDia(dataSelecionada) {
+        const cards = document.querySelectorAll(".card-dia");
+        cards.forEach((card) => {
+          card.classList.remove("card-destaque", "card-signo-ativo");
+          card.classList.add("card-signo");
+          card.setAttribute("aria-pressed", "false");
 
-        if (!postHoje) {
-          featuredEl.innerHTML = `
-                    <div class="nenhum-post">
-                        🌙 Ainda não há publicações liberadas para exibir.
-                    </div>
-                `;
+          card.querySelectorAll(".badge-dourado, .badge").forEach((badge) => {
+            badge.remove();
+          });
+        });
+
+        const cardSelecionado = document.querySelector(
+          `.card-dia[data-dia="${dataSelecionada}"]`,
+        );
+        if (!cardSelecionado) {
           return;
         }
 
-        const [, mesHoje] = postHoje.data.split("-");
-        const mesHojeNome = mesNomes[parseInt(mesHoje, 10) - 1].toUpperCase();
-        const diaHojeLabel = String(parseInt(postHoje.data.split("-")[2], 10));
-        const badgeTexto =
-          postHoje.data === hoje
-            ? `✨ HOJE • ${diaHojeLabel} DE ${mesHojeNome} ✨`
-            : `✨ DESTAQUE • ${diaHojeLabel} DE ${mesHojeNome} ✨`;
-        const tituloLinkDestaque = escapeHtml(
-          `Leia o post completo: ${postHoje.titulo}`,
+        cardSelecionado.classList.remove("card-signo");
+        cardSelecionado.classList.add("card-destaque", "card-signo-ativo");
+        cardSelecionado.setAttribute("aria-pressed", "true");
+
+        const corpoCard = cardSelecionado.querySelector(".card-body");
+        if (!corpoCard) {
+          return;
+        }
+
+        const badge = document.createElement("span");
+        badge.className = "badge-dourado d-inline-block mb-2";
+        badge.textContent =
+          dataSelecionada === DATA_PADRAO_ULTIMOS_DIAS ? "✨ HOJE ✨" : "✨ ATUAL ✨";
+        corpoCard.insertBefore(badge, corpoCard.firstChild);
+      }
+
+      function formatarIndicadorNavegacaoDias(dataISO) {
+        if (!dataISO) {
+          return null;
+        }
+
+        const [ano, mes, dia] = dataISO.split("-").map(Number);
+        if (!ano || !mes || !dia) {
+          return null;
+        }
+
+        const data = new Date(ano, mes - 1, dia, 12);
+        const diaSemana = DIAS_SEMANA_NAVEGACAO[data.getDay()] || "Dia";
+        const mesAbrev = Object.keys(MESES_NAVEGACAO).find(
+          (chave) => MESES_NAVEGACAO[chave] === String(mes).padStart(2, "0"),
         );
 
-        featuredEl.innerHTML = `
-                <div class="row g-4 align-items-center">
-                    <div class="col-md-7">
-                        <div class="post-destaque">
-                            <div class="destaque-badge">
-                                <span class="badge-hoje">${badgeTexto}</span>
-                            </div>
-                            <h3 class="destaque-titulo">${postHoje.titulo}</h3>
-                            <div class="destaque-meta">
-                                <span><i class="bi bi-calendar3 meta-icon"></i> ${formatDatePretty(postHoje.data)}</span>
-                                <span><i class="bi bi-moon-stars meta-icon"></i> Lua em ${postHoje.lua}</span>
-                                <span><i class="bi bi-sun-fill meta-icon sun"></i> Sol em ${postHoje.sol || "—"}</span>
-                            </div>
-                            <p class="destaque-texto">${postHoje.preview}</p>
-                            <a href="posts/${postHoje.arquivo}" class="btn-destaque mt-4" title="${tituloLinkDestaque}" aria-label="${tituloLinkDestaque}">Ler post completo <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="ritual-semana">
-                            <h4><i class="bi bi-moon-stars"></i> Ritual da Semana</h4>
-                            <p>Respire, acenda uma vela e escreva: <em>"O que escolho transformar hoje?"</em></p>
-                        </div>
-                    </div>
-                </div>
-            `;
+        return {
+          diaSemana,
+          diaNumero: dia,
+          mesAno: `${mesAbrev || "MAR"} ${ano}`,
+        };
+      }
+
+      function extrairDataAtualDoTitulo() {
+        const tituloEl = document.getElementById("post-titulo");
+        if (!tituloEl) {
+          return DATA_PADRAO_ULTIMOS_DIAS;
+        }
+
+        const texto = String(tituloEl.textContent || "");
+        const match = texto.match(/(\d{1,2})\s+([A-Z]{3})/i);
+        if (!match) {
+          return DATA_PADRAO_ULTIMOS_DIAS;
+        }
+
+        const dia = match[1].padStart(2, "0");
+        const mes = MESES_NAVEGACAO[match[2].toUpperCase()] || "03";
+        return `${ANO_PADRAO_ULTIMOS_DIAS}-${mes}-${dia}`;
+      }
+
+      function criarNavegacaoDiasHTML(dataAtualISO) {
+        const dataAtual = new Date(`${dataAtualISO}T12:00:00`);
+        if (Number.isNaN(dataAtual.getTime())) {
+          return "";
+        }
+
+        const diaAnterior = new Date(dataAtual);
+        diaAnterior.setDate(diaAnterior.getDate() - 1);
+        const diaProximo = new Date(dataAtual);
+        diaProximo.setDate(diaProximo.getDate() + 1);
+
+        const formatarISO = (data) =>
+          `${data.getFullYear()}-${String(data.getMonth() + 1).padStart(2, "0")}-${String(data.getDate()).padStart(2, "0")}`;
+        const formatarRotulo = (data) => {
+          const dia = String(data.getDate()).padStart(2, "0");
+          const mes = Object.keys(MESES_NAVEGACAO).find(
+            (chave) =>
+              MESES_NAVEGACAO[chave] === String(data.getMonth() + 1).padStart(2, "0"),
+          );
+          return `${dia} ${mes || "MAR"}`;
+        };
+
+        const isoAnterior = formatarISO(diaAnterior);
+        const isoProximo = formatarISO(diaProximo);
+        const temAnterior = Boolean(postsUltimos7Dias[isoAnterior]);
+        const temProximo = Boolean(postsUltimos7Dias[isoProximo]);
+        const indicador = formatarIndicadorNavegacaoDias(dataAtualISO);
+
+        if (!indicador) {
+          return "";
+        }
+
+        return `
+          <nav class="navegacao-dias my-4" aria-label="Navegação entre dias">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+              <button class="btn btn-outline-secondary btn-sm d-flex align-items-center gap-2 btn-nav-dia"
+                      type="button"
+                      data-dia="${isoAnterior}"
+                      ${!temAnterior ? "disabled" : ""}
+                      aria-label="Dia anterior: ${formatarRotulo(diaAnterior)}">
+                <i class="bi bi-arrow-left-circle-fill" aria-hidden="true"></i>
+                <span>Anterior</span>
+                <span class="text-muted">${formatarRotulo(diaAnterior)}</span>
+              </button>
+
+              <div class="text-center border rounded px-3 py-2 bg-light flex-grow-1" aria-live="polite">
+                <div class="small text-muted">${indicador.diaSemana}</div>
+                <div class="h5 mb-0 fw-bold">${indicador.diaNumero}</div>
+                <div class="small text-uppercase">${indicador.mesAno}</div>
+              </div>
+
+              <button class="btn btn-outline-secondary btn-sm d-flex align-items-center gap-2 btn-nav-dia"
+                      type="button"
+                      data-dia="${isoProximo}"
+                      ${!temProximo ? "disabled" : ""}
+                      aria-label="Próximo dia: ${formatarRotulo(diaProximo)}">
+                <span>Próximo</span>
+                <span class="text-muted">${formatarRotulo(diaProximo)}</span>
+                <i class="bi bi-arrow-right-circle-fill" aria-hidden="true"></i>
+              </button>
+            </div>
+          </nav>
+        `;
+      }
+
+      function atualizarNavegacaoDias() {
+        const lemaContainer = document.getElementById("lema-container");
+        if (!lemaContainer) {
+          return;
+        }
+
+        const navAnterior = document.querySelector(".navegacao-dias");
+        if (navAnterior) {
+          navAnterior.remove();
+        }
+
+        const dataAtualISO = extrairDataAtualDoTitulo();
+        const html = criarNavegacaoDiasHTML(dataAtualISO);
+        if (html) {
+          lemaContainer.insertAdjacentHTML("afterend", html);
+        }
+      }
+
+      function inicializarEventosNavegacaoDias() {
+        document.addEventListener("click", (evento) => {
+          const botao = evento.target.closest(".btn-nav-dia:not([disabled])");
+          if (!botao) {
+            return;
+          }
+
+          const dia = botao.dataset.dia;
+          if (!dia || !postsUltimos7Dias[dia]) {
+            return;
+          }
+
+          atualizarPostDinamico(dia);
+        });
+      }
+
+      // Atualiza o conteúdo principal (post + lema) conforme o dia selecionado.
+      function atualizarPostDinamico(dataSelecionada) {
+        const post = postsUltimos7Dias[dataSelecionada];
+        if (!post) {
+          return;
+        }
+
+        const tituloEl = document.getElementById("post-titulo");
+        const luaEl = document.getElementById("post-lua");
+        const subtituloEl = document.getElementById("post-subtitulo");
+        const conteudoEl = document.getElementById("post-conteudo");
+        const lemaEl = document.getElementById("lema-texto");
+        const autorEl = document.getElementById("lema-autor");
+        const linkEl = document.getElementById("post-link");
+
+        if (tituloEl) {
+          const prefixo =
+            dataSelecionada === DATA_PADRAO_ULTIMOS_DIAS ? "HOJE • " : "";
+          tituloEl.textContent = `${prefixo}${post.data_formatada}`;
+        }
+        if (luaEl) {
+          luaEl.innerHTML = post.lua;
+        }
+        if (subtituloEl) {
+          subtituloEl.textContent = post.titulo;
+        }
+        if (conteudoEl) {
+          conteudoEl.textContent = post.conteudo;
+        }
+        if (lemaEl) {
+          if (post.destaque_palavra) {
+            const palavraEscapada = post.destaque_palavra.replace(
+              /[.*+?^${}()|[\]\\]/g,
+              "\\$&",
+            );
+            const regexDestaque = new RegExp(`(${palavraEscapada})`, "gi");
+            const lemaComDestaque = escapeHtml(post.lema).replace(
+              regexDestaque,
+              '<span class="palavra-destaque">$1</span>',
+            );
+            lemaEl.innerHTML = `"${lemaComDestaque}"`;
+          } else {
+            lemaEl.innerHTML = `"${escapeHtml(post.lema)}"`;
+          }
+        }
+        if (autorEl) {
+          autorEl.textContent = post.lema_autor || "Aurora Scorpio";
+        }
+
+        if (linkEl) {
+          const postRelacionado = postsDisponiveis.find(
+            (postAtual) => postAtual.data === dataSelecionada,
+          );
+          const href = postRelacionado ? `posts/${postRelacionado.arquivo}` : "#";
+          linkEl.setAttribute("href", href);
+          linkEl.setAttribute("title", `Ler post completo de ${post.data_formatada}`);
+          linkEl.setAttribute(
+            "aria-label",
+            `Abrir post completo de ${post.data_formatada}`,
+          );
+        }
+
+        atualizarDestaqueVisualCardsDia(dataSelecionada);
+        atualizarNavegacaoDias();
+      }
+      window.atualizarPostDinamico = atualizarPostDinamico;
+      window.atualizarNavegacaoDias = atualizarNavegacaoDias;
+
+      function inicializarCardsUltimos7Dias() {
+        const cards = document.querySelectorAll(".card-dia");
+        if (!cards.length) {
+          return;
+        }
+
+        cards.forEach((card) => {
+          card.addEventListener("click", () => {
+            atualizarPostDinamico(card.dataset.dia);
+          });
+
+          card.addEventListener("keydown", (evento) => {
+            if (evento.key === "Enter" || evento.key === " ") {
+              evento.preventDefault();
+              atualizarPostDinamico(card.dataset.dia);
+            }
+          });
+        });
+
+        atualizarPostDinamico(DATA_PADRAO_ULTIMOS_DIAS);
       }
 
       function criarCard(post) {
@@ -819,7 +1087,7 @@
         if (semDestaque.length === 0) {
           postsGrid.innerHTML =
             lista.length > 0
-              ? '<div class="col-12"><div class="nenhum-post">🌙 O resultado desta busca está no post em destaque acima.</div></div>'
+              ? '<div class="col-12"><div class="nenhum-post">🌙 O resultado desta busca está na seção de post do dia.</div></div>'
               : '<div class="col-12"><div class="nenhum-post">🌙 Nenhum post encontrado para este filtro.</div></div>';
           contador.textContent = `${lista.length} publicações`;
           renderCalendario(lista);
@@ -867,124 +1135,155 @@
         renderPosts(filtrados);
       }
 
-      function gerarCalendario(mes, ano, lista = []) {
-        const primeiroDia = new Date(ano, mes - 1, 1);
-        const ultimoDia = new Date(ano, mes, 0);
-        const diasNoMes = ultimoDia.getDate();
-        const diaSemanaInicio = primeiroDia.getDay(); // 0 = Domingo
-
-        const postsPorData = new Map(lista.map((post) => [post.data, post]));
-        let html = '<div class="calendar-weekdays">';
-
-        ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"].forEach((dia) => {
-          html += `<div class="calendar-weekday">${dia}</div>`;
-        });
-        html += '</div><div class="calendar-days">';
-
-        for (let i = 0; i < diaSemanaInicio; i += 1) {
-          html += '<div class="calendar-day-slot" aria-hidden="true"></div>';
+      function renderizarCelulaCalendario(dia) {
+        if (!dia) {
+          return "<td></td>";
         }
 
-        for (let dia = 1; dia <= diasNoMes; dia += 1) {
-          const dataISO = `${ano}-${String(mes).padStart(2, "0")}-${String(dia).padStart(2, "0")}`;
-          const postDoDia = postsPorData.get(dataISO);
-          const classes = ["calendar-day-card"];
-
-          if (postDoDia) {
-            classes.push("has-post");
-          } else {
-            classes.push("no-post");
-          }
-
-          if (dataISO === hoje) {
-            classes.push("today");
-          }
-
-          if (postDoDia) {
-            const tituloCalendario = escapeHtml(`Leia o post: ${postDoDia.titulo}`);
-            html += `
-              <a
-                href="posts/${postDoDia.arquivo}"
-                class="${classes.join(" ")}"
-                data-bs-toggle="tooltip"
-                data-bs-placement="top"
-                data-bs-custom-class="calendar-tooltip"
-                data-bs-title="${escapeHtml(postDoDia.titulo)}"
-                title="${tituloCalendario}"
-                aria-label="${escapeHtml(`${postDoDia.titulo} em ${formatDatePretty(dataISO)}`)}"
-              >
-                <span class="calendar-day-number">${dia}</span>
-                <span class="calendar-post-dot" aria-hidden="true"></span>
-              </a>
-            `;
-          } else {
-            html += `
-              <div class="${classes.join(" ")}" aria-hidden="true">
-                <span class="calendar-day-number">${dia}</span>
-              </div>
-            `;
-          }
+        const diaStr = String(dia);
+        if (diaStr === diaAtualCalendario) {
+          return `<td class="dia-atual">${diaStr}</td>`;
         }
 
-        html += "</div>";
-        return html;
+        if (diasComPost.includes(diaStr)) {
+          return `<td class="dia-com-post">${diaStr}</td>`;
+        }
+
+        return `<td class="text-muted">${diaStr}</td>`;
       }
 
-      function renderCalendario(lista = postsDisponiveis) {
-        const ativo = document.querySelector(".month-btn.active");
-        let referenciaMes = hoje.slice(0, 7);
+      function gerarCalendarioMar2026() {
+        const semanas = [
+          [1, 2, 3, 4, 5, 6, 7],
+          [8, 9, 10, 11, 12, 13, 14],
+          [15, 16, 17, 18, 19, 20, 21],
+          [22, 23, 24, 25, 26, 27, 28],
+          [29, 30, 31, "", "", "", ""],
+        ];
 
-        if (ativo && ativo.dataset.mes && ativo.dataset.mes !== "all") {
-          referenciaMes = ativo.dataset.mes;
+        const linhas = semanas
+          .map((semana) => {
+            const celulas = semana.map((dia) => renderizarCelulaCalendario(dia)).join("");
+            return `<tr>${celulas}</tr>`;
+          })
+          .join("");
+
+        return `
+          <table class="table table-bordered text-center mb-0 align-middle">
+            <thead>
+              <tr>
+                <th>DOM</th>
+                <th>SEG</th>
+                <th>TER</th>
+                <th>QUA</th>
+                <th>QUI</th>
+                <th>SEX</th>
+                <th>SÁB</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${linhas}
+            </tbody>
+          </table>
+          <div class="mt-3 d-flex gap-3 small">
+            <div class="d-flex align-items-center gap-1">
+              <span class="dia-com-post" style="width: 20px; height: 20px; display: inline-block;"></span>
+              <span>Post publicado</span>
+            </div>
+            <div class="d-flex align-items-center gap-1">
+              <span class="dia-atual" style="width: 20px; height: 20px; display: inline-block;"></span>
+              <span>Hoje</span>
+            </div>
+          </div>
+        `;
+      }
+
+      function formatarDataCurtaArquivo(dataIso) {
+        const [ano, mes, dia] = dataIso.split("-");
+        const nomesMes = [
+          "Jan",
+          "Fev",
+          "Mar",
+          "Abr",
+          "Mai",
+          "Jun",
+          "Jul",
+          "Ago",
+          "Set",
+          "Out",
+          "Nov",
+          "Dez",
+        ];
+        const mesNome = nomesMes[parseInt(mes, 10) - 1] || "Mar";
+        return `${parseInt(dia, 10)} ${mesNome} ${ano}`;
+      }
+
+      function renderizarUltimosPostsSignos() {
+        const container = document.getElementById("ultimos-posts-signos");
+        if (!container) {
+          return;
         }
 
-        const [ano, mes] = referenciaMes.split("-").map(Number);
-        const indiceMesAtual = mesesComPosts.indexOf(referenciaMes);
-        const mesAnterior =
-          indiceMesAtual > 0 ? mesesComPosts[indiceMesAtual - 1] : "";
-        const proximoMes =
-          indiceMesAtual >= 0 && indiceMesAtual < mesesComPosts.length - 1
-            ? mesesComPosts[indiceMesAtual + 1]
-            : "";
+        const html = signosArquivoData
+          .slice(0, 6)
+          .map((signo) => {
+            const badgeHoje =
+              signo.ultimoPost === DATA_PADRAO_ULTIMOS_DIAS
+                ? '<span class="badge-hoje">Hoje</span>'
+                : "";
+            const urlSigno = `signo-${signo.slug}.html`;
+            return `
+              <a href="${urlSigno}" class="signo-arquivo-item" aria-label="Abrir página de ${signo.nome}">
+                <img src="${signo.icone}" alt="${signo.nome}" class="icone-signo" width="32" height="32" />
+                <div class="info-signo">
+                  <span class="nome-signo">${signo.nome}</span>
+                  <span class="data-signo"> · ${formatarDataCurtaArquivo(signo.ultimoPost)}</span>
+                </div>
+                ${badgeHoje}
+              </a>
+            `;
+          })
+          .join("");
+
+        container.innerHTML = html;
+      }
+
+      function renderizarGridSignosArquivo() {
+        const container = document.getElementById("grid-signos-arquivo");
+        if (!container) {
+          return;
+        }
+
+        const html = signosArquivoData
+          .map((signo) => {
+            const urlSigno = `signo-${signo.slug}.html`;
+            return `
+              <a href="${urlSigno}" class="arquivo-grid-item" aria-label="Ver arquivo de ${signo.nome}">
+                <img src="${signo.icone}" alt="${signo.nome}" class="icone-signo-grid" width="40" height="40" />
+                <span class="nome-signo-grid">${signo.nome}</span>
+                <span class="qtd-posts">${signo.posts} posts</span>
+              </a>
+            `;
+          })
+          .join("");
+
+        container.innerHTML = html;
+      }
+
+      function renderCalendario() {
+        if (!calendario) {
+          return;
+        }
 
         calendario.innerHTML = "";
         calendario.insertAdjacentHTML(
           "beforeend",
           `
-            <div class="calendar-widget">
-              <div>
-                <h3 class="sidebar-title mb-1"><i class="bi bi-calendar-month"></i> Calendário de Posts</h3>
-                <p class="calendar-caption">Passe o mouse sobre os dias dourados para ver o título completo.</p>
-              </div>
-              <div class="calendar-month-bar">
-                <button
-                  class="calendar-nav-btn"
-                  type="button"
-                  data-calendar-nav="prev"
-                  data-target-month="${mesAnterior}"
-                  aria-label="Ver mês anterior"
-                  ${mesAnterior ? "" : "disabled"}
-                >
-                  <i class="bi bi-chevron-left"></i>
-                </button>
-                <div class="calendar-month-label">${schedule.MONTHS_PT[mes - 1]} ${ano}</div>
-                <button
-                  class="calendar-nav-btn"
-                  type="button"
-                  data-calendar-nav="next"
-                  data-target-month="${proximoMes}"
-                  aria-label="Ver próximo mês"
-                  ${proximoMes ? "" : "disabled"}
-                >
-                  <i class="bi bi-chevron-right"></i>
-                </button>
-              </div>
-              ${gerarCalendario(mes, ano, lista)}
+            <div class="mb-2">
+              ${gerarCalendarioMar2026()}
             </div>
           `,
         );
-
-        ativarTooltips();
       }
 
       botaoFiltros.forEach((btn) => {
@@ -996,16 +1295,6 @@
       });
 
       buscaInput.addEventListener("input", filtrarPosts);
-
-      calendario.addEventListener("click", (evento) => {
-        const botao = evento.target.closest("[data-calendar-nav]");
-
-        if (!botao || !botao.dataset.targetMonth) {
-          return;
-        }
-
-        setMesAtivo(botao.dataset.targetMonth);
-      });
 
       function bindNewsletterForm({ formId, inputId, msgId, successClass }) {
         const form = document.getElementById(formId);
@@ -1064,9 +1353,13 @@
       }
 
       verificarDuplicatas();
-      renderFeatured();
+      inicializarEventosNavegacaoDias();
+      inicializarCardsUltimos7Dias();
+      atualizarNavegacaoDias();
       aplicarFiltroPadrao();
       filtrarPosts();
+      renderizarUltimosPostsSignos();
+      renderizarGridSignosArquivo();
       inicializarPrevisoesSignos();
 
       // Ativar link da home no mesmo layout
