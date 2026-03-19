@@ -7,9 +7,9 @@
     // ============================================
     const CONFIG = {
         TIMEZONE: 'America/Sao_Paulo',
-        DATA_PADRAO: '2026-03-18',
-        DIA_ATUAL_CALENDARIO: '18',
-        DIAS_COM_POST: ['12', '13', '14', '15', '16', '17', '18'],
+        DATA_PADRAO: '2026-03-19',
+        DIA_ATUAL_CALENDARIO: '19',
+        DIAS_COM_POST: ['12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'],
         MESES: [
             'Janeiro', 'Fevereiro', 'Março', 'Abril',
             'Maio', 'Junho', 'Julho', 'Agosto',
@@ -209,6 +209,39 @@
         );
     }
 
+    const PASTAS_POSTS = {
+        "01": "01-Janeiro",
+        "02": "02-Fevereiro",
+        "03": "03-Marco"
+    };
+
+    function gerarLinkPost(post) {
+        if (!post?.arquivo) {
+            return "#";
+        }
+
+        const arquivoNormalizado = String(post.arquivo).replace(/^\/+/, "");
+        if (arquivoNormalizado.startsWith("posts/")) {
+            return `/${arquivoNormalizado}`;
+        }
+
+        if (arquivoNormalizado.includes("/")) {
+            return `/posts/${arquivoNormalizado}`;
+        }
+
+        if (!post?.data) {
+            return `/posts/${arquivoNormalizado}`;
+        }
+
+        const [, mes = "03"] = post.data.split("-");
+        const pasta = PASTAS_POSTS[mes];
+        if (!pasta) {
+            return `/posts/${arquivoNormalizado}`;
+        }
+
+        return `/posts/${pasta}/${arquivoNormalizado}`;
+    }
+
     // ============================================
     // GERAÇÃO DE POSTS
     // ============================================
@@ -222,7 +255,7 @@
             const sol = dia >= 20 ? "Aquario" : "Capricornio";
             posts.push({
                 id: `j${diaStr}`,
-                arquivo: `diario-${diaStr}-01-2026.html`,
+                arquivo: `01-Janeiro/diario-01-${diaStr}-2026.html`,
                 data: `2026-01-${diaStr}`,
                 titulo: `Previsão Diária - ${diaStr} de Janeiro de 2026`,
                 lua: DADOS.janeiroLua[dia],
@@ -233,17 +266,18 @@
         }
 
         // Fevereiro
-        for (let dia = 1; dia <= 10; dia++) {
+        for (let dia = 1; dia <= 28; dia++) {
             const diaStr = String(dia).padStart(2, "0");
+            const luaDoDia = DADOS.fevereiroLua?.[dia] || "—";
             posts.push({
                 id: `f${diaStr}`,
-                arquivo: `diario-${diaStr}-02-2026.html`,
+                arquivo: `02-Fevereiro/diario-02-${diaStr}-2026.html`,
                 data: `2026-02-${diaStr}`,
                 titulo: `Previsão Diária - ${diaStr} de Fevereiro de 2026`,
-                lua: DADOS.fevereiroLua[dia],
+                lua: luaDoDia,
                 sol: "Aquario",
                 tipo: "diario",
-                preview: `Dia de ${DADOS.fevereiroLua[dia]} com movimento astrológico voltado para clareza e transformação.`
+                preview: `Dia de ${luaDoDia} com movimento astrológico voltado para clareza e transformação.`
             });
         }
 
@@ -252,7 +286,7 @@
             const diaStr = String(post.dia).padStart(2, "0");
             posts.push({
                 id: `m${diaStr}`,
-                arquivo: `diario-03-${diaStr}-2026.html`,
+                arquivo: `03-Marco/diario-03-${diaStr}-2026.html`,
                 data: `2026-03-${diaStr}`,
                 titulo: post.titulo,
                 lua: post.lua,
@@ -357,7 +391,7 @@
                             <p class="preview">${escapeHtml(post.preview)}</p>
                             <div class="d-flex justify-content-between align-items-center gap-2 mt-auto pt-2 flex-wrap">
                                 ${solInfo}
-                                <a href="posts/${post.arquivo}" class="btn-card" title="${tituloLinkPost}" aria-label="${tituloLinkPost}">Ler mais <i class="bi bi-arrow-right"></i></a>
+                                <a href="${gerarLinkPost(post)}" class="btn-card" title="${tituloLinkPost}" aria-label="${tituloLinkPost}">Ler mais <i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
                     </article>
@@ -507,7 +541,7 @@
                     const badgeHoje = signo.ultimoPost === CONFIG.DATA_PADRAO
                         ? '<span class="badge-hoje">Hoje</span>'
                         : "";
-                    const urlSigno = `signo-${signo.slug}.html`;
+                    const urlSigno = `/signos/${signo.slug}/`;
                     return `
                         <a href="${urlSigno}" class="signo-arquivo-item" aria-label="Abrir página de ${signo.nome}">
                             <img src="${signo.icone}" alt="${signo.nome}" class="icone-signo" width="32" height="32" />
@@ -530,7 +564,7 @@
 
             const html = DADOS.signosArquivoData
                 .map(signo => {
-                    const urlSigno = `signo-${signo.slug}.html`;
+                    const urlSigno = `/signos/${signo.slug}/`;
                     return `
                         <a href="${urlSigno}" class="arquivo-grid-item" aria-label="Ver arquivo de ${signo.nome}">
                             <img src="${signo.icone}" alt="${signo.nome}" class="icone-signo-grid" width="40" height="40" />
@@ -614,7 +648,7 @@
 
             if (linkEl) {
                 const postRelacionado = postsDisponiveis.find(p => p.data === dataSelecionada);
-                linkEl.setAttribute("href", postRelacionado ? `posts/${postRelacionado.arquivo}` : "#");
+                linkEl.setAttribute("href", postRelacionado ? gerarLinkPost(postRelacionado) : "#");
                 linkEl.setAttribute("title", `Ler post completo de ${post.data_formatada}`);
                 linkEl.setAttribute("aria-label", `Abrir post completo de ${post.data_formatada}`);
             }
@@ -679,7 +713,7 @@
             const iconeElemento = iconesElementos[elementoSlug] || "bi-stars";
             const nomeSigno = String(signo.nome || "Signo");
             const slugSigno = normalizarSlugSigno(nomeSigno);
-            const urlSigno = `/signo-${slugSigno}.html`;
+            const urlSigno = `/signos/${slugSigno}/`;
             const iconeSigno = iconesSignos[slugSigno] || "/assets/icons/star.svg";
             const nomeSignoEscapado = escapeHtml(nomeSigno);
 
