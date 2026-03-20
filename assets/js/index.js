@@ -1,4 +1,85 @@
-      const schedule = window.AuroraSchedule;
+      function startOfLocalDayFallback(data) {
+        return new Date(
+          data.getFullYear(),
+          data.getMonth(),
+          data.getDate(),
+          0,
+          0,
+          0,
+          0,
+        );
+      }
+
+      function getDatePartsFallback(dateObj, timeZone) {
+        const formatter = new Intl.DateTimeFormat("en-CA", {
+          timeZone: timeZone || "America/Sao_Paulo",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+        });
+
+        const parts = formatter
+          .formatToParts(dateObj || new Date())
+          .reduce((acc, part) => {
+            if (part.type !== "literal") {
+              acc[part.type] = part.value;
+            }
+            return acc;
+          }, {});
+
+        const year = String(parts.year || "");
+        const month = String(parts.month || "").padStart(2, "0");
+        const day = String(parts.day || "").padStart(2, "0");
+        const iso = `${year}-${month}-${day}`;
+
+        return { iso, year, month, day };
+      }
+
+      function formatDateLongFallback(dateString) {
+        const match = String(dateString || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+        if (!match) {
+          return String(dateString || "");
+        }
+
+        const [, year, month, day] = match;
+        const nomesMeses = [
+          "janeiro",
+          "fevereiro",
+          "março",
+          "abril",
+          "maio",
+          "junho",
+          "julho",
+          "agosto",
+          "setembro",
+          "outubro",
+          "novembro",
+          "dezembro",
+        ];
+        const mes = nomesMeses[Number(month) - 1] || month;
+        return `${Number(day)} de ${mes} de ${year}`;
+      }
+
+      const scheduleFallback = {
+        BLOG_TIMEZONE: "America/Sao_Paulo",
+        getDateParts: (dateObj, timeZone) => getDatePartsFallback(dateObj, timeZone),
+        isPostAvailable: (postDateISO, referenceDateISO) => {
+          if (!postDateISO) {
+            return false;
+          }
+          const hojeISO = referenceDateISO || getDatePartsFallback(new Date(), "America/Sao_Paulo").iso;
+          return String(postDateISO) <= String(hojeISO);
+        },
+        formatDateLong: formatDateLongFallback,
+      };
+
+      const schedule =
+        window.AuroraSchedule &&
+        typeof window.AuroraSchedule.getDateParts === "function" &&
+        typeof window.AuroraSchedule.isPostAvailable === "function" &&
+        typeof window.AuroraSchedule.formatDateLong === "function"
+          ? window.AuroraSchedule
+          : scheduleFallback;
       const dataAtual = schedule.getDateParts(
         new Date(),
         schedule.BLOG_TIMEZONE,
@@ -416,6 +497,65 @@
           .replaceAll(">", "&gt;");
       }
 
+      function startOfLocalDay(dateObj) {
+        return new Date(
+          dateObj.getFullYear(),
+          dateObj.getMonth(),
+          dateObj.getDate(),
+          0,
+          0,
+          0,
+          0,
+        );
+      }
+
+      function addDays(dateObj, quantidadeDias) {
+        const data = startOfLocalDay(dateObj);
+        data.setDate(data.getDate() + quantidadeDias);
+        return data;
+      }
+
+      function toLocalISODate(dateObj) {
+        const ano = dateObj.getFullYear();
+        const mes = String(dateObj.getMonth() + 1).padStart(2, "0");
+        const dia = String(dateObj.getDate()).padStart(2, "0");
+        return `${ano}-${mes}-${dia}`;
+      }
+
+      function parseISOToLocalDate(dateISO) {
+        const match = String(dateISO || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+        if (!match) {
+          return startOfLocalDay(new Date());
+        }
+        const [, ano, mes, dia] = match;
+        return new Date(Number(ano), Number(mes) - 1, Number(dia), 0, 0, 0, 0);
+      }
+
+      function formatarDiaMesCurto(dataISO) {
+        const match = String(dataISO || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+        if (!match) {
+          return "";
+        }
+
+        const [, , mes, dia] = match;
+        const meses = [
+          "JAN",
+          "FEV",
+          "MAR",
+          "ABR",
+          "MAI",
+          "JUN",
+          "JUL",
+          "AGO",
+          "SET",
+          "OUT",
+          "NOV",
+          "DEZ",
+        ];
+        const mesAbrev = meses[Number(mes) - 1] || "MAR";
+        return `${dia} ${mesAbrev}`;
+      }
+
       const iconesSignos = {
         aries: "/assets/icons/signos/aries.svg",
         touro: "/assets/icons/signos/touro.svg",
@@ -444,7 +584,10 @@
         fallbackAviso: "🌙 As previsões dos signos ainda não foram publicadas.",
       };
 
-      const DATA_PADRAO_ULTIMOS_DIAS = "2026-03-19";
+      const DATA_PADRAO_ULTIMOS_DIAS = schedule.getDateParts(
+        new Date(),
+        schedule.BLOG_TIMEZONE,
+      ).iso;
       const ANO_PADRAO_ULTIMOS_DIAS = DATA_PADRAO_ULTIMOS_DIAS.slice(0, 4);
       const MESES_NAVEGACAO = {
         JAN: "01",
@@ -469,7 +612,7 @@
         "Sexta",
         "Sábado",
       ];
-      const postsUltimos7Dias = {
+      const postsUltimos7DiasBase = {
         "2026-03-19": {
           data_formatada: "19 MAR",
           lua: "🌙 Lua em Câncer",
@@ -550,9 +693,22 @@
           destaque_palavra: null,
         },
       };
+      const postsDisponiveisPorData = new Map(
+        todosPosts
+          .filter((post) => /^\d{4}-\d{2}-\d{2}$/.test(post.data))
+          .filter((post) => post.data <= DATA_PADRAO_ULTIMOS_DIAS)
+          .map((post) => [post.data, post]),
+      );
+      let postsUltimos7Dias = {};
       window.postsUltimos7Dias = postsUltimos7Dias;
-      const diasComPost = ["12", "13", "14", "15", "16", "17", "18", "19"];
-      const diaAtualCalendario = "19";
+      const diasComPost = [
+        ...new Set(
+          [...postsDisponiveisPorData.values()]
+            .filter((post) => post.data.startsWith(`${ANO_PADRAO_ULTIMOS_DIAS}-03-`))
+            .map((post) => String(Number(post.data.slice(8, 10)))),
+        ),
+      ];
+      const diaAtualCalendario = String(Number(DATA_PADRAO_ULTIMOS_DIAS.slice(8, 10)));
       const signosArquivoData = [
         { nome: "Áries", slug: "aries", icone: "/assets/icons/signos/aries.svg", posts: 12, ultimoPost: DATA_PADRAO_ULTIMOS_DIAS },
         { nome: "Touro", slug: "touro", icone: "/assets/icons/signos/touro.svg", posts: 12, ultimoPost: DATA_PADRAO_ULTIMOS_DIAS },
@@ -869,6 +1025,131 @@
           });
       }
 
+      function montarDadosPostUltimos7Dias(dataISO) {
+        const dadosBase = postsUltimos7DiasBase[dataISO];
+        if (dadosBase) {
+          return dadosBase;
+        }
+
+        const postCatalogo = postsDisponiveisPorData.get(dataISO);
+        if (!postCatalogo) {
+          return null;
+        }
+
+        return {
+          data_formatada: formatarDiaMesCurto(dataISO),
+          lua: postCatalogo.lua ? `Lua em ${postCatalogo.lua}` : "Lua em —",
+          titulo: postCatalogo.titulo || `Previsão Diária - ${formatDatePretty(dataISO)}`,
+          conteudo:
+            postCatalogo.preview ||
+            "Confira a previsão completa para alinhar suas escolhas com o céu do dia.",
+          lema: "Quando intenção e ação caminham juntas, o céu responde.",
+          lema_autor: "Aurora Scorpio",
+          destaque_palavra: null,
+        };
+      }
+
+      function construirJanelaUltimos7Dias() {
+        const hojeLocal = parseISOToLocalDate(DATA_PADRAO_ULTIMOS_DIAS);
+        const janela = [];
+
+        for (let i = 0; i < 7; i += 1) {
+          const dataDia = addDays(hojeLocal, -i);
+          const dataISO = toLocalISODate(dataDia);
+          const dadosPost = montarDadosPostUltimos7Dias(dataISO);
+
+          janela.push({
+            dataISO,
+            dataFormatada: formatarDiaMesCurto(dataISO),
+            isHoje: i === 0,
+            hasPost: Boolean(dadosPost),
+            post: dadosPost,
+          });
+        }
+
+        postsUltimos7Dias = janela.reduce((acc, item) => {
+          if (item.post) {
+            acc[item.dataISO] = item.post;
+          }
+          return acc;
+        }, {});
+        window.postsUltimos7Dias = postsUltimos7Dias;
+
+        return janela;
+      }
+
+      function renderizarCardsUltimos7Dias() {
+        const container = document.getElementById("cards-dias");
+        if (!container) {
+          return null;
+        }
+
+        const janela = construirJanelaUltimos7Dias();
+        const cardsHtml = janela
+          .map((item) => {
+            const classeBotao = item.isHoje ? "btn-dourado" : "btn-roxo";
+            const classeCard = item.hasPost ? "card-signo" : "card-signo opacity-50";
+            const labelCard = item.hasPost
+              ? `Selecionar dia ${item.dataFormatada}`
+              : `Dia ${item.dataFormatada} sem post publicado`;
+            const role = item.hasPost ? 'role="button" tabindex="0"' : 'tabindex="-1"';
+            const badgeHoje = item.isHoje && item.hasPost
+              ? '<span class="badge-dourado d-inline-block mb-2">HOJE</span>'
+              : "";
+            const textoLua = escapeHtml(item.post?.lua || "Post ainda não publicado");
+            const rotuloCta = item.isHoje
+              ? "Ver post de hoje"
+              : `Ver post de ${item.dataFormatada}`;
+            const cta = item.hasPost
+              ? `
+                      <a href="#previsoes"
+                         class="${classeBotao} btn-sm d-inline-flex align-items-center justify-content-center mt-auto btn-ler-dia"
+                         data-dia="${item.dataISO}"
+                         title="${rotuloCta}"
+                         aria-label="${rotuloCta}">
+                        <i class="bi bi-eye" aria-hidden="true"></i>
+                      </a>
+                `
+              : `
+                      <button type="button"
+                              class="${classeBotao} btn-sm d-inline-flex align-items-center justify-content-center mt-auto disabled"
+                              disabled
+                              aria-label="Post ainda não publicado para ${item.dataFormatada}">
+                        <i class="bi bi-eye" aria-hidden="true"></i>
+                      </button>
+                `;
+
+            return `
+                <div class="col-6 col-md-4 col-lg-3">
+                  <div class="card ${classeCard} h-100 card-dia"
+                       ${role}
+                       data-dia="${item.dataISO}"
+                       data-disponivel="${item.hasPost ? "1" : "0"}"
+                       aria-label="${labelCard}">
+                    <div class="card-body p-3 text-center d-flex flex-column">
+                      ${badgeHoje}
+                      <div class="fw-bold ${item.isHoje ? "fs-4 text-roxo" : "fs-5"}">${item.dataFormatada}</div>
+                      <small class="text-muted d-block mb-3">${textoLua}</small>
+                      ${cta}
+                    </div>
+                  </div>
+                </div>
+            `;
+          })
+          .join("");
+
+        container.innerHTML = `
+          ${cardsHtml}
+          <div class="col-12 mt-3 text-end">
+            <a href="/posts/diarios.html" class="btn btn-link text-roxo" aria-label="Ver todos os posts diários">
+              Ver todos os posts <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        `;
+
+        return janela.find((item) => item.hasPost)?.dataISO || null;
+      }
+
       function atualizarDestaqueVisualCardsDia(dataSelecionada) {
         const cards = document.querySelectorAll(".card-dia");
         cards.forEach((card) => {
@@ -900,7 +1181,7 @@
         const badge = document.createElement("span");
         badge.className = "badge-dourado d-inline-block mb-2";
         badge.textContent =
-          dataSelecionada === DATA_PADRAO_ULTIMOS_DIAS ? "✨ HOJE ✨" : "✨ ATUAL ✨";
+          dataSelecionada === DATA_PADRAO_ULTIMOS_DIAS ? "HOJE" : "ATUAL";
         corpoCard.insertBefore(badge, corpoCard.firstChild);
       }
 
@@ -1114,12 +1395,17 @@
       window.atualizarNavegacaoDias = atualizarNavegacaoDias;
 
       function inicializarCardsUltimos7Dias() {
+        const dataInicial = renderizarCardsUltimos7Dias();
         const cards = document.querySelectorAll(".card-dia");
         if (!cards.length) {
           return;
         }
 
         cards.forEach((card) => {
+          if (card.dataset.disponivel !== "1") {
+            return;
+          }
+
           card.addEventListener("click", () => {
             atualizarPostDinamico(card.dataset.dia);
           });
@@ -1139,7 +1425,7 @@
             evento.stopPropagation();
 
             const dia = botao.dataset.dia || botao.closest(".card-dia")?.dataset.dia;
-            if (!dia) {
+            if (!dia || !postsUltimos7Dias[dia]) {
               return;
             }
 
@@ -1152,7 +1438,9 @@
           });
         });
 
-        atualizarPostDinamico(DATA_PADRAO_ULTIMOS_DIAS);
+        if (dataInicial) {
+          atualizarPostDinamico(dataInicial);
+        }
       }
 
       function criarCard(post) {

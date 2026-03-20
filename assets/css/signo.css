@@ -305,6 +305,11 @@
         border-color: rgba(76, 42, 133, 0.32);
       }
 
+      /* Oculta espaços de anúncios não preenchidos durante aprovação do AdSense. */
+      .ad-shell.ad-shell-hidden {
+        display: none !important;
+      }
+
       .cta-box {
         background: linear-gradient(
           135deg,

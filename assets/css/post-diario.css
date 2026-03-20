@@ -706,3 +706,208 @@ body {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* === Navegacao Entre Dias (Marco 2026) === */
+.navegacao-dias-topo,
+.navegacao-dias-rodape {
+  background: linear-gradient(135deg, #f8f5ff, #ffffff);
+  border-radius: 60px;
+  padding: 0.5rem;
+  box-shadow: 0 4px 15px rgba(111, 66, 193, 0.15);
+  margin: 2rem 0;
+  border: 1px solid #e9d5ff;
+}
+
+.container-navegacao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.btn-nav,
+.btn-nav-prev,
+.btn-nav-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #e9d5ff;
+  background: #ffffff;
+  color: #6f42c1;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(111, 66, 193, 0.1);
+  min-width: 170px;
+  justify-content: center;
+}
+
+.btn-nav small {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.88;
+}
+
+.btn-nav:hover:not(.disabled),
+.btn-nav-prev:hover:not(.disabled),
+.btn-nav-next:hover:not(.disabled) {
+  background: #6f42c1;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(111, 66, 193, 0.3);
+  border-color: #6f42c1;
+}
+
+.btn-nav:active:not(.disabled),
+.btn-nav-prev:active:not(.disabled),
+.btn-nav-next:active:not(.disabled) {
+  transform: translateY(0);
+}
+
+.btn-nav.disabled,
+.btn-nav-prev.disabled,
+.btn-nav-next.disabled {
+  opacity: 0.5;
+  background: #f8f9fa;
+  color: #999;
+  border-color: #dee2e6;
+  cursor: not-allowed;
+  filter: grayscale(0.5);
+  position: relative;
+}
+
+.btn-nav.disabled::after,
+.btn-nav-prev.disabled::after,
+.btn-nav-next.disabled::after {
+  content: '⏳ Em breve';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  color: #6c757d;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.btn-nav.disabled:hover::after,
+.btn-nav-prev.disabled:hover::after,
+.btn-nav-next.disabled:hover::after {
+  opacity: 1;
+}
+
+.btn-nav i,
+.btn-nav-prev i,
+.btn-nav-next i {
+  font-size: 1.3rem;
+  transition: transform 0.2s;
+}
+
+.btn-nav:hover:not(.disabled) i,
+.btn-nav-prev:hover:not(.disabled) i,
+.btn-nav-next:hover:not(.disabled) i {
+  transform: scale(1.1);
+}
+
+.btn-anterior i {
+  order: -1;
+}
+
+.btn-proximo i {
+  order: 1;
+}
+
+.indicador-dia-atual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, #6f42c1, #5a32a3);
+  color: #ffffff;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(111, 66, 193, 0.4);
+  position: relative;
+  min-width: 200px;
+  animation: pulse 2s infinite;
+}
+
+.indicador-dia-atual::before {
+  content: '⭐';
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  font-size: 1.2rem;
+  opacity: 0.5;
+  transform: rotate(-15deg);
+}
+
+.indicador-dia-atual::after {
+  content: '✨';
+  position: absolute;
+  bottom: -8px;
+  right: 10px;
+  font-size: 1.2rem;
+  opacity: 0.5;
+  transform: rotate(10deg);
+}
+
+.dia-semana {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+.dia-numero {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  margin: 0.2rem 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.mes-ano {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .container-navegacao {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn-nav,
+  .btn-nav-prev,
+  .btn-nav-next {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    min-width: 130px;
+  }
+
+  .indicador-dia-atual {
+    order: -1;
+    width: 100%;
+    margin-bottom: 1rem;
+    min-width: auto;
+  }
+
+  .btn-nav.disabled::after,
+  .btn-nav-prev.disabled::after,
+  .btn-nav-next.disabled::after {
+    display: none;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+/* === Fim Navegacao Entre Dias === */
