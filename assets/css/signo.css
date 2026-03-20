@@ -372,6 +372,37 @@
         animation: planetFloat 16s ease-in-out infinite;
       }
 
+      .signo-diario-calendar table {
+        border-color: rgba(76, 42, 133, 0.2);
+      }
+
+      .signo-diario-calendar th,
+      .signo-diario-calendar td {
+        text-align: center;
+        vertical-align: middle;
+        font-size: 0.84rem;
+        padding: 0.42rem;
+      }
+
+      .signo-diario-calendar a {
+        text-decoration: none;
+        color: var(--cosmic-purple);
+        font-weight: 500;
+        display: inline-block;
+        width: 100%;
+        border-radius: 8px;
+        padding: 2px 0;
+      }
+
+      .signo-diario-calendar a:hover {
+        background: rgba(76, 42, 133, 0.12);
+      }
+
+      .signo-diario-calendar .day-active a {
+        background: var(--cosmic-purple);
+        color: #fff;
+      }
+
       h1,
       h2,
       h3,
@@ -393,5 +424,9 @@
         .nav-link-cosmic {
           padding: 8px 10px;
           font-size: 0.8rem;
+        }
+
+        .signo-diario-calendar {
+          margin-top: 10px;
         }
       }

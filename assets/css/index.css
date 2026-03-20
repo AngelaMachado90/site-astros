@@ -1061,6 +1061,33 @@
         gap: 8px;
       }
 
+      /* Filtro por signo: evita overflow e desalinhamento dos ícones no mobile */
+      #seletor-signos > .col-4 {
+        display: flex;
+      }
+
+      #seletor-signos .btn-outline-roxo {
+        min-height: 44px;
+        padding: 0.5rem 0.6rem;
+        justify-content: flex-start !important;
+        gap: 0.45rem !important;
+        overflow: hidden;
+      }
+
+      #seletor-signos .btn-outline-roxo img {
+        flex: 0 0 18px;
+        width: 18px;
+        height: 18px;
+      }
+
+      #seletor-signos .btn-outline-roxo span {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        line-height: 1.1;
+      }
+
       .signo-filter-btn {
         border: 1px solid rgba(76, 42, 133, 0.24);
         border-radius: 999px;
@@ -1307,6 +1334,21 @@
           padding: 18px;
         }
 
+        #seletor-signos > .col-4 {
+          width: 50%;
+        }
+
+        .filtro-busca .input-group-text {
+          padding-left: 0.7rem;
+          padding-right: 0.7rem;
+        }
+
+        .filtro-busca .btn {
+          white-space: nowrap;
+          padding-left: 0.9rem;
+          padding-right: 0.9rem;
+        }
+
         .cosmic-title {
           letter-spacing: 1.5px;
           font-size: 1.45rem;
@@ -1363,6 +1405,10 @@
         .container {
           padding-left: 12px;
           padding-right: 12px;
+        }
+
+        #seletor-signos > .col-4 {
+          width: 100%;
         }
 
         .previsoes-diarias {

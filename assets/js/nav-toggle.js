@@ -141,6 +141,24 @@
 
     var collapseId = menu.id || "cosmic-nav-collapse-" + String(index + 1);
     menu.id = collapseId;
+
+    // Garantir estado inicial fechado no mobile.
+    menu.classList.remove("show");
+    menu.style.removeProperty("display");
+
+    // Remover classes de display herdadas do HTML original que podem
+    // manter o menu aberto (ex.: d-flex).
+    [
+      "d-flex",
+      "d-inline-flex",
+      "d-block",
+      "d-inline-block",
+      "d-grid",
+      "d-none",
+    ].forEach(function (displayClass) {
+      menu.classList.remove(displayClass);
+    });
+
     menu.classList.add(
       "collapse",
       "cosmic-nav-collapse",

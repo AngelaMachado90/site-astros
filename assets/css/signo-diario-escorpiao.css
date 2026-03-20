@@ -1,0 +1,14 @@
+.escorpiao-kicker { letter-spacing: .08em; text-transform: uppercase; font-weight: 700; color: var(--cosmic-purple); }
+.escorpiao-icon { width: 20px; height: 20px; object-fit: contain; vertical-align: -3px; margin-right: 6px; }
+.escorpiao-lema { border-left: 4px solid var(--soft-gold); padding-left: 14px; font-style: italic; color: #3a2c63; }
+.escorpiao-meta-chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; border: 1px solid #d7c9f5; margin: 4px 6px 4px 0; background: #fff; }
+.escorpiao-calendario .table { margin-bottom: 0; }
+.escorpiao-calendario td, .escorpiao-calendario th { text-align: center; vertical-align: middle; font-size: .86rem; padding: .4rem; }
+.escorpiao-calendario a { text-decoration: none; color: var(--cosmic-purple); display: inline-block; width: 100%; border-radius: 8px; padding: 4px 0; }
+.escorpiao-calendario a:hover { background: rgba(111,66,193,.12); color: #4d2f8f; }
+.escorpiao-calendario .day-active a { background: var(--cosmic-purple); color: #fff; font-weight: 700; }
+.escorpiao-meses a { text-decoration: none; }
+.escorpiao-meses .active { background: var(--cosmic-purple); color: #fff !important; border-color: var(--cosmic-purple); }
+@media (max-width: 991.98px) {
+  .escorpiao-calendario { margin-top: 1rem; }
+}
