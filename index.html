@@ -1,1145 +1,732 @@
 <!doctype html>
 <html lang="pt-br">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Aurora Scorpio" />
-    <meta
-      name="description"
-      content="Aurora Scorpio - Blog de Astrologia Mística e Autoconhecimento. Explore previsões diárias, previsões semanais e conteúdos especiais em linguagem simbólica e acolhedora."
-    />
-    <!-- SEO: metadados extras para indexação -->
-    <meta
-      name="keywords"
-      content="astrologia, signos, previsões, horóscopo, lua, aurora scorpio"
-    />
+    <meta name="description" content="Aurora Scorpio - Blog de Astrologia Mística e Autoconhecimento. Explore previsões diárias, previsões semanais e conteúdos especiais em linguagem simbólica e acolhedora." />
+    <meta name="keywords" content="astrologia, signos, previsões, horóscopo, lua, aurora scorpio" />
     <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://astros.koddahub.com.br/">
     <link rel="icon" href="assets/images/favicon.png" type="image/png" />
-    <link
-      rel="shortcut icon"
-      href="assets/images/favicon.png"
-      type="image/png"
-    />
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L35SD7P8VS"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png" />
 
-      gtag('config', 'G-L35SD7P8VS');
-    </script>
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9709698776174284"
-      crossorigin="anonymous"></script>
-    <title>Aurora Scorpio | Previsões Astrológicas 2026</title>
-    <!-- SEO: microdados Schema.org para o blog -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Blog",
-        "name": "Aurora Scorpio",
-        "description": "Blog de Astrologia Mística e Autoconhecimento",
-        "url": "https://www.aurorascorpio.com.br",
-        "author": {
-          "@type": "Person",
-          "name": "Aurora Scorpio",
-          "jobTitle": "Astróloga Mística",
-          "description": "Astróloga e Analista Junguiana há mais de 15 anos"
-        }
-      }
-    </script>
+    <!-- Pré-conectar para domínios externos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin fetchpriority="low">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin fetchpriority="low">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;500;700&family=Poppins:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="assets/css/index.css" />
-    <link rel="stylesheet" href="assets/css/index-tablet.css" />
-    <link rel="stylesheet" href="assets/css/index-desktop.css" />
+    <!-- CSS crítico inline (incluindo prevenção de CLS) -->
     <style>
-      :root {
-        --roxo-primario: #6f42c1;
-        --roxo-claro: #8a5fd4;
-        --roxo-escuro: #5a32a3;
-        --dourado: #ffc107;
-        --dourado-claro: #ffdb7c;
-        --destaque-especial: #ff6b6b;
-        --destaque-especial-claro: #ff8a8a;
-        --fundo-mistico: #f8f5ff;
-      }
-
-      body {
-        background-color: var(--fundo-mistico);
-      }
-
-      .bg-roxo {
-        background-color: var(--roxo-primario) !important;
-      }
-
-      .bg-roxo-claro {
-        background-color: var(--roxo-claro) !important;
-      }
-
-      .bg-dourado {
-        background-color: var(--dourado) !important;
-      }
-
-      .text-dourado {
-        color: var(--dourado) !important;
-      }
-
-      .text-roxo {
-        color: var(--roxo-primario) !important;
-      }
-
-      .text-destaque-especial {
-        color: var(--destaque-especial) !important;
-      }
-
-      .border-roxo {
-        border-color: var(--roxo-primario) !important;
-      }
-
-      .border-dourado {
-        border-color: var(--dourado) !important;
-      }
-
-      .card {
-        border: none;
-        box-shadow: 0 4px 12px rgba(111, 66, 193, 0.1);
-        transition: transform 0.2s, box-shadow 0.2s;
-      }
-
-      .card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(111, 66, 193, 0.2);
-      }
-
-      .card-destaque {
-        border: 2px solid var(--dourado);
-        background: linear-gradient(135deg, #fff9e6 0%, #fff 100%);
-      }
-
-      .card-destaque:hover {
-        border-color: var(--roxo-primario);
-      }
-
-      .badge-roxo {
-        background-color: var(--roxo-primario);
-        color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 50px;
-      }
-
-      .badge-dourado {
-        background-color: var(--dourado);
-        color: var(--roxo-escuro);
-        padding: 0.5rem 1rem;
-        border-radius: 50px;
-      }
-
-      .btn-roxo {
-        background-color: var(--roxo-primario);
-        color: white;
-        border: none;
-        padding: 0.5rem 1.5rem;
-        border-radius: 50px;
-        transition: all 0.2s;
-      }
-
-      .btn-roxo:hover {
-        background-color: var(--roxo-escuro);
-        color: white;
-        transform: scale(1.05);
-      }
-
-      .btn-dourado {
-        background-color: var(--dourado);
-        color: var(--roxo-escuro);
-        border: none;
-        padding: 0.5rem 1.5rem;
-        border-radius: 50px;
-        transition: all 0.2s;
-      }
-
-      .btn-dourado:hover {
-        background-color: var(--dourado-claro);
-        color: var(--roxo-escuro);
-        transform: scale(1.05);
-      }
-
-      /* Padronização dos cards da seção Últimos 7 Dias */
-      .ultimos-7-dias .card {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .ultimos-7-dias .card-body {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .ultimos-7-dias .btn-roxo,
-      .ultimos-7-dias .btn-dourado {
-        width: fit-content;
-        min-width: 80px;
-        margin-left: auto;
-        margin-right: auto;
-        transition: all 0.2s ease;
-      }
-
-      .ultimos-7-dias .btn-roxo:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(111, 66, 193, 0.3);
-      }
-
-      .ultimos-7-dias .btn-dourado:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(255, 193, 7, 0.3);
-      }
-
-      .card-dia[role="button"] {
-        cursor: pointer;
-      }
-
-      .card-dia[role="button"]:focus-visible {
-        outline: 3px solid #ffc107;
-        outline-offset: 2px;
-      }
-
-      .header-mistico {
-        background: linear-gradient(
-          135deg,
-          var(--roxo-primario) 0%,
-          var(--roxo-escuro) 100%
-        );
-        position: relative;
-        overflow: hidden;
-      }
-
-      .header-mistico::before {
-        content: "✨⭐🌙";
-        position: absolute;
-        top: 10px;
-        right: 20px;
-        font-size: 3rem;
-        opacity: 0.2;
-        color: var(--dourado);
-        transform: rotate(10deg);
-      }
-
-      .header-mistico::after {
-        content: "";
-        position: absolute;
-        bottom: -20px;
-        left: 0;
-        width: 100%;
-        height: 40px;
-        background: var(--fundo-mistico);
-        transform: skewY(-2deg);
-      }
-
-      .lema-card {
-        background: linear-gradient(135deg, #fff 0%, #f8f5ff 100%);
-        border-left: 5px solid var(--dourado);
-        border-radius: 12px;
-        padding: 2rem;
-        position: relative;
-        box-shadow: 0 10px 30px rgba(111, 66, 193, 0.1);
-      }
-
-      .lema-card::before {
-        content: "✨";
-        position: absolute;
-        top: -15px;
-        left: 30px;
-        font-size: 2rem;
-        background: white;
-        padding: 0 10px;
-        border-radius: 50%;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      }
-
-      .palavra-destaque {
-        display: inline-block;
-        font-weight: 800;
-        background: linear-gradient(45deg, var(--destaque-especial), var(--dourado));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        font-size: 1.3em;
-        text-shadow: 0 2px 10px rgba(255, 107, 107, 0.3);
-        animation: brilho 2s ease-in-out infinite;
-        position: relative;
-      }
-
-      .palavra-destaque::after {
-        content: "✨";
-        position: absolute;
-        top: -15px;
-        right: -15px;
-        font-size: 0.8rem;
-        opacity: 0.7;
-      }
-
-      .palavra-destaque::before {
-        content: "✨";
-        position: absolute;
-        bottom: -10px;
-        left: -10px;
-        font-size: 0.6rem;
-        opacity: 0.5;
-      }
-
-      @keyframes brilho {
-        0%, 100% {
-          text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+        :root {
+            --roxo-primario: #6f42c1;
+            --roxo-claro: #8a5fd4;
+            --roxo-escuro: #5a32a3;
+            --dourado: #ffc107;
+            --dourado-claro: #ffdb7c;
+            --destaque-especial: #ff6b6b;
+            --fundo-mistico: #f8f5ff;
+            --soft-gold: #ffc107;
+            --moon-white: #f8f9fa;
         }
-
-        50% {
-          text-shadow:
-            0 0 20px rgba(255, 107, 107, 0.7),
-            0 0 30px rgba(255, 193, 7, 0.4);
+        
+        body {
+            background-color: var(--fundo-mistico);
+            margin: 0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
         }
-      }
-
-      .assinatura-aurora {
-        font-family: "Georgia", serif;
-        font-style: italic;
-        color: var(--roxo-primario);
-        font-size: 1rem;
-        position: relative;
-        display: inline-block;
-        padding-left: 1.5rem;
-      }
-
-      .assinatura-aurora::before {
-        content: "⭐";
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 0.8rem;
-        color: var(--dourado);
-      }
-
-      .assinatura-aurora::after {
-        content: "✨";
-        position: absolute;
-        right: -15px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 0.7rem;
-        color: var(--roxo-claro);
-      }
-
-      .assinatura-container {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        margin-top: 1rem;
-        border-top: 1px dashed var(--roxo-claro);
-        padding-top: 1rem;
-      }
-
-      .calendario-sidebar {
-        max-height: calc(100vh - 40px);
-        overflow-y: auto;
-      }
-
-      .calendario-card {
-        background: linear-gradient(135deg, #fff 0%, #f8f5ff 100%);
-        border: 2px solid var(--roxo-claro);
-      }
-
-      .calendario-card .table td {
-        border: 1px solid #e9d5ff;
-      }
-
-      .calendario-card .table th {
-        background-color: var(--roxo-claro);
-        color: white;
-        font-weight: 500;
-        border: none;
-      }
-
-      .dia-com-post {
-        background-color: #f2e6ff;
-        font-weight: bold;
-        color: var(--roxo-escuro);
-        position: relative;
-      }
-
-      .dia-com-post::after {
-        content: "📝";
-        position: absolute;
-        bottom: 2px;
-        right: 2px;
-        font-size: 0.7rem;
-        opacity: 0.7;
-      }
-
-      .dia-atual {
-        background-color: var(--dourado) !important;
-        color: var(--roxo-escuro) !important;
-        font-weight: bold;
-        position: relative;
-      }
-
-      .dia-atual::after {
-        content: "📌";
-        position: absolute;
-        bottom: 2px;
-        right: 2px;
-        font-size: 0.7rem;
-      }
-
-      .card-signo {
-        border: 2px solid transparent;
-        transition: all 0.2s;
-      }
-
-      .card-signo:hover {
-        border-color: var(--roxo-primario);
-        background-color: #fff;
-      }
-
-      .card-signo-ativo {
-        border-color: var(--dourado);
-        background: linear-gradient(135deg, #fff9e6 0%, #fff 100%);
-      }
-
-      .signo-arquivo-item {
-        display: flex;
-        align-items: center;
-        padding: 0.75rem 1rem;
-        border-bottom: 1px solid #e9ecef;
-        transition: all 0.2s;
-        text-decoration: none;
-        color: var(--roxo-escuro);
-      }
-
-      .signo-arquivo-item:hover {
-        background-color: var(--fundo-mistico);
-        transform: translateX(5px);
-        text-decoration: none;
-        color: var(--roxo-primario);
-      }
-
-      .signo-arquivo-item .icone-signo {
-        width: 32px;
-        height: 32px;
-        margin-right: 12px;
-        transition: transform 0.2s;
-      }
-
-      .signo-arquivo-item:hover .icone-signo {
-        transform: scale(1.1);
-      }
-
-      .signo-arquivo-item .info-signo {
-        flex: 1;
-      }
-
-      .signo-arquivo-item .nome-signo {
-        font-weight: 600;
-        font-size: 1rem;
-      }
-
-      .signo-arquivo-item .data-signo {
-        font-size: 0.8rem;
-        color: #6c757d;
-      }
-
-      .signo-arquivo-item .badge-hoje {
-        background-color: var(--dourado);
-        color: var(--roxo-escuro);
-        font-size: 0.7rem;
-        padding: 0.2rem 0.5rem;
-        border-radius: 50px;
-        margin-left: 8px;
-      }
-
-      .arquivo-header-signos {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 1rem;
-      }
-
-      .arquivo-header-signos h3 {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        color: var(--roxo-primario);
-      }
-
-      .arquivo-header-signos .link-ver-todos {
-        color: var(--roxo-claro);
-        text-decoration: none;
-        font-size: 0.9rem;
-      }
-
-      .arquivo-header-signos .link-ver-todos:hover {
-        color: var(--roxo-primario);
-        text-decoration: underline;
-      }
-
-      .arquivo-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-      }
-
-      @media (min-width: 768px) {
-        .arquivo-grid {
-          grid-template-columns: repeat(3, 1fr);
+        
+        .header-mistico {
+            background: linear-gradient(135deg, var(--roxo-primario) 0%, var(--roxo-escuro) 100%);
+            position: relative;
+            overflow: hidden;
         }
-      }
-
-      .arquivo-grid-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem 0.5rem;
-        background: white;
-        border-radius: 8px;
-        text-decoration: none;
-        color: var(--roxo-escuro);
-        border: 1px solid #e9ecef;
-        transition: all 0.2s;
-      }
-
-      .arquivo-grid-item:hover {
-        border-color: var(--roxo-primario);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(111, 66, 193, 0.1);
-        text-decoration: none;
-        color: var(--roxo-primario);
-      }
-
-      .arquivo-grid-item .icone-signo-grid {
-        width: 40px;
-        height: 40px;
-        margin-bottom: 8px;
-      }
-
-      .arquivo-grid-item .nome-signo-grid {
-        font-weight: 600;
-        font-size: 0.9rem;
-        text-align: center;
-      }
-
-      .arquivo-grid-item .qtd-posts {
-        font-size: 0.7rem;
-        color: #6c757d;
-      }
-
-      .btn-outline-roxo {
-        color: var(--roxo-primario);
-        border-color: var(--roxo-primario);
-        background: transparent;
-        transition: all 0.2s;
-      }
-
-      .btn-outline-roxo:hover {
-        color: white;
-        background-color: var(--roxo-primario);
-        border-color: var(--roxo-primario);
-      }
-
-      @media (max-width: 991px) {
-        .calendario-sidebar {
-          position: static !important;
-          margin-top: 2rem;
-          max-height: none;
+        
+        /* PREVENÇÃO DE CLS */
+        #lista-previsoes-signos,
+        #posts-grid,
+        #calendario,
+        #ultimos-posts-signos,
+        #grid-signos-arquivo {
+            min-height: 200px;
         }
-      }
+        
+        .ultimos-7-dias .row {
+            min-height: 280px;
+        }
+        
+        .post-dia .card {
+            min-height: 280px;
+        }
+        
+        .card {
+            contain: content;
+        }
+        
+        img {
+            background-color: #f8f5ff;
+        }
+        
+        /* Classes utilitárias básicas */
+        .bg-roxo { background-color: var(--roxo-primario) !important; }
+        .bg-roxo-claro { background-color: var(--roxo-claro) !important; }
+        .bg-dourado { background-color: var(--dourado) !important; }
+        .text-dourado { color: var(--dourado) !important; }
+        .text-roxo { color: var(--roxo-primario) !important; }
+        .btn-roxo {
+            background-color: var(--roxo-primario);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-dourado {
+            background-color: var(--dourado);
+            color: var(--roxo-escuro);
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 1140px;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+        .col-lg-8, .col-lg-4 {
+            position: relative;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        @media (min-width: 992px) {
+            .col-lg-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+            .col-lg-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+        }
+        .text-center { text-align: center; }
+        .py-5 { padding-top: 3rem; padding-bottom: 3rem; }
+        .mb-3 { margin-bottom: 1rem; }
+        .mb-0 { margin-bottom: 0; }
+        .fw-bold { font-weight: 700; }
+        .display-4 { font-size: 2.5rem; }
+        .lead { font-size: 1.25rem; }
+        .small { font-size: 80%; }
+        .text-white { color: #fff; }
+        .text-white-50 { color: rgba(255,255,255,0.5); }
+        .position-relative { position: relative; }
+        .my-5 { margin-top: 3rem; margin-bottom: 3rem; }
+        .my-4 { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+        .mb-4 { margin-bottom: 1.5rem; }
+        .mb-5 { margin-bottom: 3rem; }
+        .mt-5 { margin-top: 3rem; }
+        .mt-4 { margin-top: 1.5rem; }
+        .mt-3 { margin-top: 1rem; }
+        .me-2 { margin-right: 0.5rem; }
+        .me-3 { margin-right: 1rem; }
+        .gap-2 { gap: 0.5rem; }
+        .d-flex { display: flex; }
+        .d-none { display: none; }
+        .d-lg-flex { display: flex; }
+        .d-lg-none { display: none; }
+        .flex-wrap { flex-wrap: wrap; }
+        .justify-content-center { justify-content: center; }
+        .align-items-center { align-items: center; }
+        .rounded-circle { border-radius: 50%; }
+        .card {
+            border: none;
+            box-shadow: 0 4px 12px rgba(111, 66, 193, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            background: #fff;
+            border-radius: 8px;
+        }
+        .badge-roxo {
+            background-color: var(--roxo-primario);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: inline-block;
+        }
+        .badge-dourado {
+            background-color: var(--dourado);
+            color: var(--roxo-escuro);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: inline-block;
+        }
+        @media (max-width: 991px) {
+            .d-lg-none { display: flex; }
+            .d-lg-flex { display: none; }
+        }
     </style>
-  </head>
-  <body>
-    <div class="cosmic-bg">
-      <!-- Header -->
-      <header class="header-mistico text-center py-5">
-        <div class="container position-relative" style="z-index: 2;">
-          <h1 class="display-4 fw-bold text-white mb-3">✨ A vida é feita de estrelas que escolhemos olhar ✨</h1>
-          <p class="lead text-white-50 mb-0">MISTÉRIOS DO ZODÍACO · AURORA SCORPIO</p>
-          <p class="text-white-50 small">Astrologia Mística & Autoconhecimento</p>
+
+    <title>Aurora Scorpio | Previsões Astrológicas 2026</title>
+
+    <!-- SEO: microdados Schema.org -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "name": "Aurora Scorpio",
+            "description": "Blog de Astrologia Mística e Autoconhecimento",
+            "url": "https://astros.koddahub.com.br/",
+            "author": {
+                "@type": "Person",
+                "name": "Aurora Scorpio",
+                "jobTitle": "Astróloga Mística"
+            }
+        }
+    </script>
+
+    <!-- Google Fonts otimizado -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;500&family=Poppins:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;500&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    </noscript>
+
+    <!-- CSS não crítico carregado assincronamente -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="assets/css/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="assets/css/index-tablet.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="assets/css/index-desktop.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+        <link href="assets/css/index.css" rel="stylesheet">
+        <link href="assets/css/index-tablet.css" rel="stylesheet">
+        <link href="assets/css/index-desktop.css" rel="stylesheet">
+    </noscript>
+
+    <!-- Google Analytics - Carregamento Otimizado (sem reflow) -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(function() {
+                var script = document.createElement('script');
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-L35SD7P8VS';
+                script.async = true;
+                script.defer = true;
+                document.head.appendChild(script);
+                script.onload = function() {
+                    gtag('js', new Date());
+                    gtag('config', 'G-L35SD7P8VS');
+                };
+            });
+        } else {
+            setTimeout(function() {
+                var script = document.createElement('script');
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-L35SD7P8VS';
+                script.async = true;
+                script.defer = true;
+                document.head.appendChild(script);
+                script.onload = function() {
+                    gtag('js', new Date());
+                    gtag('config', 'G-L35SD7P8VS');
+                };
+            }, 2000);
+        }
+    </script>
+
+    <!-- Google AdSense - Carregamento sob demanda (após interação) -->
+    <script>
+        let adsenseLoaded = false;
+        function loadAdSense() {
+            if (adsenseLoaded) return;
+            adsenseLoaded = true;
+            var script = document.createElement('script');
+            script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9709698776174284';
+            script.async = true;
+            script.defer = true;
+            script.crossOrigin = 'anonymous';
+            document.head.appendChild(script);
+            ['scroll', 'mousemove', 'touchstart', 'click'].forEach(function(event) {
+                window.removeEventListener(event, loadAdSense);
+            });
+        }
+        ['scroll', 'mousemove', 'touchstart', 'click'].forEach(function(event) {
+            window.addEventListener(event, loadAdSense, { once: true, passive: true });
+        });
+        setTimeout(loadAdSense, 5000);
+    </script>
+</head>
+<body>
+  <div class="cosmic-bg">
+    <!-- Header -->
+    <header class="header-mistico text-center py-5">
+      <div class="container position-relative" style="z-index: 2;">
+        <h1 class="display-4 fw-bold text-white mb-3">A vida é feita de estrelas que escolhemos olhar</h1>
+        <p class="lead text-white-50 mb-0">MISTÉRIOS DO ZODÍACO · AURORA SCORPIO</p>
+        <p class="text-white-50 small">Astrologia Mística & Autoconhecimento</p>
+      </div>
+    </header>
+
+    <!-- Navegação -->
+    <nav class="cosmic-nav">
+      <div class="container">
+        <div class="cosmic-nav-mobile d-flex justify-content-center flex-wrap py-2 d-lg-none">
+          <a class="nav-link-cosmic" href="#previsoes" title="Ir para a seção de previsões em destaque"
+            aria-label="Navegar até previsões em destaque"><i class="bi bi-stars"></i> Previsões</a>
+          <a class="nav-link-cosmic" href="#signos" title="Ir para a seção Previsão dos Signos"
+            aria-label="Navegar até previsão dos signos"><i class="bi bi-gem"></i> Signos</a>
+          <a class="nav-link-cosmic" href="#posts-diarios" title="Ir para o arquivo completo de posts diários"
+            aria-label="Navegar até posts diários"><i class="bi bi-calendar-week"></i> Posts Diários</a>
+          <a class="nav-link-cosmic" href="sobre.html" title="Conheça a história de Aurora Scorpio"
+            aria-label="Abrir página sobre Aurora Scorpio"><i class="bi bi-person"></i> Sobre</a>
         </div>
-      </header>
 
-      <!-- Navegação -->
-      <nav class="cosmic-nav">
-        <div class="container">
-          <div class="cosmic-nav-mobile d-flex justify-content-center flex-wrap py-2 d-lg-none">
-            <a class="nav-link-cosmic" href="#previsoes" title="Ir para a seção de previsões em destaque" aria-label="Navegar até previsões em destaque"><i class="bi bi-stars"></i> Previsões</a>
-            <a class="nav-link-cosmic" href="#signos" title="Ir para a seção Previsão dos Signos" aria-label="Navegar até previsão dos signos"><i class="bi bi-gem"></i> Signos</a>
-            <a class="nav-link-cosmic" href="#posts-diarios" title="Ir para o arquivo completo de posts diários" aria-label="Navegar até posts diários"><i class="bi bi-calendar-week"></i> Posts Diários</a>
-            <a class="nav-link-cosmic" href="sobre.html" title="Conheça a história de Aurora Scorpio" aria-label="Abrir página sobre Aurora Scorpio"><i class="bi bi-person"></i> Sobre</a>
-          </div>
-
-          <div class="cosmic-nav-main-desktop d-none d-lg-flex justify-content-center align-items-center gap-2 pt-2 pb-1" aria-label="Menu principal">
-            <a class="nav-link-cosmic nav-link-icon-only" href="#previsoes" title="Previsões" aria-label="Ir para Previsões"><i class="bi bi-stars" aria-hidden="true"></i></a>
-            <a class="nav-link-cosmic nav-link-icon-only" href="#signos" title="Signos" aria-label="Ir para Signos"><i class="bi bi-gem" aria-hidden="true"></i></a>
-            <a class="nav-link-cosmic nav-link-icon-only" href="#posts-diarios" title="Posts Diários" aria-label="Ir para Posts Diários"><i class="bi bi-calendar-week" aria-hidden="true"></i></a>
-            <a class="nav-link-cosmic nav-link-icon-only" href="sobre.html" title="Sobre" aria-label="Abrir página Sobre"><i class="bi bi-person" aria-hidden="true"></i></a>
-          </div>
-
+        <div class="cosmic-nav-main-desktop d-none d-lg-flex justify-content-center align-items-center gap-2 pt-2 pb-1"
+          aria-label="Menu principal">
+          <a class="nav-link-cosmic nav-link-icon-only" href="#previsoes" title="Previsões"
+            aria-label="Ir para Previsões"><i class="bi bi-stars" aria-hidden="true"></i></a>
+          <a class="nav-link-cosmic nav-link-icon-only" href="#signos" title="Signos" aria-label="Ir para Signos"><i
+              class="bi bi-gem" aria-hidden="true"></i></a>
+          <a class="nav-link-cosmic nav-link-icon-only" href="#posts-diarios" title="Posts Diários"
+            aria-label="Ir para Posts Diários"><i class="bi bi-calendar-week" aria-hidden="true"></i></a>
+          <a class="nav-link-cosmic nav-link-icon-only" href="sobre.html" title="Sobre"
+            aria-label="Abrir página Sobre"><i class="bi bi-person" aria-hidden="true"></i></a>
         </div>
-      </nav>
+      </div>
+    </nav>
 
-      <main class="container content-shell my-5" id="main-content" tabindex="-1">
-        <div class="row">
-          <div class="col-lg-8">
-            <section class="ultimos-7-dias mb-5 my-4">
-              <h2 class="h3 mb-4 d-flex align-items-center">
-                <span class="bg-roxo text-white rounded-circle d-inline-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px; font-size: 1.5rem;">📅</span>
-                <span class="text-roxo">ÚLTIMOS 7 DIAS</span>
-              </h2>
-              <div class="row g-4" id="cards-dias">
-                <div class="col-6 col-md-4 col-lg-3">
-                  <div class="card card-destaque h-100 card-dia" role="button" tabindex="0" data-dia="2026-03-19" aria-label="Selecionar dia 19 de março">
-                    <div class="card-body p-3 text-center d-flex flex-column">
-                      <span class="badge-dourado d-inline-block mb-2">✨ HOJE ✨</span>
-                      <div class="fw-bold fs-4 text-roxo">19 MAR</div>
-                      <small class="text-muted d-block mb-3">🌙 Lua em Câncer</small>
-                      <a href="#previsoes" class="btn-dourado btn-sm d-inline-flex align-items-center justify-content-center mt-auto btn-ler-dia" data-dia="2026-03-19" aria-label="Ver post de hoje"><i class="bi bi-eye" aria-hidden="true"></i></a>
-                    </div>
+    <main class="container content-shell my-5" id="main-content" tabindex="-1">
+      <div class="row">
+        <div class="col-lg-8">
+          <section class="ultimos-7-dias mb-5 my-4">
+            <h2 class="h3 mb-4 d-flex align-items-center">
+              <span
+                class="bg-roxo text-white rounded-circle d-inline-flex align-items-center justify-content-center me-3"
+                style="width: 50px; height: 50px; font-size: 1.5rem;">📅</span>
+              <span class="text-roxo">ÚLTIMOS 7 DIAS</span>
+            </h2>
+            <div class="row g-4" id="cards-dias">
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="card card-destaque h-100 card-dia" role="button" tabindex="0" data-dia="2026-03-19"
+                  aria-label="Selecionar dia 19 de março">
+                  <div class="card-body p-3 text-center d-flex flex-column">
+                    <span class="badge-dourado d-inline-block mb-2">✨ HOJE ✨</span>
+                    <div class="fw-bold fs-4 text-roxo">19 MAR</div>
+                    <small class="text-muted d-block mb-3">🌙 Lua em Câncer</small>
+                    <a href="#previsoes"
+                      class="btn-douardo btn-sm d-inline-flex align-items-center justify-content-center mt-auto btn-ler-dia"
+                      data-dia="2026-03-19" aria-label="Ver post de hoje"><i class="bi bi-eye"
+                        aria-hidden="true"></i></a>
                   </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3">
-                  <div class="card card-signo h-100 card-dia" role="button" tabindex="0" data-dia="2026-03-18" aria-label="Selecionar dia 18 de março">
-                    <div class="card-body p-3 text-center d-flex flex-column">
-                      <div class="fw-bold fs-5">18 MAR</div>
-                      <small class="text-muted d-block mb-3">🌙 Lua em Gêmeos</small>
-                      <a href="#previsoes" class="btn-roxo btn-sm d-inline-flex align-items-center justify-content-center mt-auto btn-ler-dia" data-dia="2026-03-18" aria-label="Ver post de 18 MAR"><i class="bi bi-eye" aria-hidden="true"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3">
-                  <div class="card card-signo h-100 card-dia" role="button" tabindex="0" data-dia="2026-03-17" aria-label="Selecionar dia 17 de março">
-                    <div class="card-body p-3 text-center d-flex flex-column">
-                      <div class="fw-bold fs-5">17 MAR</div>
-                      <small class="text-muted d-block mb-3">🌙 Lua em Gêmeos</small>
-                      <a href="#previsoes" class="btn-roxo btn-sm d-inline-flex align-items-center justify-content-center mt-auto btn-ler-dia" data-dia="2026-03-17" aria-label="Ver post de 17 MAR"><i class="bi bi-eye" aria-hidden="true"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3">
-                  <div class="card card-signo h-100 card-dia" role="button" tabindex="0" data-dia="2026-03-16" aria-label="Selecionar dia 16 de março">
-                    <div class="card-body p-3 text-center d-flex flex-column">
-                      <div class="fw-bold fs-5">16 MAR</div>
-                      <small class="text-muted d-block mb-3">🌙 Lua em Touro</small>
-                      <a href="#previsoes" class="btn-roxo btn-sm d-inline-flex align-items-center justify-content-center mt-auto btn-ler-dia" data-dia="2026-03-16" aria-label="Ver post de 16 MAR"><i class="bi bi-eye" aria-hidden="true"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3">
-                  <div class="card card-signo h-100 card-dia" role="button" tabindex="0" data-dia="2026-03-15" aria-label="Selecionar dia 15 de março">
-                    <div class="card-body p-3 text-center d-flex flex-column">
-                      <div class="fw-bold fs-5">15 MAR</div>
-                      <small class="text-muted d-block mb-3">🌙 Lua em Touro</small>
-                      <a href="#previsoes" class="btn-roxo btn-sm d-inline-flex align-items-center justify-content-center mt-auto btn-ler-dia" data-dia="2026-03-15" aria-label="Ver post de 15 MAR"><i class="bi bi-eye" aria-hidden="true"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3">
-                  <div class="card card-signo h-100 card-dia" role="button" tabindex="0" data-dia="2026-03-14" aria-label="Selecionar dia 14 de março">
-                    <div class="card-body p-3 text-center d-flex flex-column">
-                      <div class="fw-bold fs-5">14 MAR</div>
-                      <small class="text-muted d-block mb-3">🌙 Lua em Áries</small>
-                      <a href="#previsoes" class="btn-roxo btn-sm d-inline-flex align-items-center justify-content-center mt-auto btn-ler-dia" data-dia="2026-03-14" aria-label="Ver post de 14 MAR"><i class="bi bi-eye" aria-hidden="true"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3">
-                  <div class="card card-signo h-100 card-dia" role="button" tabindex="0" data-dia="2026-03-13" aria-label="Selecionar dia 13 de março">
-                    <div class="card-body p-3 text-center d-flex flex-column">
-                      <div class="fw-bold fs-5">13 MAR</div>
-                      <small class="text-muted d-block mb-3">🌙 Lua em Peixes</small>
-                      <a href="#previsoes" class="btn-roxo btn-sm d-inline-flex align-items-center justify-content-center mt-auto btn-ler-dia" data-dia="2026-03-13" aria-label="Ver post de 13 MAR"><i class="bi bi-eye" aria-hidden="true"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 mt-3 text-end">
-                  <a href="/posts/diarios.html" class="btn btn-link text-roxo">
-                    Ver todos os posts <i class="bi bi-arrow-right"></i>
-                  </a>
                 </div>
               </div>
-            </section>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="card card-signo h-100 card-dia" role="button" tabindex="0" data-dia="2026-03-18"
+                  aria-label="Selecionar dia 18 de março">
+                  <div class="card-body p-3 text-center d-flex flex-column">
+                    <div class="fw-bold fs-5">18 MAR</div>
+                    <small class="text-muted d-block mb-3">🌙 Lua em Gêmeos</small>
+                    <a href="#previsoes"
+                      class="btn-roxo btn-sm d-inline-flex align-items-center justify-content-center mt-auto btn-ler-dia"
+                      data-dia="2026-03-18" aria-label="Ver post de 18 MAR"><i class="bi bi-eye"
+                        aria-hidden="true"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="card card-signo h-100 card-dia" role="button" tabindex="0" data-dia="2026-03-17"
+                  aria-label="Selecionar dia 17 de março">
+                  <div class="card-body p-3 text-center d-flex flex-column">
+                    <div class="fw-bold fs-5">17 MAR</div>
+                    <small class="text-muted d-block mb-3">🌙 Lua em Gêmeos</small>
+                    <a href="#previsoes"
+                      class="btn-roxo btn-sm d-inline-flex align-items-center justify-content-center mt-auto btn-ler-dia"
+                      data-dia="2026-03-17" aria-label="Ver post de 17 MAR"><i class="bi bi-eye"
+                        aria-hidden="true"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="card card-signo h-100 card-dia" role="button" tabindex="0" data-dia="2026-03-16"
+                  aria-label="Selecionar dia 16 de março">
+                  <div class="card-body p-3 text-center d-flex flex-column">
+                    <div class="fw-bold fs-5">16 MAR</div>
+                    <small class="text-muted d-block mb-3">🌙 Lua em Touro</small>
+                    <a href="#previsoes"
+                      class="btn-roxo btn-sm d-inline-flex align-items-center justify-content-center mt-auto btn-ler-dia"
+                      data-dia="2026-03-16" aria-label="Ver post de 16 MAR"><i class="bi bi-eye"
+                        aria-hidden="true"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="card card-signo h-100 card-dia" role="button" tabindex="0" data-dia="2026-03-15"
+                  aria-label="Selecionar dia 15 de março">
+                  <div class="card-body p-3 text-center d-flex flex-column">
+                    <div class="fw-bold fs-5">15 MAR</div>
+                    <small class="text-muted d-block mb-3">🌙 Lua em Touro</small>
+                    <a href="#previsoes"
+                      class="btn-roxo btn-sm d-inline-flex align-items-center justify-content-center mt-auto btn-ler-dia"
+                      data-dia="2026-03-15" aria-label="Ver post de 15 MAR"><i class="bi bi-eye"
+                        aria-hidden="true"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="card card-signo h-100 card-dia" role="button" tabindex="0" data-dia="2026-03-14"
+                  aria-label="Selecionar dia 14 de março">
+                  <div class="card-body p-3 text-center d-flex flex-column">
+                    <div class="fw-bold fs-5">14 MAR</div>
+                    <small class="text-muted d-block mb-3">🌙 Lua em Áries</small>
+                    <a href="#previsoes"
+                      class="btn-roxo btn-sm d-inline-flex align-items-center justify-content-center mt-auto btn-ler-dia"
+                      data-dia="2026-03-14" aria-label="Ver post de 14 MAR"><i class="bi bi-eye"
+                        aria-hidden="true"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="card card-signo h-100 card-dia" role="button" tabindex="0" data-dia="2026-03-13"
+                  aria-label="Selecionar dia 13 de março">
+                  <div class="card-body p-3 text-center d-flex flex-column">
+                    <div class="fw-bold fs-5">13 MAR</div>
+                    <small class="text-muted d-block mb-3">🌙 Lua em Peixes</small>
+                    <a href="#previsoes"
+                      class="btn-roxo btn-sm d-inline-flex align-items-center justify-content-center mt-auto btn-ler-dia"
+                      data-dia="2026-03-13" aria-label="Ver post de 13 MAR"><i class="bi bi-eye"
+                        aria-hidden="true"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 mt-3 text-end">
+                <a href="/posts/diarios.html" class="btn btn-link text-roxo">
+                  Ver todos os posts <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </section>
 
-            <section class="post-dia mb-5 my-4" id="previsoes">
-              <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-2">
-                <h3 class="h4 mb-0 d-flex align-items-center">
-                  <span class="bg-dourado text-roxo rounded-circle d-inline-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">✨</span>
-                  <span class="text-roxo" id="post-titulo">HOJE • 19 MAR</span>
-                </h3>
-                <span class="badge-roxo" id="post-lua">🌙 Lua em Câncer</span>
-              </div>
-              <div class="card border-roxo mb-4" style="border-width: 2px;">
-                <div class="card-body p-4">
-                  <h4 class="h5 text-dourado mb-3" id="post-subtitulo">Previsão Diária - 19 de Março 2026</h4>
-                  <p class="mb-4" id="post-conteudo" style="font-size: 1.1rem; line-height: 1.6;">
-                    Lua em Câncer e Sol em Peixes reforçam coragem emocional, acolhimento e decisões com sensibilidade prática.
-                  </p>
-                  <a href="/posts/03-Marco/diario-03-19-2026.html" class="btn-roxo" id="post-link">📖 Ler post completo</a>
-                </div>
-              </div>
-              <div class="lema-card mb-5" id="lema-container">
-                <h4 class="h6 text-roxo text-uppercase mb-3">✨ LEMA DO DIA ✨</h4>
-                <p class="h4 mb-3 fst-italic" id="lema-texto" style="font-family: Georgia, serif; line-height: 1.4;">
-                  "Não se limite a seguir a corrente, arrisque-se também na correnteza."
+          <section class="post-dia mb-5 my-4" id="previsoes">
+            <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-2">
+              <h3 class="h4 mb-0 d-flex align-items-center">
+                <span
+                  class="bg-dourado text-roxo rounded-circle d-inline-flex align-items-center justify-content-center me-2"
+                  style="width: 40px; height: 40px;">✨</span>
+                <span class="text-roxo" id="post-titulo">HOJE • 19 MAR</span>
+              </h3>
+              <span class="badge-roxo" id="post-lua">🌙 Lua em Câncer</span>
+            </div>
+            <div class="card border-roxo mb-4" style="border-width: 2px;">
+              <div class="card-body p-4">
+                <h4 class="h5 text-dourado mb-3" id="post-subtitulo">Previsão Diária - 19 de Março 2026</h4>
+                <p class="mb-4" id="post-conteudo" style="font-size: 1.1rem; line-height: 1.6;">
+                  Lua em Câncer e Sol em Peixes reforçam coragem emocional, acolhimento e decisões com sensibilidade
+                  prática.
                 </p>
-                <div class="assinatura-container">
-                  <span class="assinatura-aurora" id="lema-autor">Aurora Scorpio</span>
-                </div>
+                <a href="/posts/03-Marco/diario-03-19-2026.html" class="btn-roxo" id="post-link">📖 Ler post
+                  completo</a>
               </div>
-            </section>
+            </div>
+            <div class="lema-card mb-5" id="lema-container">
+              <h4 class="h6 text-roxo text-uppercase mb-3">✨ LEMA DO DIA ✨</h4>
+              <p class="h4 mb-3 fst-italic" id="lema-texto" style="font-family: Georgia, serif; line-height: 1.4;">
+                "Não se limite a seguir a corrente, arrisque-se também na correnteza."
+              </p>
+              <div class="assinatura-container">
+                <span class="assinatura-aurora" id="lema-autor">Aurora Scorpio</span>
+              </div>
+            </div>
+          </section>
 
-            <hr class="my-5" />
+          <hr class="my-5" />
 
-            <section class="secao-inferior my-4" id="signos">
-              <div class="row">
-                <div class="col-md-5 mb-4">
-                  <div class="card border-roxo h-100">
-                    <div class="card-body text-center p-4">
-                      <div class="display-4 mb-3">📱</div>
-                      <h3 class="h4 text-roxo mb-3">QUER RECEBER NO WHATSAPP?</h3>
-                      <p class="text-muted mb-4">
-                        Receba as previsões diárias diretamente no seu WhatsApp e acompanhe o ciclo astrológico completo.
-                      </p>
-                      <a
-                        href="https://wa.me/?text=Quero%20receber%20as%20previsoes%20diarias%20da%20Aurora%20Scorpio"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn btn-dourado btn-lg w-100"
-                        title="Solicitar previsões diárias no WhatsApp"
-                        aria-label="Abrir WhatsApp para solicitar previsões diárias"
-                      >
-                        📱 Receber também no WhatsApp
-                      </a>
-                    </div>
+          <section class="secao-inferior my-4" id="signos">
+            <div class="row">
+              <div class="col-md-5 mb-4">
+                <div class="card border-roxo h-100">
+                  <div class="card-body text-center p-4">
+                    <div class="display-4 mb-3">📱</div>
+                    <h3 class="h4 text-roxo mb-3">QUER RECEBER NO WHATSAPP?</h3>
+                    <p class="text-muted mb-4">
+                      Receba as previsões diárias diretamente no seu WhatsApp e acompanhe o ciclo astrológico completo.
+                    </p>
+                    <a href="https://wa.me/?text=Quero%20receber%20as%20previsoes%20diarias%20da%20Aurora%20Scorpio"
+                      target="_blank" rel="noopener noreferrer" class="btn btn-dourado btn-lg w-100"
+                      title="Solicitar previsões diárias no WhatsApp"
+                      aria-label="Abrir WhatsApp para solicitar previsões diárias">
+                      📱 Receber também no WhatsApp
+                    </a>
                   </div>
                 </div>
+              </div>
 
-                <div class="col-md-7 mb-4">
-                  <div class="card border-roxo">
-                    <div class="card-body p-4">
-                      <div class="mb-4">
-                        <h3 class="h5 text-roxo mb-3 d-flex align-items-center">
-                          <span class="me-2">📚</span> ARQUIVO COMPLETO DE PUBLICAÇÕES
-                        </h3>
-
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                          <span class="badge-roxo"><span id="contador-posts"></span></span>
-                          <span class="text-muted small">Atualizado diariamente</span>
-                        </div>
-
-                        <div class="d-flex flex-wrap gap-2 mb-3" id="filtros-mes">
-                          <button class="btn btn-sm btn-outline-roxo month-btn" data-mes="all" type="button">Todos</button>
-                          <button class="btn btn-sm btn-outline-roxo month-btn" data-mes="2026-01" type="button">Janeiro/2026</button>
-                          <button class="btn btn-sm btn-outline-roxo month-btn" data-mes="2026-02" type="button">Fevereiro/2026</button>
-                          <button class="btn btn-sm btn-roxo month-btn active" data-mes="2026-03" type="button">Março/2026</button>
-                        </div>
-
-                        <div class="input-group filtro-busca">
-                          <span class="input-group-text bg-roxo text-white border-0">🔍</span>
-                          <input
-                            type="text"
-                            class="form-control border-roxo"
-                            id="busca"
-                            placeholder="Buscar por data, lua, sol ou tema"
-                          />
-                          <button class="btn btn-roxo" type="button">Buscar</button>
-                        </div>
+              <div class="col-md-7 mb-4">
+                <div class="card border-roxo">
+                  <div class="card-body p-4">
+                    <div class="mb-4">
+                      <h3 class="h5 text-roxo mb-3 d-flex align-items-center">
+                        <span class="me-2"></span> ARQUIVO COMPLETO DE PUBLICAÇÕES
+                      </h3>
+                      <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="badge-roxo"><span id="contador-posts"></span> 23 publicações</span>
+                        <span class="text-muted small">Atualizado diariamente</span>
                       </div>
-
-                      <hr class="my-4" />
-
-                      <div>
-                        <h3 class="h5 text-roxo mb-3 d-flex align-items-center">
-                          <span class="me-2">🔮</span> FILTRAR POR SIGNO
-                        </h3>
-                        <p class="small text-muted mb-3">Selecione um ou mais signos para filtrar as previsões</p>
-
-                        <div class="row g-2" id="seletor-signos">
-                          <div class="col-4">
-                            <button class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1" data-signo="aries" type="button" title="Selecionar Áries">
-                              <img src="/assets/icons/signos/aries.svg" alt="Áries" width="20" height="20" />
-                              <span>Áries</span>
-                            </button>
-                          </div>
-                          <div class="col-4">
-                            <button class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1" data-signo="touro" type="button" title="Selecionar Touro">
-                              <img src="/assets/icons/signos/touro.svg" alt="Touro" width="20" height="20" />
-                              <span>Touro</span>
-                            </button>
-                          </div>
-                          <div class="col-4">
-                            <button class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1" data-signo="gemeos" type="button" title="Selecionar Gêmeos">
-                              <img src="/assets/icons/signos/gemeos.svg" alt="Gêmeos" width="20" height="20" />
-                              <span>Gêmeos</span>
-                            </button>
-                          </div>
-                          <div class="col-4">
-                            <button class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1" data-signo="cancer" type="button" title="Selecionar Câncer">
-                              <img src="/assets/icons/signos/cancer.svg" alt="Câncer" width="20" height="20" />
-                              <span>Câncer</span>
-                            </button>
-                          </div>
-                          <div class="col-4">
-                            <button class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1" data-signo="leao" type="button" title="Selecionar Leão">
-                              <img src="/assets/icons/signos/leao.svg" alt="Leão" width="20" height="20" />
-                              <span>Leão</span>
-                            </button>
-                          </div>
-                          <div class="col-4">
-                            <button class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1" data-signo="virgem" type="button" title="Selecionar Virgem">
-                              <img src="/assets/icons/signos/virgem.svg" alt="Virgem" width="20" height="20" />
-                              <span>Virgem</span>
-                            </button>
-                          </div>
-                          <div class="col-4">
-                            <button class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1" data-signo="libra" type="button" title="Selecionar Libra">
-                              <img src="/assets/icons/signos/libra.svg" alt="Libra" width="20" height="20" />
-                              <span>Libra</span>
-                            </button>
-                          </div>
-                          <div class="col-4">
-                            <button class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1" data-signo="escorpiao" type="button" title="Selecionar Escorpião">
-                              <img src="/assets/icons/signos/escorpiao.svg" alt="Escorpião" width="20" height="20" />
-                              <span>Escorpião</span>
-                            </button>
-                          </div>
-                          <div class="col-4">
-                            <button class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1" data-signo="sagitario" type="button" title="Selecionar Sagitário">
-                              <img src="/assets/icons/signos/sagitario.svg" alt="Sagitário" width="20" height="20" />
-                              <span>Sagitário</span>
-                            </button>
-                          </div>
-                          <div class="col-4">
-                            <button class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1" data-signo="capricornio" type="button" title="Selecionar Capricórnio">
-                              <img src="/assets/icons/signos/capricornio.svg" alt="Capricórnio" width="20" height="20" />
-                              <span>Capricórnio</span>
-                            </button>
-                          </div>
-                          <div class="col-4">
-                            <button class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1" data-signo="aquario" type="button" title="Selecionar Aquário">
-                              <img src="/assets/icons/signos/aquario.svg" alt="Aquário" width="20" height="20" />
-                              <span>Aquário</span>
-                            </button>
-                          </div>
-                          <div class="col-4">
-                            <button class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1" data-signo="peixes" type="button" title="Selecionar Peixes">
-                              <img src="/assets/icons/signos/peixes.svg" alt="Peixes" width="20" height="20" />
-                              <span>Peixes</span>
-                            </button>
-                          </div>
+                      <div class="d-flex flex-wrap gap-2 mb-3" id="filtros-mes">
+                        <button class="btn btn-sm btn-outline-roxo month-btn" data-mes="all"
+                          type="button">Todos</button>
+                        <button class="btn btn-sm btn-outline-roxo month-btn" data-mes="2026-01"
+                          type="button">Janeiro/2026</button>
+                        <button class="btn btn-sm btn-outline-roxo month-btn" data-mes="2026-02"
+                          type="button">Fevereiro/2026</button>
+                        <button class="btn btn-sm btn-roxo month-btn active" data-mes="2026-03"
+                          type="button">Março/2026</button>
+                      </div>
+                      <div class="input-group filtro-busca">
+                        <span class="input-group-text bg-roxo text-white border-0">🔍</span>
+                        <input type="text" class="form-control border-roxo" id="busca"
+                          placeholder="Buscar por data, lua, sol ou tema" />
+                        <button class="btn btn-roxo" type="button">Buscar</button>
+                      </div>
+                    </div>
+                    <hr class="my-4" />
+                    <div>
+                      <h3 class="h5 text-roxo mb-3 d-flex align-items-center">
+                        <span class="me-2"></span> FILTRAR POR SIGNO
+                      </h3>
+                      <p class="small text-muted mb-3">Selecione um ou mais signos para filtrar as previsões</p>
+                      <div class="row g-2" id="seletor-signos">
+                        <div class="col-4"><button
+                            class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1"
+                            data-signo="aries" type="button"><img src="/assets/icons/signos/aries.svg" alt="Áries"
+                              width="48" height="48" loading="lazy" style="aspect-ratio: 1/1;" /></button></div>
+                        <div class="col-4"><button
+                            class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1"
+                            data-signo="touro" type="button"><img src="/assets/icons/signos/touro.svg" alt="Touro"
+                              width="20" height="20" loading="lazy" style="aspect-ratio: 1/1;" /><span>Touro</span></button></div>
+                        <div class="col-4"><button
+                            class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1"
+                            data-signo="gemeos" type="button"><img src="/assets/icons/signos/gemeos.svg" alt="Gêmeos"
+                              width="20" height="20" loading="lazy" style="aspect-ratio: 1/1;" /><span>Gêmeos</span></button></div>
+                        <div class="col-4"><button
+                            class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1"
+                            data-signo="cancer" type="button"><img src="/assets/icons/signos/cancer.svg" alt="Câncer"
+                              width="20" height="20" loading="lazy" style="aspect-ratio: 1/1;" /><span>Câncer</span></button></div>
+                        <div class="col-4"><button
+                            class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1"
+                            data-signo="leao" type="button"><img src="/assets/icons/signos/leao.svg" alt="Leão"
+                              width="20" height="20" loading="lazy" style="aspect-ratio: 1/1;" /><span>Leão</span></button></div>
+                        <div class="col-4"><button
+                            class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1"
+                            data-signo="virgem" type="button"><img src="/assets/icons/signos/virgem.svg" alt="Virgem"
+                              width="20" height="20" loading="lazy" style="aspect-ratio: 1/1;" /><span>Virgem</span></button></div>
+                        <div class="col-4"><button
+                            class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1"
+                            data-signo="libra" type="button"><img src="/assets/icons/signos/libra.svg" alt="Libra"
+                              width="20" height="20" loading="lazy" style="aspect-ratio: 1/1;" /><span>Libra</span></button></div>
+                        <div class="col-4"><button
+                            class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1"
+                            data-signo="escorpiao" type="button"><img src="/assets/icons/signos/escorpiao.svg"
+                              alt="Escorpião" width="20" height="20" loading="lazy" style="aspect-ratio: 1/1;" /><span>Escorpião</span></button>
                         </div>
-
-                        <div class="d-flex gap-2 mt-3">
-                          <button class="btn btn-roxo flex-grow-1" id="filtro-mostrar-todos" type="button">Mostrar todos</button>
-                          <button class="btn btn-outline-roxo" id="filtro-limpar" type="button">Limpar filtro</button>
+                        <div class="col-4"><button
+                            class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1"
+                            data-signo="sagitario" type="button"><img src="/assets/icons/signos/sagitario.svg"
+                              alt="Sagitário" width="20" height="20" loading="lazy" style="aspect-ratio: 1/1;" /><span>Sagitário</span></button>
                         </div>
+                        <div class="col-4"><button
+                            class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1"
+                            data-signo="capricornio" type="button"><img src="/assets/icons/signos/capricornio.svg"
+                              alt="Capricórnio" width="20" height="20"
+                              loading="lazy" style="aspect-ratio: 1/1;" /><span>Capricórnio</span></button></div>
+                        <div class="col-4"><button
+                            class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1"
+                            data-signo="aquario" type="button"><img src="/assets/icons/signos/aquario.svg" alt="Aquário"
+                              width="20" height="20" loading="lazy" style="aspect-ratio: 1/1;" /><span>Aquário</span></button></div>
+                        <div class="col-4"><button
+                            class="btn btn-outline-roxo w-100 d-flex align-items-center justify-content-center gap-1"
+                            data-signo="peixes" type="button"><img src="/assets/icons/signos/peixes.svg" alt="Peixes"
+                              width="20" height="20" loading="lazy" style="aspect-ratio: 1/1;" /><span>Peixes</span></button></div>
+                      </div>
+                      <div class="d-flex gap-2 mt-3">
+                        <button class="btn btn-roxo flex-grow-1" id="filtro-mostrar-todos" type="button">Mostrar
+                          todos</button>
+                        <button class="btn btn-outline-roxo" id="filtro-limpar" type="button">Limpar filtro</button>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <div id="area-previsoes" aria-live="polite">
-                <div id="estado-zero" class="text-center py-5 bg-light rounded">
-                  <img src="/assets/icons/star.svg" alt="Ícone de estrela" title="Ícone de estrela" width="48" height="48" class="mb-3 opacity-50" />
-                  <p class="h5 mb-2">Nenhum signo selecionado</p>
-                  <p class="text-muted">Selecione um signo acima para ver sua previsão de hoje.</p>
-                </div>
+            </div>
+            <div id="area-previsoes" aria-live="polite">
+              <div id="estado-zero" class="text-center py-5 bg-light rounded">
+                <img src="/assets/icons/star.svg" alt="Ícone de estrela" width="48" height="48" loading="lazy"
+                  class="mb-3 opacity-50" />
+                <p class="h5 mb-2">Nenhum signo selecionado</p>
+                <p class="text-muted">Selecione um signo acima para ver sua previsão de hoje.</p>
+              </div>
+              <div class="card-body p-4" style="min-height: 200px;">
                 <div id="lista-previsoes-signos"></div>
               </div>
-            </section>
+            </div>
+          </section>
 
-            <section class="mb-4" id="posts-diarios">
-              <div
-                class="row row-cols-1 row-cols-md-2 row-cols-lg-3 posts-grid"
-                id="posts-grid"
-              ></div>
-            </section>
-          </div>
+          <section class="mb-4" id="posts-diarios">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 posts-grid" id="posts-grid"></div>
+          </section>
+        </div>
 
-          <!-- Sidebar -->
-          <aside class="col-lg-4 mt-4 mt-lg-0">
-            <div class="calendario-sidebar sticky-top" style="top: 20px;">
-              <div class="card calendario-card mb-3">
-                <div class="card-header bg-roxo text-white py-3">
-                  <h3 class="h5 mb-0 d-flex align-items-center">
-                    <span class="me-2">📆</span> MARÇO 2026
-                  </h3>
-                </div>
-                <div class="card-body">
-                  <div id="calendario"></div>
-                </div>
+        <!-- Sidebar -->
+        <aside class="col-lg-4 mt-4 mt-lg-0">
+          <div class="calendario-sidebar sticky-top" style="top: 20px;">
+            <div class="card calendario-card mb-3">
+              <div class="card-header bg-roxo text-white py-3">
+                <h3 class="h5 mb-0 d-flex align-items-center"><span class="me-2">📆</span> MARÇO 2026</h3>
               </div>
-              <div class="card calendario-card">
-                <div class="card-header bg-roxo-claro text-white py-2">
-                  <h3 class="h5 mb-0">📚 ARQUIVO</h3>
-                </div>
-                <div class="card-body">
-                  <section class="arquivo-signos">
-                    <div class="arquivo-header-signos">
-                      <h3 class="h6 mb-0"><span>🔮</span> ARQUIVO POR SIGNO</h3>
-                      <a href="#signos" class="link-ver-todos">Ver todos →</a>
-                    </div>
-
-                    <div class="card mb-3">
-                      <div class="card-body p-0" id="ultimos-posts-signos"></div>
-                    </div>
-
-                    <div class="arquivo-grid" id="grid-signos-arquivo"></div>
-
-                    <div class="text-center mt-3">
-                      <a href="#posts-diarios" class="btn btn-outline-roxo btn-sm">
-                        Ver arquivo completo de publicações →
-                      </a>
-                    </div>
-                  </section>
-                </div>
+              <div class="card-body">
+                <div id="calendario"></div>
               </div>
             </div>
-          </aside>
-        </div>
-      </main>
-
-      <footer class="mystic-footer mt-5">
-        <div class="container position-relative" style="z-index: 2">
-          <div class="row text-center text-md-start">
-            <div class="col-md-4 mb-4">
-              <h4
-                style="
-                  font-family: &quot;Cinzel&quot;, serif;
-                  color: var(--soft-gold);
-                "
-              >
-                Aurora Scorpio
-              </h4>
-              <p style="opacity: 0.9">
-                Astrologia, espiritualidade e autoconhecimento através de uma
-                linguagem mística e acolhedora.
-              </p>
-            </div>
-            <div class="col-md-4 mb-4">
-              <h4 style="color: var(--soft-gold)">Navegação</h4>
-              <ul class="list-unstyled">
-                <li>
-                  <a
-                    href="index.html"
-                    title="Voltar para a página inicial Aurora Scorpio"
-                    aria-label="Ir para início"
-                    style="color: var(--moon-white); text-decoration: none"
-                    >Início</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#previsoes"
-                    title="Ir para previsões em destaque"
-                    aria-label="Navegar para previsões"
-                    style="color: var(--moon-white); text-decoration: none"
-                    >Previsões</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#signos"
-                    title="Ir para seção de previsões dos signos"
-                    aria-label="Navegar para seção signos"
-                    style="color: var(--moon-white); text-decoration: none"
-                    >Signos</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#posts-diarios"
-                    title="Ir para arquivo de posts diários"
-                    aria-label="Navegar para posts diários"
-                    style="color: var(--moon-white); text-decoration: none"
-                    >Posts Diários</a
-                  >
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-4 mb-4">
-              <h4 style="color: var(--soft-gold)">Comunidade</h4>
-              <ul class="list-unstyled">
-                <li>
-                  <a
-                    href="https://instagram.com/aurorascorpio"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style="color: var(--moon-white); text-decoration: none"
-                    ><i class="bi bi-instagram"></i> @aurorascorpio</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="https://www.youtube.com/@aurorascorpio"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style="color: var(--moon-white); text-decoration: none"
-                    ><i class="bi bi-youtube"></i> Aurora Scorpio</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="https://t.me/aurorascorpio"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style="color: var(--moon-white); text-decoration: none"
-                    ><i class="bi bi-telegram"></i> Telegram</a
-                  >
-                </li>
-              </ul>
+            <div class="card calendario-card">
+              <div class="card-header bg-roxo-claro text-white py-2">
+                <h3 class="h5 mb-0">ARQUIVO</h3>
+              </div>
+              <div class="card-body">
+                <section class="arquivo-signos">
+                  <div class="arquivo-header-signos">
+                    <h3 class="h6 mb-0"><span>🔮</span> ARQUIVO POR SIGNO</h3>
+                    <a href="#signos" class="link-ver-todos">Ver todos →</a>
+                  </div>
+                  <div class="card mb-3">
+                    <div class="card-body p-0" id="ultimos-posts-signos"></div>
+                  </div>
+                  <div class="arquivo-grid" id="grid-signos-arquivo"></div>
+                  <div class="text-center mt-3">
+                    <a href="#posts-diarios" class="btn btn-outline-roxo btn-sm">Ver arquivo completo de publicações
+                      →</a>
+                  </div>
+                </section>
+              </div>
             </div>
           </div>
-          <div class="text-center mt-4 pt-3 border-top border-secondary">
-            <!-- Links institucionais -->
-            <div class="text-center mt-2 mb-3">
-              <a href="/politica-privacidade.html" class="text-muted mx-2 text-decoration-none">Política de Privacidade</a>
-              <span class="text-muted">|</span>
-              <a href="/termos-de-uso.html" class="text-muted mx-2 text-decoration-none">Termos de Uso</a>
-              <span class="text-muted">|</span>
-              <a href="/contato.html" class="text-muted mx-2 text-decoration-none">Contato</a>
-            </div>
-            
-            <p class="mb-1">
-              © 2026 Mistérios do Zodíaco by Aurora Scorpio. Todos os direitos
-              reservados.
-            </p>
-            
-            <p style="margin: 15px 0 5px; font-size: 11px; color: #999; border-top: 1px solid #e9d5ff; padding-top: 15px;">
-              <span style="opacity: 0.7;">desenvolvido por</span>
-              <a href="https://www.koddahub.com.br" target="_blank" rel="noopener noreferrer"
-                style="color: #6f42c1; text-decoration: none; font-weight: 500; margin-left: 4px;">
-                Kodda<span style="color: #ffc107;">Hub</span>
-              </a>
-            </p>
-            
+        </aside>
+      </div>
+    </main>
+
+    <footer class="mystic-footer mt-5">
+      <div class="container position-relative" style="z-index: 2">
+        <div class="row text-center text-md-start">
+          <div class="col-md-4 mb-4">
+            <h4 style="font-family: 'Cinzel', serif; color: var(--soft-gold);">Aurora Scorpio</h4>
+            <p style="opacity: 0.9">Astrologia, espiritualidade e autoconhecimento através de uma linguagem mística e
+              acolhedora.</p>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h4 style="color: var(--soft-gold)">Navegação</h4>
+            <ul class="list-unstyled">
+              <li><a href="index.html" style="color: var(--moon-white); text-decoration: none">Início</a></li>
+              <li><a href="#previsoes" style="color: var(--moon-white); text-decoration: none">Previsões</a></li>
+              <li><a href="#signos" style="color: var(--moon-white); text-decoration: none">Signos</a></li>
+              <li><a href="#posts-diarios" style="color: var(--moon-white); text-decoration: none">Posts Diários</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h4 style="color: var(--soft-gold)">Comunidade</h4>
+            <ul class="list-unstyled">
+              <li><a href="https://instagram.com/aurorascorpio" target="_blank" rel="noopener noreferrer"
+                  style="color: var(--moon-white); text-decoration: none"><i class="bi bi-instagram"></i>
+                  @aurorascorpio</a></li>
+              <li><a href="https://www.youtube.com/@aurorascorpio" target="_blank" rel="noopener noreferrer"
+                  style="color: var(--moon-white); text-decoration: none"><i class="bi bi-youtube"></i> Aurora
+                  Scorpio</a></li>
+              <li><a href="https://t.me/aurorascorpio" target="_blank" rel="noopener noreferrer"
+                  style="color: var(--moon-white); text-decoration: none"><i class="bi bi-telegram"></i> Telegram</a>
+              </li>
+            </ul>
           </div>
         </div>
-      </footer>
-    </div>
-
-    <script src="assets/js/schedule.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script src="/assets/js/nav-toggle.js"></script>
-
-    <!-- COOKIE CONSENT - LGPD -->
-    <div id="cookieConsent" class="cookie-consent" style="display: none">
-      <div class="cookie-content">
-        <div class="cookie-header">
-          <i class="bi bi-shield-check"></i>
-          <span>Privacidade e Cookies</span>
+        <div class="text-center mt-4 pt-3 border-top border-secondary">
+          <div class="text-center mt-2 mb-3">
+            <a href="/politica-privacidade.html" class="text-muted mx-2 text-decoration-none">Política de
+              Privacidade</a>
+            <span class="text-muted">|</span>
+            <a href="/termos-de-uso.html" class="text-muted mx-2 text-decoration-none">Termos de Uso</a>
+            <span class="text-muted">|</span>
+            <a href="/contato.html" class="text-muted mx-2 text-decoration-none">Contato</a>
+          </div>
+          <p class="mb-1">© 2026 Mistérios do Zodíaco by Aurora Scorpio. Todos os direitos reservados.</p>
+          <p
+            style="margin: 15px 0 5px; font-size: 11px; color: #999; border-top: 1px solid #e9d5ff; padding-top: 15px;">
+            <span style="opacity: 0.7;">desenvolvido por</span>
+            <a href="https://www.koddahub.com.br" target="_blank" rel="noopener noreferrer"
+              style="color: #6f42c1; text-decoration: none; font-weight: 500; margin-left: 4px;">Kodda<span
+                style="color: #ffc107;">Hub</span></a>
+          </p>
         </div>
-        <div class="cookie-text">
-          Usamos cookies para melhorar sua experiência, analisar tráfego e
-          personalizar conteúdo. Ao continuar, você concorda com nossa
-          <a href="/politica-privacidade.html" target="_blank"
-            >Política de Privacidade</a
-          >.
-        </div>
-        <div class="cookie-buttons">
-          <button class="cookie-btn cookie-btn-accept" onclick="aceitarTodosCookies()">
-            Aceitar todos
-          </button>
-          <button class="cookie-btn cookie-btn-config" onclick="mostrarConfigCookies()">
-            Configurar
-          </button>
-        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts com defer para não bloquear renderização -->
+  <script src="assets/js/schedule.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="/assets/js/nav-toggle.js" defer></script>
+  <script src="assets/js/index.js?v=20260323" defer></script>
+
+  <!-- COOKIE CONSENT - LGPD -->
+  <div id="cookieConsent" class="cookie-consent" style="display: none">
+    <div class="cookie-content">
+      <div class="cookie-header"><i class="bi bi-shield-check"></i><span>Privacidade e Cookies</span></div>
+      <div class="cookie-text">Usamos cookies para melhorar sua experiência, analisar tráfego e personalizar conteúdo.
+        Ao continuar, você concorda com nossa <a href="/politica-privacidade.html" target="_blank">Política de
+          Privacidade</a>.</div>
+      <div class="cookie-buttons">
+        <button class="cookie-btn cookie-btn-accept" onclick="aceitarTodosCookies()">Aceitar todos</button>
+        <button class="cookie-btn cookie-btn-config" onclick="mostrarConfigCookies()">Configurar</button>
       </div>
     </div>
+  </div>
 
-    <!-- PAINEL DE CONFIGURAÇÃO DE COOKIES -->
-    <div
-      id="cookieConfigPanel"
-      class="cookie-config-panel"
-      style="display: none"
-    >
-      <div class="cookie-config-header">
-        <h3><i class="bi bi-sliders2 me-2"></i>Configurar Cookies</h3>
-        <button class="cookie-close-btn" onclick="fecharConfigCookies()">
-          <i class="bi bi-x-lg"></i>
-        </button>
-      </div>
-
-      <div class="cookie-option">
-        <div class="cookie-option-header">
-          <span class="cookie-option-title">Necessários</span>
-          <label class="cookie-switch">
-            <input type="checkbox" id="cookiesNecessarios" checked disabled />
-            <span class="cookie-slider"></span>
-          </label>
-        </div>
-        <div class="cookie-option-desc">
-          Essenciais para o funcionamento do site. Não podem ser desativados.
-        </div>
-      </div>
-
-      <div class="cookie-option">
-        <div class="cookie-option-header">
-          <span class="cookie-option-title">Analíticos</span>
-          <label class="cookie-switch">
-            <input type="checkbox" id="cookiesAnalytics" checked />
-            <span class="cookie-slider"></span>
-          </label>
-        </div>
-        <div class="cookie-option-desc">
-          Nos ajudam a entender como você usa o site para melhorarmos sua
-          experiência.
-        </div>
-      </div>
-
-      <div class="cookie-option">
-        <div class="cookie-option-header">
-          <span class="cookie-option-title">Funcionais</span>
-          <label class="cookie-switch">
-            <input type="checkbox" id="cookiesFuncionais" />
-            <span class="cookie-slider"></span>
-          </label>
-        </div>
-        <div class="cookie-option-desc">
-          Permitem funcionalidades como chat e preferências personalizadas.
-        </div>
-      </div>
-
-      <div class="cookie-config-footer">
-        <button class="cookie-save-btn" onclick="salvarConfigCookies()">
-          Salvar preferências
-        </button>
-        <button class="cookie-cancel-btn" onclick="fecharConfigCookies()">
-          Cancelar
-        </button>
-      </div>
+  <div id="cookieConfigPanel" class="cookie-config-panel" style="display: none">
+    <div class="cookie-config-header">
+      <h3><i class="bi bi-sliders2 me-2"></i>Configurar Cookies</h3>
+      <button class="cookie-close-btn" onclick="fecharConfigCookies()"><i class="bi bi-x-lg"></i></button>
     </div>
+    <div class="cookie-option">
+      <div class="cookie-option-header"><span class="cookie-option-title">Necessários</span><label
+          class="cookie-switch"><input type="checkbox" id="cookiesNecessarios" checked disabled /><span
+            class="cookie-slider"></span></label></div>
+      <div class="cookie-option-desc">Essenciais para o funcionamento do site. Não podem ser desativados.</div>
+    </div>
+    <div class="cookie-option">
+      <div class="cookie-option-header"><span class="cookie-option-title">Analíticos</span><label
+          class="cookie-switch"><input type="checkbox" id="cookiesAnalytics" checked /><span
+            class="cookie-slider"></span></label></div>
+      <div class="cookie-option-desc">Nos ajudam a entender como você usa o site para melhorarmos sua experiência.</div>
+    </div>
+    <div class="cookie-option">
+      <div class="cookie-option-header"><span class="cookie-option-title">Funcionais</span><label
+          class="cookie-switch"><input type="checkbox" id="cookiesFuncionais" /><span
+            class="cookie-slider"></span></label></div>
+      <div class="cookie-option-desc">Permitem funcionalidades como chat e preferências personalizadas.</div>
+    </div>
+    <div class="cookie-config-footer">
+      <button class="cookie-save-btn" onclick="salvarConfigCookies()">Salvar preferências</button>
+      <button class="cookie-cancel-btn" onclick="fecharConfigCookies()">Cancelar</button>
+    </div>
+  </div>
 
-    <!-- OVERLAY -->
-    <div
-      id="cookieOverlay"
-      class="overlay"
-      style="display: none"
-      onclick="fecharConfigCookies()"
-    ></div>
-    <script src="assets/js/index.js?v=20260320-2"></script>
-  </body>
+  <div id="cookieOverlay" class="overlay" style="display: none" onclick="fecharConfigCookies()"></div>
+</body>
+
 </html>

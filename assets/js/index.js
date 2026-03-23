@@ -1433,7 +1433,7 @@
 
             const secaoPrevisoes = document.getElementById("previsoes");
             if (secaoPrevisoes) {
-              secaoPrevisoes.scrollIntoView({ behavior: "smooth", block: "start" });
+              secaoPrevisoes.scrollIntoView({ block: "start" });
             }
           });
         });
@@ -1695,25 +1695,92 @@
         const form = document.getElementById(formId);
         const input = document.getElementById(inputId);
         const msg = document.getElementById(msgId);
+        const downloadLink = document.getElementById("ebook-link");
+        const downloadWrapper = document.getElementById("ebook-link-wrapper");
 
         if (!form || !input || !msg) {
           return;
         }
 
-        form.addEventListener("submit", (evento) => {
+        form.addEventListener("submit", async (evento) => {
           evento.preventDefault();
           const email = input.value.trim();
+          const submitBtn = form.querySelector('button[type="submit"]');
+          const labelOriginal = submitBtn ? submitBtn.textContent : "";
 
           if (!email) {
             msg.className = "small mt-2 text-danger";
-            msg.textContent =
-              "Digite um e-mail válido para receber as previsões.";
+            msg.textContent = "Digite um e-mail válido para receber a amostra gratis.";
             return;
           }
 
-          msg.className = `small mt-2 ${successClass}`;
-          msg.textContent = "Inscrição realizada com sucesso! 💫";
-          input.value = "";
+          const formData = new FormData(form);
+          formData.set("email", email);
+          const honeypot = String(formData.get("website") || "").trim();
+
+          if (honeypot) {
+            msg.className = "small mt-2 text-danger";
+            msg.textContent = "Nao foi possivel concluir. Atualize a pagina e tente novamente.";
+            return;
+          }
+
+          if (!formData.get("ebook_url")) {
+            formData.set("ebook_url", "https://simplers.com/amostra-gratis");
+          }
+
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Enviando...";
+          }
+
+          try {
+            const response = await fetch("/newsletter/cadastrar.php", {
+              method: "POST",
+              body: formData,
+              headers: {
+                Accept: "application/json",
+              },
+            });
+
+            let payload = null;
+            try {
+              payload = await response.json();
+            } catch (erro) {
+              payload = null;
+            }
+
+            if (!response.ok || !payload || payload.success !== true) {
+              const errorText =
+                payload && payload.error
+                  ? payload.error
+                  : "Nao foi possivel concluir. Tente novamente em instantes.";
+              throw new Error(errorText);
+            }
+
+            const downloadUrl =
+              payload.download_url ||
+              String(formData.get("ebook_url") || "").trim() ||
+              "https://simplers.com/amostra-gratis";
+
+            msg.className = `small mt-2 ${successClass}`;
+            msg.textContent = payload.message || "Tudo certo! Agora e so baixar sua amostra gratis.";
+            input.value = "";
+
+            if (downloadLink) {
+              downloadLink.setAttribute("href", downloadUrl);
+            }
+            if (downloadWrapper) {
+              downloadWrapper.classList.remove("d-none");
+            }
+          } catch (erro) {
+            msg.className = "small mt-2 text-danger";
+            msg.textContent = erro.message || "Erro ao enviar. Tente novamente.";
+          } finally {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = labelOriginal || "Receber amostra gratis";
+            }
+          }
         });
       }
 

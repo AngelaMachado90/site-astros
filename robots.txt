@@ -1,0 +1,43 @@
+# robots.txt para Aurora Scorpio - Blog de Astrologia
+# Permite todos os rastreadores com regras específicas
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://astros.koddahub.com.br/sitemap.xml
+
+# Regras de Crawl Delay (evita sobrecarga)
+Crawl-delay: 1
+
+# Diretivas para bots específicos
+User-agent: Googlebot
+Crawl-delay: 1
+Allow: /
+
+User-agent: Bingbot
+Crawl-delay: 1
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Bloquear áreas administrativas (se existirem)
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /cgi-bin/
+Disallow: /temp/
+
+# Bloquear arquivos desnecessários
+Disallow: /assets/js/*.min.js
+Disallow: /assets/css/*.min.css
+
+# Tempo de atualização (sugestão para bots)
+# Nota: Esta é uma extensão não padrão, alguns bots podem ignorar
+Host: https://astros.koddahub.com.br

@@ -1,3 +1,30 @@
 @media (min-width: 768px) {
   /* Reserved for tablet-specific overrides */
 }
+
+/* Reservar espaço para elementos dinâmicos */
+#lista-previsoes-signos {
+  min-height: 300px;
+}
+
+#posts-grid {
+  min-height: 400px;
+}
+
+#calendario {
+  min-height: 300px;
+}
+
+/* Evitar que imagens sem dimensão causem CLS */
+img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Para imagens com dimensões específicas */
+img[width],
+img[height] {
+  width: auto;
+  height: auto;
+}

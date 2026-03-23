@@ -8,16 +8,70 @@
     <meta name="description" content="Previsão astrológica para 23/03/2026 com Lua em Virgem e Sol em Áries: coragem, equilíbrio emocional e decisões alinhadas ao que é certo.">
     <meta name="keywords" content="previsão astrológica diária, 23/03/2026, Segunda-feira, Virgem, Áries, Aurora Scorpio">
     <meta name="author" content="Aurora Scorpio">
+    
+    <!-- Fontes Externas-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Personalizado-->
     <link rel="stylesheet" href="/assets/css/post-diario.css?v=20260320-1">
+    <!-- Favincon-->
     <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    
     <script src="/assets/js/schedule.js"></script>
+    
     <script>
         window.AuroraSchedule.redirectIfFuturePost("2026-03-23", "futuro.html");
     </script>
+
+    <!-- SCRIPT ADICIONAL PARA BLOQUEAR BOTÃO PRÓXIMO -->
+    <script>
+        (function () {
+            // Função para obter data atual no fuso Brasil
+            function getTodayBrazil() {
+                try {
+                    const hoje = new Date();
+                    const formatter = new Intl.DateTimeFormat("en-CA", {
+                        timeZone: "America/Sao_Paulo",
+                        year: "numeric",
+                        month: "2-digit",
+                        day: "2-digit"
+                    });
+                    return formatter.format(hoje);
+                } catch (e) {
+                    return new Date().toISOString().split("T")[0];
+                }
+            }
+
+            const dataPost = "2026-03-24";
+            const hoje = getTodayBrazil();
+
+            // Se for o dia atual, bloquear botão próximo
+            if (dataPost === hoje) {
+                document.addEventListener('DOMContentLoaded', function () {
+                    const botoesProximo = document.querySelectorAll('.btn-nav-next');
+                    botoesProximo.forEach(botao => {
+                        botao.classList.add('disabled');
+                        botao.setAttribute('aria-disabled', 'true');
+                        botao.setAttribute('tabindex', '-1');
+                        botao.removeAttribute('href');
+
+                        // Trocar ícone de seta para cadeado
+                        const icone = botao.querySelector('i');
+                        if (icone && icone.classList.contains('bi-arrow-right-circle-fill')) {
+                            icone.classList.remove('bi-arrow-right-circle-fill');
+                            icone.classList.add('bi-lock-fill');
+                        }
+                    });
+                });
+            }
+        })();
+    </script>
 </head>
+<!-- Fim Head-->
+
 <body>
     <div class="cosmic-particles">
         <span class="particle-1"></span>
@@ -34,17 +88,28 @@
                     <h1 class="logo">Aurora <span class="accent-gold">Scorpio</span></h1>
                     <p class="subtitle">Astrologia Mística &amp; Autoconhecimento</p>
                 </div>
-</div>
+            </div>
         </div>
     </header>
 
-    <nav class="cosmic-nav">
+    <!-- Menu Mobile (visível apenas em telas < 992px) -->
+    <nav class="cosmic-nav-mobile d-flex d-lg-none justify-content-center flex-wrap py-2">
+        <a class="nav-link-cosmic" href="/index.html"><i class="bi bi-house"></i> Início</a>
+        <a class="nav-link-cosmic" href="/index.html#previsoes"><i class="bi bi-stars"></i> Previsões</a>
+        <a class="nav-link-cosmic" href="/index.html#signos"><i class="bi bi-gem"></i> Signos</a>
+        <a class="nav-link-cosmic" href="/posts/diarios.html"><i class="bi bi-calendar-week"></i> Posts</a>
+        <a class="nav-link-cosmic" href="/sobre.html"><i class="bi bi-person"></i> Sobre</a>
+    </nav>
+    
+    <!-- Menu Desktop (visível apenas em telas >= 992px) -->
+    <nav class="cosmic-nav d-none d-lg-block">
         <div class="container">
             <div class="d-flex justify-content-center flex-wrap">
                 <a href="/index.html" class="nav-link-cosmic"><i class="bi bi-house"></i> Início</a>
                 <a href="/index.html#previsoes" class="nav-link-cosmic"><i class="bi bi-stars"></i> Previsões</a>
                 <a href="/index.html#signos" class="nav-link-cosmic"><i class="bi bi-gem"></i> Signos</a>
-                <a href="/posts/diarios.html" class="nav-link-cosmic active"><i class="bi bi-calendar-week"></i> Posts Diários</a>
+                <a href="/posts/diarios.html" class="nav-link-cosmic active"><i class="bi bi-calendar-week"></i> Posts
+                    Diários</a>
                 <a href="/sobre.html" class="nav-link-cosmic"><i class="bi bi-person"></i> Sobre Aurora</a>
             </div>
         </div>
@@ -121,23 +186,180 @@
                             Com Sol em Áries, a ajuda ganha força quando vira ação concreta: organizar prioridades, simplificar um plano e incentivar uma decisão possível para hoje. Gentileza com direção é o gesto mais transformador deste dia.
                         </p>
 
+
+                        <!-- POSICOES PLANETARIAS COM ICONES-->
                         <h2><i class="bi bi-planet"></i> Posições planetárias</h2>
                         <div class="table-responsive">
                             <table class="aspectos-table">
                                 <thead>
-                                    <tr><th>Planeta</th><th>Signo</th><th>Grau</th><th>Aspectos</th></tr>
+                                    <tr>
+                                        <th>Planeta</th>
+                                        <th>Signo</th>
+                                        <th>Grau</th>
+                                        <th>Aspectos</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td>Sol</td><td>Áries</td><td>3°18'</td><td>Iniciativa e afirmação de propósito</td></tr>
-                                    <tr><td>Lua</td><td>Virgem</td><td>21°08'</td><td>Clima emocional do dia</td></tr>
-                                    <tr><td>Mercúrio</td><td>Peixes</td><td>18°43'</td><td>Comunicação intuitiva</td></tr>
-                                    <tr><td>Vênus</td><td>Áries</td><td>22°30'</td><td>Afeto com autenticidade</td></tr>
-                                    <tr><td>Marte</td><td>Peixes</td><td>19°03'</td><td>Ação sensível e estratégica</td></tr>
-                                    <tr><td>Júpiter</td><td>Câncer</td><td>15°53'</td><td>Expansão por pertencimento</td></tr>
-                                    <tr><td>Saturno</td><td>Áries</td><td>4°51'</td><td>Disciplina para novos inícios</td></tr>
-                                    <tr><td>Urano</td><td>Touro</td><td>28°55'</td><td>Inovação prática</td></tr>
-                                    <tr><td>Netuno</td><td>Áries</td><td>1°57'</td><td>Idealismo com ação</td></tr>
-                                    <tr><td>Plutão</td><td>Aquário</td><td>4°59'</td><td>Transformação coletiva</td></tr>
+                                    <tr>
+                                        <td>Sol</td>
+                                        <td>
+                                            <div class="signo-wrapper">
+                                                <img class="signo-icon" src="../../assets/icons/signos/aries.svg" alt="Áries" width="48"
+                                                    height="48">
+                                                <div class="hover-info-rich">
+                                                    Áries
+                                                    <small>Fogo • Cardeal • Regente: Marte</small>
+                                                    <small>21/03 a 19/04</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>3°18'</td>
+                                        <td>Iniciativa e afirmação de propósito</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lua</td>
+                                        <td>
+                                            <div class="signo-wrapper">
+                                                <img class="signo-icon" src="../../assets/icons/signos/virgem.svg" alt="Virgem" width="48"
+                                                    height="48">
+                                                <div class="hover-info-rich">
+                                                    Virgem
+                                                    <small>Terra • Mutável • Regente: Mercúrio</small>
+                                                    <small>23/08 a 22/09</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>21°08'</td>
+                                        <td>Clima emocional do dia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>☿ Mercúrio</td>
+                                        <td>
+                                            <div class="signo-wrapper">
+                                                <img class="signo-icon" src="../../assets/icons/signos/peixes.svg" alt="Peixes" width="48"
+                                                    height="48">
+                                                <div class="hover-info-rich">
+                                                    Peixes
+                                                    <small>Água • Mutável • Regente: Netuno/Júpiter</small>
+                                                    <small>19/02 a 20/03</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>18°43'</td>
+                                        <td>Comunicação intuitiva</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vênus</td>
+                                        <td>
+                                            <div class="signo-wrapper">
+                                                <img class="signo-icon" src="../../assets/icons/signos/aries.svg" alt="Áries" width="48"
+                                                    height="48">
+                                                <div class="hover-info-rich">
+                                                    Áries
+                                                    <small>Fogo • Cardeal • Regente: Marte</small>
+                                                    <small>21/03 a 19/04</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>22°30'</td>
+                                        <td>Afeto com autenticidade</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Marte</td>
+                                        <td>
+                                            <div class="signo-wrapper">
+                                                <img class="signo-icon" src="../../assets/icons/signos/peixes.svg" alt="Peixes" width="48"
+                                                    height="48">
+                                                <div class="hover-info-rich">
+                                                    Peixes
+                                                    <small>Água • Mutável • Regente: Netuno/Júpiter</small>
+                                                    <small>19/02 a 20/03</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>19°03'</td>
+                                        <td>Ação sensível e estratégica</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Júpiter</td>
+                                        <td>
+                                            <div class="signo-wrapper">
+                                                <img class="signo-icon" src="../../assets/icons/signos/cancer.svg" alt="Câncer" width="48"
+                                                    height="48">
+                                                <div class="hover-info-rich">
+                                                    Câncer
+                                                    <small>Água • Cardeal • Regente: Lua</small>
+                                                    <small>21/06 a 22/07</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>15°53'</td>
+                                        <td>Expansão por pertencimento</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Saturno</td>
+                                        <td>
+                                            <div class="signo-wrapper">
+                                                <img class="signo-icon" src="../../assets/icons/signos/aries.svg" alt="Áries" width="48"
+                                                    height="48">
+                                                <div class="hover-info-rich">
+                                                    Áries
+                                                    <small>Fogo • Cardeal • Regente: Marte</small>
+                                                    <small>21/03 a 19/04</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>4°51'</td>
+                                        <td>Disciplina para novos inícios</td>
+                                    </tr>
+                                    <tr>
+                                        <td>♅ Urano</td>
+                                        <td>
+                                            <div class="signo-wrapper">
+                                                <img class="signo-icon" src="../../assets/icons/signos/touro.svg" alt="Touro" width="48"
+                                                    height="48">
+                                                <div class="hover-info-rich">
+                                                    Touro
+                                                    <small>Terra • Fixo • Regente: Vênus</small>
+                                                    <small>20/04 a 20/05</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>28°55'</td>
+                                        <td>Inovação prática</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Netuno</td>
+                                        <td>
+                                            <div class="signo-wrapper">
+                                                <img class="signo-icon" src="../../assets/icons/signos/aries.svg" alt="Áries" width="48"
+                                                    height="48">
+                                                <div class="hover-info-rich">
+                                                    Áries
+                                                    <small>Fogo • Cardeal • Regente: Marte</small>
+                                                    <small>21/03 a 19/04</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>1°57'</td>
+                                        <td>Idealismo com ação</td>
+                                    </tr>
+                                    <tr>
+                                        <td>♇ Plutão</td>
+                                        <td>
+                                            <div class="signo-wrapper">
+                                                <img class="signo-icon" src="../../assets/icons/signos/aquario.svg" alt="Aquário" width="48"
+                                                    height="48">
+                                                <div class="hover-info-rich">
+                                                    Aquário
+                                                    <small>Ar • Fixo • Regente: Urano/Saturno</small>
+                                                    <small>20/01 a 18/02</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>4°59'</td>
+                                        <td>Transformação coletiva</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

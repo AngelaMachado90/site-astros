@@ -18,6 +18,104 @@
     };
 
     // ============================================
+    // API GLOBAL AURORASCHEDULE (FALLBACK)
+    // ============================================
+    function getDateParts(dateObj, timeZone) {
+        const formatter = new Intl.DateTimeFormat("en-CA", {
+            timeZone: timeZone || CONFIG.TIMEZONE,
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit"
+        });
+
+        const parts = formatter
+            .formatToParts(dateObj || new Date())
+            .reduce((acc, part) => {
+                if (part.type !== "literal") {
+                    acc[part.type] = part.value;
+                }
+                return acc;
+            }, {});
+
+        const year = String(parts.year || "");
+        const month = String(parts.month || "").padStart(2, "0");
+        const day = String(parts.day || "").padStart(2, "0");
+        const iso = `${year}-${month}-${day}`;
+        return { iso, year, month, day };
+    }
+
+    function getTodayISO() {
+        return getDateParts(new Date(), CONFIG.TIMEZONE).iso;
+    }
+
+    function isPostAvailable(postDateISO, referenceDateISO) {
+        if (!postDateISO) return false;
+        const hojeISO = referenceDateISO || getTodayISO();
+        return String(postDateISO) <= String(hojeISO);
+    }
+
+    function formatDateLong(dateString) {
+        const match = String(dateString || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+        if (!match) return String(dateString || "");
+
+        const [, year, month, day] = match;
+        const nomesMeses = [
+            "janeiro", "fevereiro", "março", "abril", "maio", "junho",
+            "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"
+        ];
+        const mes = nomesMeses[Number(month) - 1] || month;
+        return `${Number(day)} de ${mes} de ${year}`;
+    }
+
+    function getCountdownLabel(targetISO, timeZone) {
+        if (!targetISO) return "Publicacao agendada em breve.";
+        const tz = timeZone || CONFIG.TIMEZONE;
+        const hoje = getDateParts(new Date(), tz).iso;
+
+        const targetDate = new Date(`${targetISO}T00:00:00`);
+        const hojeDate = new Date(`${hoje}T00:00:00`);
+        const diffMs = targetDate.getTime() - hojeDate.getTime();
+        const diffDias = Math.ceil(diffMs / 86400000);
+
+        if (diffDias <= 0) return "A publicacao ja esta disponivel.";
+        if (diffDias === 1) return "Falta 1 dia para a publicacao.";
+        return `Faltam ${diffDias} dias para a publicacao.`;
+    }
+
+    function redirectIfFuturePost(postDateISO, fallbackPath, timeZone) {
+        if (!postDateISO) return false;
+        const tz = timeZone || CONFIG.TIMEZONE;
+        const hojeISO = getDateParts(new Date(), tz).iso;
+        if (String(postDateISO) <= String(hojeISO)) return false;
+
+        const base = window.location.href;
+        const destino = new URL(fallbackPath || "futuro.html", base);
+        destino.searchParams.set("data", String(postDateISO));
+        window.location.replace(destino.toString());
+        return true;
+    }
+
+    const auroraScheduleFallback = {
+        BLOG_TIMEZONE: CONFIG.TIMEZONE,
+        getDateParts,
+        getTodayISO,
+        isPostAvailable,
+        formatDateLong,
+        getCountdownLabel,
+        redirectIfFuturePost
+    };
+
+    if (!global.AuroraSchedule || typeof global.AuroraSchedule !== "object") {
+        global.AuroraSchedule = {};
+    }
+
+    Object.keys(auroraScheduleFallback).forEach((key) => {
+        if (typeof global.AuroraSchedule[key] === "undefined") {
+            global.AuroraSchedule[key] = auroraScheduleFallback[key];
+        }
+    });
+
+    // ============================================
     // DADOS DOS POSTS
     // ============================================
     const DADOS = {
@@ -100,7 +198,7 @@
             },
             "2026-03-15": {
                 data_formatada: "15 MAR",
-                lua: "🌙 Lua em Touro",
+                lua: " Lua em Touro",
                 titulo: "Previsão Diária - 15 de Março 2026",
                 conteudo: "Estabilidade e prazer com Lua em Touro. Momento de apreciar as pequenas coisas.",
                 lema: "A beleza está nos olhos de quem sabe esperar",
@@ -242,6 +340,56 @@
         return `/posts/${pasta}/${arquivoNormalizado}`;
     }
 
+    function extrairDataPostAtual() {
+        const scripts = Array.from(document.scripts || []);
+        for (const script of scripts) {
+            const texto = script?.textContent || "";
+            const match = texto.match(/redirectIfFuturePost\("(\d{4}-\d{2}-\d{2})"/);
+            if (match && match[1]) {
+                return match[1];
+            }
+        }
+
+        const caminho = String(window.location?.pathname || "");
+        const matchPath = caminho.match(/\/diario-(?:[a-z0-9-]+-)?(\d{2})-(\d{2})-(\d{4})\.html$/i);
+        if (!matchPath) {
+            return null;
+        }
+
+        const [, mes, dia, ano] = matchPath;
+        return `${ano}-${mes}-${dia}`;
+    }
+
+    function bloquearNavegacaoProximoSeHoje() {
+        const botoesProximo = document.querySelectorAll(".btn-nav-next");
+        if (!botoesProximo.length) return;
+
+        const dataPost = extrairDataPostAtual();
+        const hojeIso = window.AuroraSchedule && typeof window.AuroraSchedule.getTodayISO === "function"
+            ? window.AuroraSchedule.getTodayISO()
+            : new Intl.DateTimeFormat("en-CA", {
+                timeZone: CONFIG.TIMEZONE,
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit"
+            }).formatToParts(new Date()).reduce((acc, part) => {
+                if (part.type !== "literal") acc[part.type] = part.value;
+                return acc;
+            }, {});
+
+        const hojeIsoFormatado = typeof hojeIso === "string"
+            ? hojeIso
+            : `${hojeIso.year}-${hojeIso.month}-${hojeIso.day}`;
+        if (!dataPost || dataPost !== hojeIsoFormatado) return;
+
+        botoesProximo.forEach((botao) => {
+            botao.classList.add("disabled");
+            botao.setAttribute("aria-disabled", "true");
+            botao.setAttribute("tabindex", "-1");
+            botao.removeAttribute("href");
+        });
+    }
+
     // ============================================
     // GERAÇÃO DE POSTS
     // ============================================
@@ -306,12 +454,7 @@
     
     document.addEventListener('DOMContentLoaded', function() {
         console.log('🔮 Inicializando Aurora Scorpio...');
-        
-        // Verificar se AuroraSchedule está disponível
-        if (!window.AuroraSchedule) {
-            console.error('AuroraSchedule não encontrado! Verifique se schedule.js foi carregado corretamente.');
-            return;
-        }
+        bloquearNavegacaoProximoSeHoje();
 
         // ============================================
         // OBTENÇÃO DA DATA ATUAL

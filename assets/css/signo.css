@@ -430,3 +430,4 @@
           margin-top: 10px;
         }
       }
+@font-face{font-family:"Cinzel";font-style:normal;font-weight:400;font-display:swap;src:local("Cinzel")}@font-face{font-family:"Playfair Display";font-style:normal;font-weight:400;font-display:swap;src:local("Playfair Display")}@font-face{font-family:"Poppins";font-style:normal;font-weight:400;font-display:swap;src:local("Poppins")}.signos-table-wrapper,.table-responsive{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1rem 0}.signos-table,.aspectos-table{min-width:600px}footer .container{padding:0 15px;overflow-x:hidden;word-wrap:break-word;overflow-wrap:anywhere}footer .row{margin:0}.ad-container,.ad-shell{min-height:280px;margin:1rem 0}img{max-width:100%;height:auto}html{scroll-behavior:smooth}
